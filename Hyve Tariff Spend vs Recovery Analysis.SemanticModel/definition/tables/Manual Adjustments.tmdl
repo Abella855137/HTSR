@@ -1,0 +1,188 @@
+table 'Manual Adjustments'
+	isHidden
+	lineageTag: 41176454-67a0-4061-80b8-dd487e6a549a
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: b3865241-a929-425f-af07-4baab4f4c12b
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation 变体
+			isDefault
+			relationship: 3ad3274a-3107-4894-8a92-bf744ab6afd6
+			defaultHierarchy: LocalDateTable_e1819cae-224d-4457-9602-338bcc38b729.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Vendor#
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bc44c3cf-cd15-478b-950a-0b601646c070
+		summarizeBy: sum
+		sourceColumn: Vendor#
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		isHidden
+		lineageTag: ba00e483-f1c8-49c8-bd9b-04beef389674
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part #'
+		dataType: string
+		isHidden
+		lineageTag: 82b0638d-e2c3-47ac-b5f9-0660d1cfa952
+		summarizeBy: none
+		sourceColumn: Part #
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PO#
+		dataType: string
+		isHidden
+		lineageTag: c52fb387-e353-4fed-b889-f9fb6f6882e0
+		summarizeBy: none
+		sourceColumn: PO#
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a4b0b5e6-2e2d-4009-ae53-b0dbe30675f0
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Amount'
+		dataType: double
+		isHidden
+		lineageTag: 266fe349-41b5-472c-9d73-47e2d19894b0
+		summarizeBy: sum
+		sourceColumn: Total Amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SCM#
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 696cc7b3-9197-48d0-9016-cd7e15c2364a
+		summarizeBy: sum
+		sourceColumn: SCM#
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reason
+		dataType: string
+		isHidden
+		lineageTag: 6f601cae-91d2-43e9-978f-df7980e06ed1
+		summarizeBy: none
+		sourceColumn: Reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Action
+		dataType: string
+		isHidden
+		lineageTag: dc5f8ac2-0b68-4778-b2c6-bb0ceda8ea48
+		summarizeBy: none
+		sourceColumn: Action
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Requester
+		dataType: string
+		isHidden
+		lineageTag: ad294cc1-c28e-4779-8b87-6dc555f07ae7
+		summarizeBy: none
+		sourceColumn: Requester
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		isHidden
+		lineageTag: 1bc70663-fdcc-4045-b62b-5ce084156068
+		summarizeBy: none
+		sourceColumn: Note
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&month = DATE(YEAR([Date]),MONTH([Date]),1)
+		isHidden
+		formatString: Long Date
+		lineageTag: 9d89ebd6-d7ba-44da-af25-f1d7bdd92890
+		summarizeBy: none
+
+		variation 变体
+			isDefault
+			relationship: 01b7bb7d-1b3b-4615-9d91-0c2c3b3f0e78
+			defaultHierarchy: LocalDateTable_49434137-3461-46b0-a15b-7fc326111441.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Manual Adjustments' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"Manual Adjustments xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Manual Adjustments.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"导入的 Excel 工作簿" = Excel.Workbook(#"Manual Adjustments xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    #"Tariff removal requests_Sheet" = #"导入的 Excel 工作簿"{[Item="Tariff removal requests",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(#"Tariff removal requests_Sheet", [PromoteAllScalars=true]),
+				    更改的类型 = Table.TransformColumnTypes(提升的标题,{{"Date", type date}, {"Vendor#", Int64.Type}, {"Vendor Name", type text}, {"Part #", type text}, {"PO#", type text}, {"Quantity", Int64.Type}, {"Total Amount", type number}, {"SCM#", Int64.Type}, {"Reason", type text}, {"Action", type text}, {"Requester", type text}, {"Note", type text}})
+				in
+				    更改的类型
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

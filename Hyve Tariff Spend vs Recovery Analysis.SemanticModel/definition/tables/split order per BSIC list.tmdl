@@ -1,0 +1,89 @@
+table 'split order per BSIC list'
+	isHidden
+	lineageTag: e3ad5f70-14c3-4997-ae62-4aab1a137108
+
+	column Order
+		dataType: string
+		isHidden
+		lineageTag: d32c8a6f-4c47-438c-8cb2-f999c9371f36
+		summarizeBy: none
+		sourceColumn: Order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cust_code = LOOKUPVALUE('cust code result per manual order'[cust_code_v2],'cust code result per manual order'[doc_no],'split order per BSIC list'[order_no])
+		isHidden
+		lineageTag: 19895314-98ac-4d8d-ae95-3d3538ee62dd
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2 = ```
+			
+			var code_cnt=CALCULATE(DISTINCTCOUNTNOBLANK('split order per BSIC list'[Cust_code]),ALLEXCEPT('split order per BSIC list','split order per BSIC list'[Order]))
+			return
+			IF(code_cnt>=2,"Multiple Cust",CALCULATE(MAX([Cust_code]),ALLEXCEPT('split order per BSIC list','split order per BSIC list'[Order])))
+			
+			```
+		isHidden
+		lineageTag: 54320cc0-2286-4033-80cd-86675945b53b
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_cnt = CALCULATE(DISTINCTCOUNT('split order per BSIC list'[Cust_code]),ALLEXCEPT('split order per BSIC list','split order per BSIC list'[Order]))
+		isHidden
+		formatString: 0
+		lineageTag: b5f2e1d3-1130-4eb6-ad43-c14c6e11efb6
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: string
+		lineageTag: b9f2b91e-2c61-435d-973d-351604e0b3d9
+		summarizeBy: none
+		sourceColumn: order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'split order per BSIC list' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date created", Order.Descending}}),
+				    #"Spend blanks_Dave updated xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Spend blanks_Dave updated.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Spend blanks_Dave updated xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    tariff_Sheet = #"Imported Excel Workbook"{[Item="tariff",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(tariff_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Year", Int64.Type}, {"Month", type text}, {"Year/Month", type date}, {"GL_AMT Modified", type number}, {"rpt_name", type text}, {"rpt_run_dt", type date}, {"region_no", Int64.Type}, {"data_source", type text}, {"je_no", Int64.Type}, {"je_line_no", Int64.Type}, {"gl_acct_no", Int64.Type}, {"gl_company", Int64.Type}, {"gl_trans_date", type date}, {"gl_amt", type number}, {"gl_amt_no_duplicate", type number}, {"gl_type", Int64.Type}, {"source", type text}, {"gl_project", Int64.Type}, {"proj_name", type text}, {"scm_vend_no", Int64.Type}, {"scm_vend_name", type text}, {"vend_doc_doc_no", Int64.Type}, {"vend_doc_vend_no", Int64.Type}, {"vend_doc_vend_name", type text}, {"doc_ref", type text}, {"doc_ref_corrected", type any}, {"doc_amt", type number}, {"doc_amt_no_duplicate", type number}, {"vend_doc_entry_datetime", type date}, {"vend_doc_creator_name", type text}, {"vend_inv_no", type any}, {"doc_date", type date}, {"rid1657", Int64.Type}, {"order_type", Int64.Type}, {"order_no", Int64.Type}, {"order_line_no", Int64.Type}, {"sku_no", Int64.Type}, {"rec_qty", Int64.Type}, {"po_cost", type number}, {"rec_datetime", type date}, {"po_creator_name", type text}, {"po_creation_date", type date}, {"part_no", type text}, {"mfg_part_no", type any}, {"cis_hts", type any}, {"cis_sku_coo", type text}, {"acp_part_flag", type text}, {"acp_nw_flag", type text}, {"acc_svr_flag", type text}, {"ACC/ACP", type text}, {"short_desc", type text}, {"long_desc", type text}, {"sku_category", type text}, {"po_cust_no", type any}, {"po_cust_name", type text}, {"po_cust_code", type text}, {"ap_hold_doc_no", Int64.Type}, {"ap_hold_inv_no", type any}, {"dys_snapshot_date", type date}, {"dys_entry_number", type text}, {"dys_customer_ref_no", type any}, {"dys_org_vend_inv_no", type any}, {"dys_org_vend_inv_ln_no", Int64.Type}, {"dys_org_vend_inv_ln_value", Int64.Type}, {"dys_hts_tariff", Int64.Type}, {"dys_entered_value_usd", Int64.Type}, {"dys_duty", type number}, {"dys_rate", type number}, {"rid1927", Int64.Type}, {"oh_ship_to_country", type text}, {"oh_ship_to_city", type text}, {"oh_ship_to_addr", type text}, {"oh_ship_to_po_box", type text}, {"oh_ship_to_state", type text}, {"oh_ship_to_loc", type text}, {"oh_ship_to_zip", Int64.Type}, {"oh_ship_to_name", type text}, {"oh_loc_no", Int64.Type}, {"woody_cust_part_no", type text}, {"Categorized customer ", type text}, {"Logic", type text}, {"Notes", type text}, {"Order", type any}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([#"Categorized customer "] = "TBD - IT support needed" or [#"Categorized customer "] = "TBD - IT support needed - multiple order")),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Order"}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Removed Other Columns", "Order", "Order - Copy"),
+				    #"Split Column by Delimiter" = Table.SplitColumn(Table.TransformColumnTypes(#"Duplicated Column", {{"Order - Copy", type text}}, "en-US"), "Order - Copy", Splitter.SplitTextByDelimiter("/", QuoteStyle.Csv), {"Order - Copy.1", "Order - Copy.2", "Order - Copy.3", "Order - Copy.4", "Order - Copy.5", "Order - Copy.6", "Order - Copy.7", "Order - Copy.8", "Order - Copy.9", "Order - Copy.10", "Order - Copy.11", "Order - Copy.12", "Order - Copy.13", "Order - Copy.14", "Order - Copy.15", "Order - Copy.16", "Order - Copy.17", "Order - Copy.18", "Order - Copy.19", "Order - Copy.20", "Order - Copy.21", "Order - Copy.22", "Order - Copy.23", "Order - Copy.24", "Order - Copy.25", "Order - Copy.26", "Order - Copy.27"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Order - Copy.1", type text}, {"Order - Copy.2", Int64.Type}, {"Order - Copy.3", Int64.Type}, {"Order - Copy.4", Int64.Type}, {"Order - Copy.5", Int64.Type}, {"Order - Copy.6", Int64.Type}, {"Order - Copy.7", Int64.Type}, {"Order - Copy.8", Int64.Type}, {"Order - Copy.9", Int64.Type}, {"Order - Copy.10", Int64.Type}, {"Order - Copy.11", Int64.Type}, {"Order - Copy.12", Int64.Type}, {"Order - Copy.13", Int64.Type}, {"Order - Copy.14", Int64.Type}, {"Order - Copy.15", Int64.Type}, {"Order - Copy.16", Int64.Type}, {"Order - Copy.17", Int64.Type}, {"Order - Copy.18", Int64.Type}, {"Order - Copy.19", Int64.Type}, {"Order - Copy.20", Int64.Type}, {"Order - Copy.21", Int64.Type}, {"Order - Copy.22", Int64.Type}, {"Order - Copy.23", Int64.Type}, {"Order - Copy.24", Int64.Type}, {"Order - Copy.25", Int64.Type}, {"Order - Copy.26", Int64.Type}, {"Order - Copy.27", Int64.Type}}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Changed Type1", "Order - Copy.1", Splitter.SplitTextByDelimiter(";", QuoteStyle.Csv), {"Order - Copy.1.1", "Order - Copy.1.2", "Order - Copy.1.3", "Order - Copy.1.4", "Order - Copy.1.5", "Order - Copy.1.6", "Order - Copy.1.7", "Order - Copy.1.8", "Order - Copy.1.9"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Order - Copy.1.1", Int64.Type}, {"Order - Copy.1.2", Int64.Type}, {"Order - Copy.1.3", Int64.Type}, {"Order - Copy.1.4", Int64.Type}, {"Order - Copy.1.5", Int64.Type}, {"Order - Copy.1.6", Int64.Type}, {"Order - Copy.1.7", Int64.Type}, {"Order - Copy.1.8", Int64.Type}, {"Order - Copy.1.9", Int64.Type}}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Changed Type2", {"Order"}, "Attribute", "Value"),
+				    #"Removed Columns" = Table.RemoveColumns(#"Unpivoted Other Columns",{"Attribute"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Value", "order_no"}})
+				in
+				    #"Renamed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+

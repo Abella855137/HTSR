@@ -1,0 +1,34 @@
+table ~REF_MONTH
+	lineageTag: 96023c34-21b8-41b3-8431-7b13b27231b6
+
+	column Month = YEAR([Year&Month])&"-"&MONTH([Year&Month])
+		lineageTag: 8a5ffc1b-2a02-4e9a-b901-102ec549aabf
+		summarizeBy: none
+		sortByColumn: Year&Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&Month
+		formatString: mm/dd/yyyy
+		lineageTag: e8202927-f69c-49ed-abad-20861bbfb474
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: tt_woody_tariff_recovery_202411052028[Year&Month]
+
+		variation Variation
+			isDefault
+			relationship: b3dbcb15-5492-4410-b4f1-bfea813bf2c2
+			defaultHierarchy: LocalDateTable_659b462d-e979-431e-afe2-df48e6fe3090.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition ~REF_MONTH = calculated
+		mode: import
+		source = VALUES(tt_woody_tariff_recovery_202411052028[Year&Month])
+
+	annotation PBI_Id = baef815d1c3146c6a24f5134d9d71e27
+

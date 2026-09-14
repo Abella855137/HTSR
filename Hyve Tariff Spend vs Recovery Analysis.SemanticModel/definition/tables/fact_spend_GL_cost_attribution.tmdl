@@ -1,0 +1,314 @@
+table fact_spend_GL_cost_attribution
+	lineageTag: 5753bf73-4a17-4266-88fd-a2b26161d830
+
+	column dt_month
+		lineageTag: c40e6a55-4b32-46a3-b7bd-d25fd9f421a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [dt_month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column APN
+		lineageTag: 15a2b569-0a9d-4aa3-872a-69d112e6c755
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [APN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MPN
+		lineageTag: 4aba30b2-98fc-4154-80fe-4324ad72f882
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MPN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		lineageTag: c6faa3a0-b3da-40b7-82d7-615db9fd2fc0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Description]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier
+		lineageTag: 1a9419c1-05a0-4769-9746-f51a607c303c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Supplier]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HTS Code'
+		lineageTag: ecd7e146-be1b-4bca-8f0f-3583f2f2bbf3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [HTS Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Received Date'
+		formatString: mm/dd/yyyy hh:nn:ss
+		lineageTag: 43392211-f0b0-4bde-9aa6-0d1c3c89118b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Received Date]
+
+		variation Variation
+			isDefault
+			relationship: e830365d-867a-4efd-ab0f-20a1a677a8f6
+			defaultHierarchy: LocalDateTable_b2c5c92c-6331-4eac-a974-40fa3e0f8feb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Received Qty'
+		formatString: 0
+		lineageTag: defc0c99-ace6-4042-b89a-0ea34f975644
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Received Qty]
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_cost
+		lineageTag: e9fc1ca9-d6fd-4759-8cee-e35fab001d87
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [base_cost]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Line Cost'
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4ae7fc80-5c73-49fd-ad09-3d2f3e7efa27
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [PO Line Cost]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country of Origin'
+		lineageTag: ddebc815-a2ed-4dae-9d4e-8f6b2bb51ad3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country of Origin]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship to Country'
+		lineageTag: a03639eb-39f4-45bb-9af3-4b26d8021688
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ship to Country]
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_POCV
+		lineageTag: 4e565528-92be-475b-8576-f7526a730f3f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [KEY_POCV]
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gl_amt_order_level
+		lineageTag: 4836cf73-ab03-4466-8835-1a0f50b1d295
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [total_gl_amt_order_level]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COO_flag =
+			
+			var flag=SEARCH("CN",[Country of Origin],,BLANK())
+			return
+			IF(flag<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 70002e36-2a23-4b5b-9ae8-d3dd8e0d99cb
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column COO_contains_CN_sku_cnt = CALCULATE(SUM([COO_flag]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]))
+		formatString: 0
+		lineageTag: 4ef5a2ae-b5e6-475c-a9fc-c2547a337edc
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentage_of_total_base_cost =
+			
+			var total_cost_coo_china=CALCULATE(SUM([PO Line Cost]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]),fact_spend_GL_cost_attribution[COO_flag]=1)
+			var total_cost_all_part=CALCULATE(SUM([PO Line Cost]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]))
+			return
+			IF([PO Line Cost]=0,0,
+			IF([COO_contains_CN_sku_cnt]=0,
+			[PO Line Cost]/total_cost_all_part,
+			IF([COO_flag]=1,[PO Line Cost]/total_cost_coo_china,BLANK())))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 61e7ada0-c505-4042-b22a-fb73364b4152
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_sku_tariff_pocv
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3b68543e-bafa-4692-88eb-000bad7454c9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [current_sku_tariff_pocv]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s1' =
+			
+			///PO only hasn 1 SKU
+			var SKU_cnt_order_level=CALCULATE(DISTINCTCOUNT([KEY_POCV]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no]))
+			return
+			IF(SKU_cnt_order_level=1,[total_gl_amt_order_level],BLANK())
+		lineageTag: 023b6435-b1aa-4808-9539-c8c1883f7e0e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL Cost attribution_s2' =
+			
+			///all SKU under the PO doesn't contains COO China
+			var SKU_cnt_order_level=CALCULATE(DISTINCTCOUNT([KEY_POCV]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no]))
+			return
+			IF([COO_contains_CN_sku_cnt]=0&&SKU_cnt_order_level>1,[total_gl_amt_order_level]*[percentage_of_total_base_cost],BLANK())
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 48e61127-4ee1-4414-a676-5bf562225a15
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s3' =
+			
+			///some SKU contain COO China
+			IF([GL Cost attribution_s1]=BLANK()&&[GL Cost attribution_s2]=BLANK(),
+			IF([current_sku_tariff_pocv]<>BLANK()&&[COO_flag]=1,[PO Line Cost]*[current_sku_tariff_pocv],
+			IF([current_sku_tariff_pocv]=BLANK()&&[COO_flag]=1,[PO Line Cost]*0.25,0)))
+		lineageTag: ac65b56d-6954-4932-8b85-b442ab4017dd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL Cost attribution_s4' =
+			
+			VAR S1=CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]))
+			VAR S2=[total_gl_amt_order_level]-S1
+			RETURN
+			IF([PO Line Cost]=0,0,
+			IF(S2=0,[GL Cost attribution_s3],
+			[total_gl_amt_order_level]*[percentage_of_total_base_cost]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 91c02b35-43a9-4e66-b578-7e2d10dc365c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_final' =
+			
+			VAR S0=CALCULATE(COUNT(fact_spend_GL_cost_attribution[KEY_POCV]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]))
+			var s1=CALCULATE(SUM(fact_spend_GL_cost_attribution[GL Cost attribution_s5]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no]))
+			var s2=CALCULATE(SUM(fact_spend_GL_cost_attribution[COO_flag]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no]))
+			RETURN
+			IF(s1=BLANK(),
+			IF(fact_spend_GL_cost_attribution[COO_flag]=1,[total_gl_amt_order_level]/fact_spend_GL_cost_attribution[COO_contains_CN_sku_cnt],
+			IF(s2=0,
+			[total_gl_amt_order_level]/S0)),fact_spend_GL_cost_attribution[GL Cost attribution_s5])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7dde4c5f-5300-4629-9b04-e8a8335b149f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ODM =
+			
+			IF([Supplier]="DYNASTY CUSTOMS BROKER","Dynasty","SNX")
+		lineageTag: fa7240d7-a8e3-4d98-86ac-c3f273992fb7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Commodity Group'
+		lineageTag: b08fd8f9-d300-4a77-87c2-4054cdd3e84c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Commodity Group]
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_no
+		lineageTag: ffc10fb9-ed90-43e8-bf7f-56e6cc140091
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [po_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Userid = ```
+			100 
+			```
+		formatString: 0
+		lineageTag: 8f0cf166-ce0a-445e-9b57-4ca1294bb632
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s5' = ```
+			
+			IF([GL Cost attribution_s2]<>BLANK(),[GL Cost attribution_s2],  
+			IF([GL Cost attribution_s4]<>BLANK(),[GL Cost attribution_s4],BLANK()))
+			```
+		formatString: 0
+		lineageTag: 789cb1f7-664a-422f-a275-9420a768a1e6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column S0 = CALCULATE(COUNT(fact_spend_GL_cost_attribution[KEY_POCV]),ALLEXCEPT(fact_spend_GL_cost_attribution,fact_spend_GL_cost_attribution[po_no],fact_spend_GL_cost_attribution[dt_month]))
+		formatString: 0
+		lineageTag: beb5a52b-74a3-4daa-9b0f-2812c5a48c91
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code
+		lineageTag: 08e28f9e-c372-4696-90ba-0b606ea69838
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [cust_code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_program
+		lineageTag: adef7a87-0921-4814-b7ca-478ea6387480
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [cust_program]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_spend_GL_cost_attribution = calculated
+		mode: import
+		source = FILTER( GROUPBY(SELECTCOLUMNS(dwd_hyve_finance_ap_tariff_mi,"dt_month",dwd_hyve_finance_ap_tariff_mi[dt_month],"po_no",dwd_hyve_finance_ap_tariff_mi[order_no],"APN",dwd_hyve_finance_ap_tariff_mi[woody_cust_part_no],"MPN",dwd_hyve_finance_ap_tariff_mi[mfg_part_no],"Description",dwd_hyve_finance_ap_tariff_mi[long_desc],"Supplier",dwd_hyve_finance_ap_tariff_mi[vend_doc_vend_name],"HTS Code",dwd_hyve_finance_ap_tariff_mi[cis_hts],"Received Date",dwd_hyve_finance_ap_tariff_mi[rec_datetime],"Received Qty",dwd_hyve_finance_ap_tariff_mi[rec_qty],"base_cost",dwd_hyve_finance_ap_tariff_mi[po_cost],"PO Line Cost",dwd_hyve_finance_ap_tariff_mi[line_total_cost],"Country of Origin",dwd_hyve_finance_ap_tariff_mi[SKU_COO_S1],"Ship to Country",dwd_hyve_finance_ap_tariff_mi[oh_ship_to_country],"KEY_POCV",dwd_hyve_finance_ap_tariff_mi[KEY_POCV],"total_gl_amt_order_level",dwd_hyve_finance_ap_tariff_mi[total_gl_amt_order_level],"current_sku_tariff_pocv",dwd_hyve_finance_ap_tariff_mi[current_sku_tariff_pocv%],"Commodity Group",dwd_hyve_finance_ap_tariff_mi[ACC/ACP Type],"cust_code",dwd_hyve_finance_ap_tariff_mi[cust_code_v2],"cust_program",dwd_hyve_finance_ap_tariff_mi[program_by_location]),[dt_month],[po_no],[APN],[MPN],[Description],[Supplier],[HTS Code],[Received Date],[Received Qty],[base_cost],[PO Line Cost],[Country of Origin],[Ship to Country],[KEY_POCV],[total_gl_amt_order_level],[current_sku_tariff_pocv],[Commodity Group],[cust_code],[cust_program]),[total_gl_amt_order_level]<>BLANK())
+
+	annotation PBI_Id = 4bce6d6656004d5dadb5348bce79d56b
+

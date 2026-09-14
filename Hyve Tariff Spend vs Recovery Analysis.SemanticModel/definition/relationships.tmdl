@@ -1,0 +1,405 @@
+relationship 3492e5b6-9653-46ed-9a64-283091706148
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.gl_trans_date
+	toColumn: LocalDateTable_73b87e3a-30f0-4aac-aa6b-562d7c1be7f8.Date
+
+relationship d3b30581-a50e-45f3-8fe9-e5d44a3b9e1a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.vend_doc_entry_datetime
+	toColumn: LocalDateTable_230f4a70-b0f8-45c3-a61e-51a80898e324.Date
+
+relationship a5a3bf34-38f4-48cc-9021-9ed7051062bb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.doc_date
+	toColumn: LocalDateTable_805b1d36-6ca7-4036-b92f-74463ae08ae3.Date
+
+relationship deadd08b-2bc8-4b52-b461-d803cee7de07
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.rec_datetime
+	toColumn: LocalDateTable_b0f99d60-00a2-4669-8bde-41d6db8db47a.Date
+
+relationship 29933fde-9cbc-4a97-bdc3-e0ee9fc4d55e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.po_creation_date
+	toColumn: LocalDateTable_01bc3512-e854-4796-abc9-8892ee9fcb7f.Date
+
+relationship 47de7438-5131-45c2-998e-fe27b98025f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.dys_snapshot_date
+	toColumn: LocalDateTable_c182f539-55fb-4e30-9022-91ef4982adcf.Date
+
+relationship bd70fbb3-7aa7-4edd-badd-c27a265b1458
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.etl_timestamp
+	toColumn: LocalDateTable_31fa1c9f-2464-4a63-a15f-db36803c6327.Date
+
+relationship 6c184094-c086-47e0-aa7f-3f8b3e4f9974
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.doc_date
+	toColumn: LocalDateTable_8ca8f8ba-db5d-441e-a59b-b2e498b74ef4.Date
+
+relationship 35231dfe-eb45-490d-942e-ef4f2d055c83
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.entry_datetime
+	toColumn: LocalDateTable_c434e2a2-5f8d-48ae-8285-9268a9d33538.Date
+
+relationship cd95da06-3f1c-42cb-be8e-1d1c5a270192
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.report_run_date
+	toColumn: LocalDateTable_be35f33a-8922-4e14-8d82-4c5052cbc602.Date
+
+relationship 640a1f9f-4a25-4979-a9ce-bcca1b74dad8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.oh_sales_rel_date
+	toColumn: LocalDateTable_864890a2-b64a-45aa-a87e-05f84493982f.Date
+
+relationship d338d95f-8d7d-4b04-9f72-27fd8983f3f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.oh_credit_rel_date
+	toColumn: LocalDateTable_e5296d57-41e7-4cb3-8e9b-60017cf503cc.Date
+
+relationship bd0bf530-391b-48f2-8bc8-3f42e083f120
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.oh_ship_date
+	toColumn: LocalDateTable_ff37e2b2-a130-45e5-9149-4928f22e828d.Date
+
+relationship f89dc989-3f4d-44c7-b5c5-54bacdab8d31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.so_end_user_po_date
+	toColumn: LocalDateTable_bcf076a7-ad18-429d-8698-81fee68f7f81.Date
+
+relationship c0e54ae0-fa54-4bc9-be25-3e3700ec95d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.last_coo_entry_datetime
+	toColumn: LocalDateTable_0eb35321-6835-4cb9-be6c-fe49e83bfa08.Date
+
+relationship 031737ee-7364-478f-8618-e3f5c17f538f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.first_change_to_acp_part_time
+	toColumn: LocalDateTable_80f7a554-d382-4eea-a6a1-640868186441.Date
+
+relationship 4f7f1673-dd31-4d99-87d2-4518d4f8a8f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.reserved_tariff_scm_entry_datetime
+	toColumn: LocalDateTable_b17e6197-22c1-4f58-acb7-7aa8c4c838b1.Date
+
+relationship 7d462209-17f6-4cb0-8178-7279713b9f2d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.etl_timestamp
+	toColumn: LocalDateTable_5a635e3f-d897-46cb-bee3-4ca77cc60b26.Date
+
+relationship c117eedd-eed8-41fa-b36a-2556fefc34a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.Year/Month
+	toColumn: LocalDateTable_2c23f5e9-452b-47c0-8116-782a392dc802.Date
+
+relationship cbd81afc-7fa5-48f9-9644-859a17546004
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.rpt_run_dt
+	toColumn: LocalDateTable_8bfba956-2885-416d-b517-d7d51f199b41.Date
+
+relationship ba659427-bdfc-4a57-a13b-e4390672fbca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.gl_trans_date
+	toColumn: LocalDateTable_63ce0d87-5478-44f0-8f84-fd568ba2993e.Date
+
+relationship 7e5d6ca8-4368-4263-8d45-a2ddba25006c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.vend_doc_entry_datetime
+	toColumn: LocalDateTable_e8430786-c580-463c-b91a-736f66e6fed1.Date
+
+relationship 8c3d3238-155c-4eb7-8ba8-b361547f1c7e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.doc_date
+	toColumn: LocalDateTable_fa2594a7-d931-46b6-83c9-a8775c8cc766.Date
+
+relationship 7b4d6ab6-78db-4189-a67e-f37bfbd3d502
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.rec_datetime
+	toColumn: LocalDateTable_2eb08dc3-3960-4670-b130-92fcff2e7056.Date
+
+relationship 146bff8d-dd3d-4c5f-8232-cb1eef14e774
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.po_creation_date
+	toColumn: LocalDateTable_8abdd08f-a995-4f02-8022-35589149a606.Date
+
+relationship ee29a2ef-dd34-4f61-8592-4c1173e8ac16
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BSIC_manual_result.dys_snapshot_date
+	toColumn: LocalDateTable_7e7cabfc-3011-494b-b4cf-d6764db45123.Date
+
+relationship b68ede53-d94e-4edd-8222-15667b1258f9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.doc_date
+	toColumn: LocalDateTable_30b45fef-eb5f-45ff-bbac-38cca9c667e3.Date
+
+relationship 3796aeca-b066-43a0-a1fb-c853945e8ae9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.entry_datetime
+	toColumn: LocalDateTable_0a4e8b63-36ca-4851-a72d-3469969047af.Date
+
+relationship b68befed-c343-47e0-821a-5d14b7b7be46
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.report_run_date
+	toColumn: LocalDateTable_ff3f7f65-50a4-4c6e-95a4-e80144d66c7e.Date
+
+relationship bf6254bf-3149-4562-8742-79d58947b23e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.doc_date_str
+	toColumn: LocalDateTable_c88eaabf-ce8c-497d-a63a-90c55e894e70.Date
+
+relationship 3cf6b632-1f3e-40b8-985d-03cc9376cb7b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.entry_datetime_str
+	toColumn: LocalDateTable_dcee0214-6266-457b-87f6-a7b33bf599f9.Date
+
+relationship abdb5ecd-95f7-4538-93cb-e74762e16d36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.oh_sales_rel_date
+	toColumn: LocalDateTable_3c804187-616f-4223-a480-b6117fb24df3.Date
+
+relationship 2821e4d4-70d5-4084-90bc-a18bb378c3d7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.oh_credit_rel_date
+	toColumn: LocalDateTable_45ab3d00-bea2-412c-9954-531b145a5534.Date
+
+relationship 9d9f16d0-f2b5-412b-bfa5-f9e83b546d4b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.etl_timestamp
+	toColumn: LocalDateTable_644cf197-2fcf-4fad-9516-57b545f33643.Date
+
+relationship ac914438-4111-4079-a4fe-f2e6de4dbbb5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.dt_month
+	toColumn: LocalDateTable_c7e94ebc-7bf3-47e3-b3b4-d420bca7f97d.Date
+
+relationship 27394bb3-6177-4914-994e-ef13fe501562
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.active_status_date
+	toColumn: LocalDateTable_d26b2197-c581-4110-a284-4f30262732e3.Date
+
+relationship 2901f8b7-1530-4bae-af55-dfe36db88cfb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.part_master_entry_datetime
+	toColumn: LocalDateTable_afe4cd18-3296-4693-8d03-b44be25c4e72.Date
+
+relationship 11010126-19d5-47d5-a214-f63fbf3ef28b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.etl_timestamp_13
+	toColumn: LocalDateTable_1a9f437c-5171-426f-957f-211d64232399.Date
+
+relationship 9bdb55af-964f-47ce-889a-0c7d5be18237
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'cust code result per manual order'.date_flag
+	toColumn: LocalDateTable_58f135ff-426d-4f1b-a10b-23f0d6f357e5.Date
+
+relationship e21c759c-e8df-4d05-a959-e7c3bcbb11b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: current_system_tariff_rate.last_POCV_update_date
+	toColumn: LocalDateTable_6b77f67f-52e4-4de5-99b3-da4a92749b93.Date
+
+relationship 79ff5f47-7a64-4181-9c67-342cdc98383c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.so_end_user_po_date
+	toColumn: LocalDateTable_0e1b3db3-a2d9-4ac0-bf97-2ad82b15f96f.Date
+
+relationship 33f974bf-7dfe-85c4-b41e-6fdf29c030e7
+	fromColumn: ~Combine_spend_recovery.Month
+	toColumn: ~REF_MONTH.Month
+
+relationship 1ffbf48e-416c-4f9f-9e03-861264640709
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.oh_ship_date
+	toColumn: LocalDateTable_1e27f346-296c-4915-83d0-79732935c21a.Date
+
+relationship 089082a0-75ee-4082-91c4-c211e5d149e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.oh_invoice_date
+	toColumn: LocalDateTable_777f6262-97ee-4941-88f3-26e35440ca77.Date
+
+relationship 3f05d60f-9251-4f7f-a527-b4c144e69eb9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.valid_from_date
+	toColumn: LocalDateTable_e3bf81ae-b4ee-48f2-bc3e-e49bfe79a82e.Date
+
+relationship b4da907d-d6ec-48d0-a8af-f32fd45714fa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.valid_to_date
+	toColumn: LocalDateTable_c5e9f18a-1b6f-42e7-a4d6-e5f329547ce6.Date
+
+relationship 08c43d2e-593d-4d9a-8fd5-42910ac3f9cd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_202411052028.dt_month
+	toColumn: LocalDateTable_b87c9f0f-4ddd-44c6-a412-e87f1da119e4.Date
+
+relationship b3dbcb15-5492-4410-b4f1-bfea813bf2c2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ~REF_MONTH.Year&Month
+	toColumn: LocalDateTable_659b462d-e979-431e-afe2-df48e6fe3090.Date
+
+relationship 888037fa-5650-2841-eb80-72951a25972c
+	fromColumn: dwd_hyve_finance_ap_tariff_mi.Year&Month
+	toColumn: ~REF_MONTH.Year&Month
+
+relationship 513d8a99-33b4-b01c-e7ba-cbbf3826051c
+	fromColumn: tt_woody_tariff_recovery_202411052028.Year&Month
+	toColumn: ~REF_MONTH.Year&Month
+
+relationship d8676d20-5831-4053-88de-06a6af887f63
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hyve_user_dna.entry_datetime
+	toColumn: LocalDateTable_70d81092-521e-451f-81da-a14343070cf6.Date
+
+relationship 21c8fc19-0312-4744-976c-433fcb13343b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'reference AP VEND DOC'.entry_datetime
+	toColumn: LocalDateTable_4e08b097-7e72-4e6d-b9c6-90fac97ce43e.Date
+
+relationship e830365d-867a-4efd-ab0f-20a1a677a8f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_spend_GL_cost_attribution.'Received Date'
+	toColumn: LocalDateTable_b2c5c92c-6331-4eac-a974-40fa3e0f8feb.Date
+
+relationship 0c3c0121-8eb2-4528-a0ae-9d70d78534f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.'Invoice Date'
+	toColumn: LocalDateTable_21761e20-8b36-4b81-97f0-abd3d757ee61.Date
+
+relationship 26d0c18e-a895-4c99-aae9-8c8e7a257bef
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.'Discrepancy Report Date'
+	toColumn: LocalDateTable_7f879871-18fd-431f-8067-ee222ef677e7.Date
+
+relationship ee5c2366-4017-4143-a3d2-775e06ba3d43
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.'PO Tariff Amount Updated Date'
+	toColumn: LocalDateTable_e97ff56e-33eb-4dff-9345-446688932b3f.Date
+
+relationship 782ac5b9-b6ca-4e10-abc6-e999b4440c44
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.'Discrepancy Close Date'
+	toColumn: LocalDateTable_ad3c5b7d-5c58-4b03-b272-187ceedab7aa.Date
+
+relationship 46bb095f-baf9-4c83-8608-74692995d5c0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.'PO Part Receive Date'
+	toColumn: LocalDateTable_4725a044-61cb-4a35-9c97-0e8cc8ff8f09.Date
+
+relationship 9ad2493b-3e9e-46c2-a43b-8e2ae6dcf3d5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM-Transaction Purchase Order Detail for Tariff'.close_date
+	toColumn: LocalDateTable_036204dd-1c49-406e-8348-c237446a0496.Date
+
+relationship 974c12b7-a304-4cea-9293-73139a4f271a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM-Transaction Purchase Order Detail for Tariff'.rec_date
+	toColumn: LocalDateTable_9e7def2d-7ae7-48e4-8729-8ef4526b2866.Date
+
+relationship 346cee77-f2bd-464f-ac5a-d8ce9538d867
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM-Transaction Purchase Order Detail for Tariff'.Year&Month
+	toColumn: LocalDateTable_974b0b82-e975-4af4-b594-33fefe7801b1.Date
+
+relationship d37975ad-b1b3-4ccb-8ec3-41380678d8b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Completed INV Correction'.'Pick Date'
+	toColumn: LocalDateTable_f9ad4568-306e-4023-b604-711387cc7e15.Date
+
+relationship 0247bce3-1c8d-440c-84b9-3dd028607b41
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Tariff Expense Tracker'.Year&month
+	toColumn: LocalDateTable_d1e630e6-fa47-4031-a6ba-aa8a7a9db86c.Date
+
+relationship 43adc4ca-1490-410c-8c1f-0df89ddb16df
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Completed INV Correction'.Year&Month
+	toColumn: LocalDateTable_dfb5917b-2cf9-421b-83d7-543662a0dad5.Date
+
+relationship 4041c673-81eb-408f-9ff4-2cffb98ab93e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM Monthly Accrual'.latest_month
+	toColumn: LocalDateTable_e10ddf59-58e9-47ee-b948-51eb54478552.Date
+
+relationship 08723d98-e92b-4c93-ab6f-dda8dba8eaf3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dwd_hyve_inv_pur_order_detail.max_line_received_date
+	toColumn: LocalDateTable_c7871f1e-73ad-46e7-8679-dba479022b5c.Date
+
+relationship 3ad3274a-3107-4894-8a92-bf744ab6afd6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Manual Adjustments'.Date
+	toColumn: LocalDateTable_e1819cae-224d-4457-9602-338bcc38b729.Date
+
+relationship 01b7bb7d-1b3b-4615-9d91-0c2c3b3f0e78
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Manual Adjustments'.Year&month
+	toColumn: LocalDateTable_49434137-3461-46b0-a15b-7fc326111441.Date
+
+relationship ae9bb9f8-c7f1-437e-8cab-4a845358c29a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM MJE'.Month
+	toColumn: LocalDateTable_5dbfeb68-3888-4bc7-8e94-9513bfdb8a4e.Date
+
+relationship 634370d2-3753-461e-86c5-4979b8d79f65
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM MJE'.project_close
+	toColumn: LocalDateTable_e15c9ba9-e2a8-482e-a6bf-6541e3d953f5.Date
+
+relationship 2e57cb0f-0b1f-4bb8-851c-51f473b287db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: scm_balance_03_31.gl_trans_date
+	toColumn: LocalDateTable_83b857ff-7156-4ac0-a6f2-92480953165f.Date
+
+relationship e8c8590a-5423-4160-a5e2-6170e9c05471
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'SCM Monthly Accrual'.month
+	toColumn: LocalDateTable_742d410b-9aa5-4818-9a1d-e0b14c8117fd.Date
+
+relationship c6aa61f7-1427-d6f3-93a3-bcd7cc83da56
+	fromColumn: 'SCM Monthly Accrual'.scm_no
+	toColumn: 'SCM Level Accrual'.scm_no
+
+relationship 64520c7a-45b5-8ad5-50ea-b385dc3ba44b
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: tariff_group.scm_no
+	toColumn: 'SCM Monthly Accrual'.scm_no
+
+relationship 2cd502a9-b6d5-7794-fa40-dc4aa03b4068
+	crossFilteringBehavior: bothDirections
+	fromColumn: tariff_group.scm_no
+	toColumn: 'SCM Level Accrual'.scm_no
+
+relationship 67fa5c5a-b4b1-40ff-91ba-fa62c70ae3e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Completed INV Correction'.Last_pick_date
+	toColumn: LocalDateTable_572ea3da-264f-4959-8c05-0c4d850bd700.Date
+
+relationship 998389e2-65a9-ccdd-5616-ac7458e76d67
+	fromColumn: Part_level_INV_correction.scm_no
+	toColumn: 'SCM Level Accrual'.scm_no
+
+relationship AutoDetected_097f38d0-92bc-4dd2-9845-d89153849753
+	fromColumn: dm_hyve_po_receiving_tariff_report_mi.loc_no
+	toColumn: '~Hill''s location mapping'.loc_no
+
+relationship AutoDetected_c873b3b0-3674-469c-9b45-508c521ed4a3
+	fromColumn: 'cust code result per manual order'.loc_no
+	toColumn: '~Hill''s location mapping'.loc_no
+
+relationship AutoDetected_a51bd193-7461-4097-b0e0-6584c20d50a5
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: ~woody_only_locations.loc_no
+	toColumn: '~Hill''s location mapping'.loc_no
+
+relationship bec92787-e45f-4f2b-a465-423684980177
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ~Combine_spend_recovery.Year&Month
+	toColumn: LocalDateTable_eb3f1297-05ad-4c4e-b101-813acf53c376.Date
+
+relationship bb22a58a-9d1b-4863-8b87-bd54fb9d5721
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ~Combine_spend_recovery.gl_trans_date
+	toColumn: LocalDateTable_3ce95b8d-f377-4909-bd8d-0b2ddca502d1.Date
+

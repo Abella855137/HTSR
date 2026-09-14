@@ -1,0 +1,67 @@
+expression 'Sample File' =
+		let
+		    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.Contains([Name], "tt_tariff_alyssa")),
+		    Navigation1 = #"Filtered Rows"{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 59deb20b-cc24-47e1-ab07-50416f3700e3
+	queryGroup: 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression Parameter1 = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: e83549f5-740f-44b1-9d73-1c335eea18a2
+	queryGroup: 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_ResultType = Exception
+
+expression 'Transform Sample File' =
+		let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=64, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: c3b62d0f-89ae-4b32-ae4b-dee47755644d
+	queryGroup: 'Transform File from Query1'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform File' =
+		let
+		    源 = (Parameter1 as binary) => let
+		    Source = Csv.Document(Parameter1,[Delimiter=",", Columns=64, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    源
+	lineageTag: 6a635600-419c-475c-9d9f-2de2658d2f6f
+	queryGroup: 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Errors in Tariff Expense Tracker' =
+		let
+		Source = #"Tariff Expense Tracker",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"PO Part Receive Date", "Discrepancy Close Date", "PO Tariff Amount Updated Date", "Buyer Reviewed Day", "Buyer's comments", "Discrepancy Report Date", "AP Comments#(lf)Other Reason Code", "Discrepancy Reason#(lf)(select from drop down)", "Discrepancy (Yes/No)", "AP Doc#", "SCM Number", "Entry ID", "Invoice Date", "Invoice# ", "Invoice Vendor Name", "Invoice Vendor Number", "Shipment COO (Invoice)", "PO COO", "Part COO in CIS", "Tariff Total Amount #(lf)(Actual)#(lf)", "Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", "Tariff Unit Amount (Invoice)#(lf)=R2/L2", "Tariff Rate (Invoice)", "PO Unit Tariff Amount", "PO Unit Tariff Rate#(lf)=O2/M2", "PO Base Price", "Tariff Part Qty", "HTS Code#(lf) (Invoice Part Level)", "PO Ship Term", "MFG Part Number", "Hyve Part Number ", "PO Line#", "PO Number", "PO Ship-To Location", "Customer Name", "Customer Number", "Vendor Name", "Vendor Number "}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "PO Part Receive Date", "Discrepancy Close Date", "PO Tariff Amount Updated Date", "Buyer Reviewed Day", "Buyer's comments", "Discrepancy Report Date", "AP Comments#(lf)Other Reason Code", "Discrepancy Reason#(lf)(select from drop down)", "Discrepancy (Yes/No)", "AP Doc#", "SCM Number", "Entry ID", "Invoice Date", "Invoice# ", "Invoice Vendor Name", "Invoice Vendor Number", "Shipment COO (Invoice)", "PO COO", "Part COO in CIS", "Tariff Total Amount #(lf)(Actual)#(lf)", "Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", "Tariff Unit Amount (Invoice)#(lf)=R2/L2", "Tariff Rate (Invoice)", "PO Unit Tariff Amount", "PO Unit Tariff Rate#(lf)=O2/M2", "PO Base Price", "Tariff Part Qty", "HTS Code#(lf) (Invoice Part Level)", "PO Ship Term", "MFG Part Number", "Hyve Part Number ", "PO Line#", "PO Number", "PO Ship-To Location", "Customer Name", "Customer Number", "Vendor Name", "Vendor Number "}),
+		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Reordered Columns", {{"Buyer Reviewed Day", null}})
+		in
+		  #"Replaced Errors"
+	lineageTag: d2f868ef-6e53-46dc-bc9e-282bf1ca8bf1
+	queryGroup: 'Query Errors - 12/9/2025 2:21:25 PM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,228 @@
+table ~Combine_spend_recovery
+	lineageTag: f0289083-9484-4ea3-969b-50bcac18ff61
+
+	measure Tariff_Recovery = CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Hyve Controlled Part Recovery"||'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Non Woody Recovery"||'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Woody Controlled Part Recovery")
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 1f07c39a-a364-4588-8206-e4b9a1df5537
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Tariff_spend = CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Hyve Controlled Part Spend"||'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Non Woody Spend"||'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Woody Controlled Part Spend")
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0ebf43cb-7826-4fec-8927-bcac0dd4993a
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure woody_gaps =
+			
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Woody Controlled Part Recovery")-
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Woody Controlled Part Spend")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f2be58b7-f987-470f-80e2-a78fc6af063d
+
+	measure hyve_gaps =
+			
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Hyve Controlled Part Recovery")-
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Hyve Controlled Part Spend")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9fbb5f45-1768-44b3-9253-665c29384854
+
+	measure non_woody_gaps =
+			
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Non Woody Recovery")-
+			CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Non Woody Spend")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: de04a24c-5457-4d99-9017-78640ae5d5e6
+
+	measure total_gaps = [hyve_gaps]+[woody_gaps]+[non_woody_gaps]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b11a4a41-f3b8-455d-bed3-bf3b77631cf4
+
+	measure accumulative_total_gaps = CALCULATE([total_gaps],FILTER(ALL('~REF_MONTH'),'~REF_MONTH'[Year&Month]<=MAX('~REF_MONTH'[Year&Month])))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: cd5983d3-2e01-40bc-a319-3a7caf51cbfb
+
+	measure test = [Tariff_Recovery]-[Tariff_spend]
+		lineageTag: 094f8cf3-86de-4c4c-a29b-552cf71eabd3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 9f7d340f-8345-437f-a8fa-dac36e880f5f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&Month
+		formatString: Long Date
+		lineageTag: 14677d83-30c2-4552-ae1f-10fbb9df3ff9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[Year&Month]
+
+		variation Variation
+			isDefault
+			relationship: bec92787-e45f-4f2b-a465-423684980177
+			defaultHierarchy: LocalDateTable_eb3f1297-05ad-4c4e-b101-813acf53c376.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Woody Control vs Hyve Controlled'
+		lineageTag: dd23caef-a8c8-4355-809f-1226b4a6513d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[Woody Control vs Hyve Controlled]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = YEAR([Year&Month])&"-"&MONTH([Year&Month])
+		lineageTag: 119facc9-20b9-4785-a7ed-1ec22c6586c7
+		summarizeBy: none
+		sortByColumn: Year&Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column TYPE =
+			IF([Woody Control vs Hyve Controlled]="Hyve Controlled Part Recovery"||[Woody Control vs Hyve Controlled]="Hyve Controlled Part Spend","Hyve Controlled",
+			IF([Woody Control vs Hyve Controlled]="Woody Controlled Part Recovery"||[Woody Control vs Hyve Controlled]="Woody Controlled Part Spend","Woody Controlled",
+			"Non Woody"))
+		lineageTag: bab090c1-f85d-4cb6-b9b0-edbbcb74cb04
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercompany_flag
+		lineageTag: 243ee93f-bb45-4d37-a083-a4b93db55d91
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[intercompany_flag]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Userid = ```
+			100 
+			```
+		formatString: 0
+		lineageTag: 2176b700-6511-43a0-8779-9e7aaad88ec2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		lineageTag: 28e12290-bd1c-40e1-9f16-f6f94214abe8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[region_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_trans_date
+		formatString: General Date
+		lineageTag: 40cfcce6-057d-4687-9d64-b9ba62254aca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[gl_trans_date]
+
+		variation Variation
+			isDefault
+			relationship: bb22a58a-9d1b-4863-8b87-bd54fb9d5721
+			defaultHierarchy: LocalDateTable_3ce95b8d-f377-4909-bd8d-0b2ddca502d1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2
+		lineageTag: ebafb6da-012e-4754-8033-0459a524440d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[cust_code_v2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		lineageTag: 2f66a21a-5ee2-4b84-a52c-122af14dad66
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Source]
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_loc_no
+		formatString: 0
+		lineageTag: dddebfb7-4b0b-4244-91f8-b62192e28121
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[to_loc_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_to_loc_no = IF([Source]="Spend",[to_loc_no],BLANK())
+		formatString: 0
+		lineageTag: 3131d911-6204-4698-b350-aa237c06368c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_program_final
+		lineageTag: adf655a9-079f-4652-a378-bfc82636cbd5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[cust_program_final]
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_tag_check
+		lineageTag: f552150c-0a82-4a89-801e-5c9ee399f184
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[asset_tag_check]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Excluded_flag
+		lineageTag: fba05ce3-e54a-46ca-bd1b-e5a1033e4382
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dwd_hyve_finance_ap_tariff_mi[Excluded_flag]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ~Combine_spend_recovery = calculated
+		mode: import
+		source =
+				
+				var spend=SUMMARIZE(dwd_hyve_finance_ap_tariff_mi,
+				dwd_hyve_finance_ap_tariff_mi[Year&Month],
+				dwd_hyve_finance_ap_tariff_mi[Woody Control vs Hyve Controlled],
+				dwd_hyve_finance_ap_tariff_mi[intercompany_flag],
+				dwd_hyve_finance_ap_tariff_mi[region_name],
+				dwd_hyve_finance_ap_tariff_mi[gl_trans_date],
+				dwd_hyve_finance_ap_tariff_mi[cust_code_v2],
+				dwd_hyve_finance_ap_tariff_mi[cust_program_final],
+				dwd_hyve_finance_ap_tariff_mi[to_loc_no],
+				dwd_hyve_finance_ap_tariff_mi[asset_tag_check],
+				dwd_hyve_finance_ap_tariff_mi[Excluded_flag],
+				"Source","Spend",
+				"Value",SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_final]))
+				var recovery=FILTER(SUMMARIZE(tt_woody_tariff_recovery_202411052028,
+				tt_woody_tariff_recovery_202411052028[Year&Month],
+				tt_woody_tariff_recovery_202411052028[Woody Control vs Hyve Controlled],
+				tt_woody_tariff_recovery_202411052028[intercompany_flag],
+				tt_woody_tariff_recovery_202411052028[region_name],
+				tt_woody_tariff_recovery_202411052028[oh_ship_date],
+				tt_woody_tariff_recovery_202411052028[cust_code_group],
+				tt_woody_tariff_recovery_202411052028[cust_program],
+				tt_woody_tariff_recovery_202411052028[oh_from_loc_no],
+				tt_woody_tariff_recovery_202411052028[asset_tag_check],
+				tt_woody_tariff_recovery_202411052028[Excluded_flag],
+				"Source","Recovery",
+				"Value",SUM(tt_woody_tariff_recovery_202411052028[line_price_usd])),tt_woody_tariff_recovery_202411052028[asset_tag_check]="Y")
+				RETURN
+				UNION(spend,recovery)
+
+	annotation PBI_Id = 1ff4ddb1ff5a42cb84e359859f58578b
+

@@ -1,0 +1,81 @@
+table tariff_group
+	lineageTag: 9a0fbdf2-d8ac-4b07-9508-2ea074319d36
+
+	column scm_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f81127f-4954-4253-9408-3efebd3b8b0b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [scm_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column tariff_group
+		lineageTag: 45c5c9b0-a396-47e1-88fd-84a15ff1e95a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [tariff_group]
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: dc58e2e5-446b-4549-9b0d-5be88451a4e6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [value]
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_type
+		lineageTag: 0d767d5d-03ca-4c1b-bab2-4c34b9a31489
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [vend_type]
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_balance = CALCULATE(MAX('SCM-Transaction Purchase Order Detail for Tariff'[scm_pl_gl_balance]),FILTER(ALL('SCM-Transaction Purchase Order Detail for Tariff'),tariff_group[scm_no]='SCM-Transaction Purchase Order Detail for Tariff'[scm_no]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7322af03-7095-477d-bf94-ea36918d63b6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-DO"}
+
+	column scm_vend_name = LOOKUPVALUE('SCM-Transaction Purchase Order Detail for Tariff'[vend_name],'SCM-Transaction Purchase Order Detail for Tariff'[scm_no],tariff_group[scm_no])
+		lineageTag: c2a021cc-51bb-420e-b1f6-2efc4afe559a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_no_v2 = [scm_no]&"|"&[scm_vend_name]
+		lineageTag: 24c0e844-2a82-4818-b10f-c45854b9b982
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_v2 = IF(tariff_group[tariff_group]="Supplier SCM (Hyve IOR)"||tariff_group[tariff_group]="Supplier SCM (Supplier IOR)"||tariff_group[tariff_group]="TBD",tariff_group[value]-[Pending Inventory Corrections]-[SCM Payment Hold],tariff_group[value])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b8e0246e-e872-48a7-976f-70dea119aa33
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tariff_group = calculated
+		mode: import
+		source =
+				
+				var scm1=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","Parent Reserve","value",'SCM Monthly Accrual'[scm_balance],"vend_type",'SCM Monthly Accrual'[vend_type]),[scm_no]=5040558&&[value]<>BLANK()))
+				var scm2=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","SCM Payment Hold","value",'SCM Monthly Accrual'[AP Hold (Tariff Dispute)],"vend_type",'SCM Monthly Accrual'[vend_type]),[value]<>0))
+				var scm3=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","Pending Inventory Corrections","value",'SCM Monthly Accrual'[INV Correction Amt(pending)],"vend_type",'SCM Monthly Accrual'[vend_type]),[value]<>0))
+				var scm4=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","Supplier SCM (Supplier IOR)","value",'SCM Monthly Accrual'[scm_balance],"vend_type",'SCM Monthly Accrual'[vend_type]),AND([vend_type]="(2) Vendor Invoice"||[vend_type]="(4) Mixed IOR",[value]<>0)))
+				var scm5=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","Supplier SCM (Hyve IOR)","value",'SCM Monthly Accrual'[scm_balance],"vend_type",'SCM Monthly Accrual'[vend_type]),[vend_type]<>BLANK()&&[vend_type]<>"(2) Vendor Invoice"&&[vend_type]<>"(4) Mixed IOR"&&[scm_no]<>5040558&&[value]<>0))
+				var scm6=DISTINCT(FILTER(SELECTCOLUMNS('SCM Monthly Accrual',"scm_no",'SCM Monthly Accrual'[scm_no],"tariff_group","TBD","value",'SCM Monthly Accrual'[scm_balance],"vend_type",'SCM Monthly Accrual'[vend_type]),[vend_type]=BLANK()&&[scm_no]<>5040558&&[value]<>0))
+				return
+				UNION(scm1,scm2,scm3,scm4,scm5,scm6)
+
+	annotation PBI_Id = 8f40ee6a58ef41d19a90d2dd7fc997dc
+

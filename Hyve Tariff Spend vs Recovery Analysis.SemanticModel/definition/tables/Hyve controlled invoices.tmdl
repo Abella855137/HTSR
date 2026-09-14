@@ -1,0 +1,110 @@
+table 'Hyve controlled invoices'
+	isHidden
+	lineageTag: 20ce2d39-9197-48ab-bfe7-506cdaab74ce
+
+	column check = LOOKUPVALUE(dwd_hyve_finance_ap_tariff_mi[cust_code_v2],dwd_hyve_finance_ap_tariff_mi[KEY],'Hyve controlled invoices'[KEY])
+		lineageTag: a144ec18-c9f6-4ce4-97de-0053476efff8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_no
+		dataType: int64
+		formatString: 0
+		lineageTag: e1c40693-f62f-4b6b-a320-f13c657f7424
+		summarizeBy: sum
+		sourceColumn: je_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 5096faf2-7d46-43f7-a0b1-72127a89ea04
+		summarizeBy: sum
+		sourceColumn: je_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fd899b0-34de-4d70-acaa-f8e48672f790
+		summarizeBy: sum
+		sourceColumn: order_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f63a622e-78fe-4926-90e7-ea53cf4efb39
+		summarizeBy: sum
+		sourceColumn: sku_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 62c042f7-84c1-4b18-84bc-a8253daae839
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_code
+		dataType: string
+		lineageTag: 58a8dc71-1a54-4313-ae9b-6815b41059e5
+		summarizeBy: none
+		sourceColumn: po_cust_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manual Review'
+		dataType: string
+		lineageTag: f921a3c6-4f3a-45eb-9749-b195d00ad916
+		summarizeBy: none
+		sourceColumn: Manual Review
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [je_no]&"\"&[je_line_no]&"\"&[sku_no]
+		lineageTag: a41ef0ea-47f8-46f9-837f-a1d4f2cee047
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column = LOOKUPVALUE(dwd_hyve_finance_ap_tariff_mi[Woody Control vs Hyve Controlled],dwd_hyve_finance_ap_tariff_mi[KEY],'Hyve controlled invoices'[KEY])
+		lineageTag: a4e13e00-7174-4743-900d-28d2bb666370
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column 2' = LOOKUPVALUE(dwd_hyve_finance_ap_tariff_mi[acc/acp flag],dwd_hyve_finance_ap_tariff_mi[KEY],'Hyve controlled invoices'[KEY])
+		lineageTag: 578ecd4c-8693-4751-930c-0f7fcba70af0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Hyve controlled invoices' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date created", Order.Descending}}),
+				    #"Hyve controlled invoices xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Hyve controlled invoices.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Hyve controlled invoices xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Year", Int64.Type}, {"Month", type text}, {"rpt_name", type text}, {"region_no", Int64.Type}, {"data_source", type text}, {"je_no", Int64.Type}, {"je_line_no", Int64.Type}, {"gl_acct_no", Int64.Type}, {"gl_company", Int64.Type}, {"gl_trans_date", type date}, {"gl_amt_no_duplicate", type number}, {"gl_project", Int64.Type}, {"vend_doc_doc_no", Int64.Type}, {"vend_inv_no", type any}, {"order_type", Int64.Type}, {"order_no", Int64.Type}, {"sku_no", Int64.Type}, {"rec_qty", Int64.Type}, {"part_no", type text}, {"mfg_part_no", type text}, {"ACC/ACP", type text}, {"po_cust_no", Int64.Type}, {"po_cust_name", type text}, {"po_cust_code", type text}, {"woody_cust_part_no", type text}, {"Manual Review", type text}, {"check", type text}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"je_no", "je_line_no", "order_no", "sku_no", "order_type", "po_cust_code", "Manual Review"})
+				in
+				    #"Removed Other Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,70 @@
+table hyve_user_dna
+	lineageTag: b7aa9283-db54-4d44-8075-e624d1ed5d0a
+
+	column 'User name'
+		dataType: string
+		lineageTag: c94ddead-7d91-429e-bb1c-1c74bb8d44ef
+		summarizeBy: none
+		sourceColumn: User name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 1d0206ae-ce8d-46df-bfb3-5d066f0c6564
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column userprincipalname
+		dataType: string
+		lineageTag: e6acfc4b-f15f-4926-b806-d53def49b91c
+		summarizeBy: none
+		sourceColumn: userprincipalname
+
+		annotation SummarizationSetBy = Automatic
+
+	column userid
+		dataType: int64
+		formatString: 0
+		lineageTag: 21c8f1c7-1b7f-4b14-b606-b4a1dcb98ea9
+		summarizeBy: sum
+		sourceColumn: userid
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_datetime
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8a247cdc-c28f-40fc-bd8d-3a4f2cd30303
+		summarizeBy: none
+		sourceColumn: entry_datetime
+
+		variation Variation
+			isDefault
+			relationship: d8676d20-5831-4053-88de-06a6af887f63
+			defaultHierarchy: LocalDateTable_70d81092-521e-451f-81da-a14343070cf6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition hyve_user_dna = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date created", Order.Descending}}),
+				    #"Hyve User DNA xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Hyve User DNA.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Hyve User DNA xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    user_list_Sheet = #"Imported Excel Workbook"{[Item="user_list",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(user_list_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"User name", type text}, {"Email", type text}, {"userprincipalname", type text}, {"userid", Int64.Type}, {"entry_datetime", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

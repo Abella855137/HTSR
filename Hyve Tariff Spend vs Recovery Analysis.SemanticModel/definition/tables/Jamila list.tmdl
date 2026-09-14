@@ -1,0 +1,60 @@
+table 'Jamila list'
+	isHidden
+	lineageTag: e2cccb7a-0957-4900-a04d-6d01fcd904c2
+
+	column doc
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9577bbd4-f301-4429-8853-bc62a99ec8a3
+		summarizeBy: sum
+		sourceColumn: doc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		isHidden
+		lineageTag: 0c58be70-a17b-4d46-9f40-479fbaf77f39
+		summarizeBy: sum
+		sourceColumn: amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Jamila
+		dataType: string
+		isHidden
+		lineageTag: ea991639-f39e-411f-b4f2-f6a7a9c72edc
+		summarizeBy: none
+		sourceColumn: Jamila
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Jamila list' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"Tariff Document Review xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Tariff Document Review.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Tariff Document Review xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    #"1st_Sheet" = #"Imported Excel Workbook"{[Item="1st",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"1st_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"doc", Int64.Type}, {"amount", type number}, {"Jamila", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,71 @@
+table current_system_tariff_rate
+	lineageTag: 81b434b9-fca4-49d2-993d-5bfa3b749e85
+
+	column sku_no
+		dataType: string
+		lineageTag: a3475b45-0973-49f5-b637-d370e682b7c1
+		summarizeBy: none
+		sourceColumn: sku_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total tariff_org'
+		dataType: double
+		lineageTag: e89b5620-135a-414b-9af9-6f8a25212109
+		summarizeBy: sum
+		sourceColumn: total tariff_org
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column last_POCV_update_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f8f1013b-fbea-4b9a-b173-ad5013ffa230
+		summarizeBy: none
+		sourceColumn: last_POCV_update_date
+
+		variation Variation
+			isDefault
+			relationship: e21c759c-e8df-4d05-a959-e7c3bcbb11b5
+			defaultHierarchy: LocalDateTable_6b77f67f-52e4-4de5-99b3-da4a92749b93.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'total tariff'
+		dataType: double
+		lineageTag: 33c611ed-5d7c-4a37-8297-cc255bc2cb31
+		summarizeBy: sum
+		sourceColumn: total tariff
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition current_system_tariff_rate = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"HYUS - Hyve Monthly POCV Detail xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Data Analysis/" = #"Sorted Rows"{[Name="HYUS - Hyve Monthly POCV Detail.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Data Analysis/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"HYUS - Hyve Monthly POCV Detail xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Data Analysis/"),
+				    UnAssignedName_Sheet = #"Imported Excel Workbook"{[Item="UnAssignedName",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(UnAssignedName_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"server_name", type text}, {"rpt_run_date", type datetime}, {"db_info", type text}, {"sku_no", Int64.Type}, {"part_no", type text}, {"mfg_part_no", type text}, {"mfg_vend_no", Int64.Type}, {"mfg_vend_name", type text}, {"short_desc", type text}, {"long_desc", type text}, {"prod_type", type text}, {"model", type text}, {"acp_part_flag", type text}, {"acp_nw_flag", type text}, {"acc_svr_flag", type text}, {"acp_program", type text}, {"acp_start_date", type text}, {"acp_fidc", type text}, {"chattersrc_flag", type text}, {"cust_sku_cust_no", Int64.Type}, {"cust_sku_cust_name", type text}, {"woody_cust_part_no", type text}, {"chatter_cust_part_no", type text}, {"woody_spare_cust_part_no", type text}, {"hts_import", type text}, {"flag", Int64.Type}, {"idn", Int64.Type}, {"current_ave_cost", type number}, {"current_po_cost", type number}, {"current_on_hand_qty", Int64.Type}, {"current_intran_in", Int64.Type}, {"current_on_order", Int64.Type}, {"pocv_spid", Int64.Type}, {"pocv_sku_no", Int64.Type}, {"pocv_vend_no", Int64.Type}, {"pocv_prod_code", Int64.Type}, {"pocv_vpl_no", Int64.Type}, {"pocv_var_level", type text}, {"pocv_base_cost", type number}, {"pocv_base_cost_fx", type text}, {"pocv_weight", type number}, {"pocv_data_type", type text}, {"pocv_var_formula", type number}, {"pocv_var_currency", type text}, {"pocv_var_rate", Int64.Type}, {"pocv_var_amount", type number}, {"pocv_var_amount_fx", type text}, {"pocv_company_currency", type text}, {"pocv_vend_currency", type text}, {"pocv_var_type", Int64.Type}, {"pocv_var_desc", Int64.Type}, {"pocv_scm_no", Int64.Type}, {"pocv_exp_type", type text}, {"pocv_exp_code", type text}, {"pocv_pocv_no", Int64.Type}, {"pocv_pocv_line_no", Int64.Type}, {"pocv_entry_datetime", type datetime}, {"proj_proj_name", type text}, {"proj_proj_comments", type text}, {"proj_var_no", Int64.Type}, {"scm_vend_no", Int64.Type}, {"COO", type text}, {"last_pocv_update_datetime", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([tariff_flag] = "Y")),
+				    #"Grouped Rows" = Table.Group(#"Filtered Rows", {"sku_no"}, {{"Count", each List.Sum([pocv_var_formula]), type nullable number}, {"last_POCV_update_date", each List.Max([last_pocv_update_datetime]), type nullable date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Grouped Rows",{{"Count", "total tariff"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns", each ([total tariff] <> 0)),
+				    #"Inserted Division" = Table.AddColumn(#"Filtered Rows1", "Division", each [total tariff] / 100, type number),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Division",{{"total tariff", "total tariff_org"}, {"Division", "total tariff"}})
+				in
+				    #"Renamed Columns1"
+
+	annotation PBI_ResultType = Table
+

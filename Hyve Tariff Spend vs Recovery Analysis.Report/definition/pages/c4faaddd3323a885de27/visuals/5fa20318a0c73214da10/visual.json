@@ -1,0 +1,1588 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5fa20318a0c73214da10",
+  "position": {
+    "x": 187.10644677661168,
+    "y": 336.79160419790105,
+    "z": 2000,
+    "height": 351.18440779610194,
+    "width": 515.26236881559214,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "Jamila's comment"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.Jamila's comment",
+              "nativeQueryRef": "Jamila's comment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "region_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.region_no)",
+              "nativeQueryRef": "region_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "data_source"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.data_source",
+              "nativeQueryRef": "data_source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "je_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.je_no)",
+              "nativeQueryRef": "je_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "je_line_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.je_line_no)",
+              "nativeQueryRef": "je_line_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "gl_acct_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.gl_acct_no)",
+              "nativeQueryRef": "gl_acct_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "gl_trans_date"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.gl_trans_date",
+              "nativeQueryRef": "gl_trans_date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                        }
+                      },
+                      "Property": "gl_amt_no_duplicate"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.gl_amt_no_duplicate)",
+              "nativeQueryRef": "gl_amt_no_duplicate 的总和"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "gl_project"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.gl_project)",
+              "nativeQueryRef": "gl_project"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "proj_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.proj_name",
+              "nativeQueryRef": "proj_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "scm_vend_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.scm_vend_no)",
+              "nativeQueryRef": "scm_vend_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "scm_vend_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.scm_vend_name",
+              "nativeQueryRef": "scm_vend_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "vend_doc_doc_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.vend_doc_doc_no)",
+              "nativeQueryRef": "vend_doc_doc_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "vend_doc_vend_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.vend_doc_vend_no)",
+              "nativeQueryRef": "vend_doc_vend_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "vend_doc_vend_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.vend_doc_vend_name",
+              "nativeQueryRef": "vend_doc_vend_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "doc_ref"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.doc_ref",
+              "nativeQueryRef": "doc_ref"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                        }
+                      },
+                      "Property": "doc_amt_no_duplicate"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.doc_amt_no_duplicate)",
+              "nativeQueryRef": "doc_amt_no_duplicate 的总和"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "vend_doc_entry_datetime"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.vend_doc_entry_datetime",
+              "nativeQueryRef": "vend_doc_entry_datetime"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "vend_inv_no"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.vend_inv_no",
+              "nativeQueryRef": "vend_inv_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "doc_date"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.doc_date",
+              "nativeQueryRef": "doc_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "order_v2"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.order_v2",
+              "nativeQueryRef": "order_no",
+              "displayName": "order_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "order_type"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.order_type)",
+              "nativeQueryRef": "order_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "order_line_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.order_line_no)",
+              "nativeQueryRef": "order_line_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "sku_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.sku_no)",
+              "nativeQueryRef": "sku_no"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                        }
+                      },
+                      "Property": "rec_qty"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.rec_qty)",
+              "nativeQueryRef": "rec_qty 的总和"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                        }
+                      },
+                      "Property": "po_cost"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.po_cost)",
+              "nativeQueryRef": "po_cost 的总和"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "rec_datetime"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.rec_datetime",
+              "nativeQueryRef": "rec_datetime"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "po_creator_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.po_creator_name",
+              "nativeQueryRef": "po_creator_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "po_creation_date"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.po_creation_date",
+              "nativeQueryRef": "po_creation_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "part_no"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.part_no",
+              "nativeQueryRef": "part_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "mfg_part_no"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.mfg_part_no",
+              "nativeQueryRef": "mfg_part_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "woody_cust_part_no"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.woody_cust_part_no",
+              "nativeQueryRef": "woody_cust_part_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "cis_hts"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.cis_hts",
+              "nativeQueryRef": "cis_hts"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "cis_sku_coo"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.cis_sku_coo",
+              "nativeQueryRef": "cis_sku_coo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "acc/acp flag"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.acc/acp flag",
+              "nativeQueryRef": "acc/acp flag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "short_desc"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.short_desc",
+              "nativeQueryRef": "short_desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "long_desc"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.long_desc",
+              "nativeQueryRef": "long_desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "sku_category"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.sku_category",
+              "nativeQueryRef": "sku_category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "po_cust_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.po_cust_name",
+              "nativeQueryRef": "po_cust_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "cust_code_v2"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.cust_code_v2",
+              "nativeQueryRef": "cust_code_v2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "ap_hold_doc_no"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.ap_hold_doc_no)",
+              "nativeQueryRef": "ap_hold_doc_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_country"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_country",
+              "nativeQueryRef": "oh_ship_to_country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_city"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_city",
+              "nativeQueryRef": "oh_ship_to_city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_addr"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_addr",
+              "nativeQueryRef": "oh_ship_to_addr"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_name"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_name",
+              "nativeQueryRef": "oh_ship_to_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_zip"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_zip",
+              "nativeQueryRef": "oh_ship_to_zip"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_state"
+                }
+              },
+              "queryRef": "dwd_hyve_finance_ap_tariff_mi.oh_ship_to_state",
+              "nativeQueryRef": "oh_ship_to_state"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                    }
+                  },
+                  "Property": "oh_ship_to_loc"
+                }
+              },
+              "queryRef": "Sum(dwd_hyve_finance_ap_tariff_mi.oh_ship_to_loc)",
+              "nativeQueryRef": "oh_ship_to_loc"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "Jamila's comment"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Spend Exclusion Detail Data'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4f76eba5e0a6533a83c2",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "acc/acp flag"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "74c9e148e339373ce0c8",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "ap_hold_doc_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "58b58397c0c67c7b14e3",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "cis_hts"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "888c76752120c22d80b0",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "cis_sku_coo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5b7df0340a6571a4ac76",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "cust_code_v2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "39b2fc5a9da05280d452",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "data_source"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8355c3d100257b3ed72d",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "doc_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2789f8540dd047390360",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "doc_ref"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b1c10a170107a01c590d",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "gl_acct_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bb80a0729b4d6b528240",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "gl_project"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "285c2ce302d3b9b05059",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "gl_trans_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1bbc17da1d02a06c7020",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "je_line_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ee207848cbc53e9dd49a",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "je_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b31d6af028c8e6646b17",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "long_desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "64a6450aa044d7918d33",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "mfg_part_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "600aa0ccb8c932ead59e",
+        "ordinal": 15,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_addr"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d569617a689ac310aa74",
+        "ordinal": 16,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_city"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "353cdc8e5e3bb4e04394",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cabeefe000069cd381ea",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_loc"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e871fab455e388a764c0",
+        "ordinal": 19,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "244083318d6735aad100",
+        "ordinal": 20,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_state"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1d3c44f38c0c94dc8a26",
+        "ordinal": 21,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "oh_ship_to_zip"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f67a12a455c54cb5ad1b",
+        "ordinal": 22,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "order_line_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6ffd61dd56884265e7c3",
+        "ordinal": 23,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "order_v2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cc8fcfca75215507d80d",
+        "ordinal": 24,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "order_type"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c41c6ac0c200ee90b50a",
+        "ordinal": 25,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "part_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "002410a0cc876db6ac1a",
+        "ordinal": 26,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "po_creation_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9bf6740cb3581d00b647",
+        "ordinal": 27,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "po_creator_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "60141473b597701bcc30",
+        "ordinal": 28,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "po_cust_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2ef07a332508e992e055",
+        "ordinal": 29,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "proj_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4a392131210a63d83c51",
+        "ordinal": 30,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "rec_datetime"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e67242e46218b06b6e4d",
+        "ordinal": 31,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "region_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4bf37965cbd10c2c4d01",
+        "ordinal": 32,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "scm_vend_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "166b1387e870ea08ee93",
+        "ordinal": 33,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "scm_vend_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ad5f243c90e0dc62e4d",
+        "ordinal": 34,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "short_desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1c107a9422b248b4c090",
+        "ordinal": 35,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "sku_category"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "41fca3393d7536b17227",
+        "ordinal": 36,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "sku_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "09817944a75632ea38e9",
+        "ordinal": 37,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "doc_amt_no_duplicate"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c8c70b80553110eaed3c",
+        "ordinal": 38,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "gl_amt_no_duplicate"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "06a9a2f9463a2591500b",
+        "ordinal": 39,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "po_cost"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9c5619162e5c394ec0c6",
+        "ordinal": 40,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "rec_qty"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "71c7c6407a733b78ed74",
+        "ordinal": 41,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "vend_doc_doc_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ba9973940dace6e4d1b6",
+        "ordinal": 42,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "vend_doc_entry_datetime"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "680122c3195275e8bc07",
+        "ordinal": 43,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "vend_doc_vend_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8b78eaf80d5bb6e4e71d",
+        "ordinal": 44,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "vend_doc_vend_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dd40354423b09be5a01e",
+        "ordinal": 45,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "vend_inv_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "22e08654e5e0cc7706a3",
+        "ordinal": 46,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "woody_cust_part_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d2033a6a4ea16e08e968",
+        "ordinal": 47,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "Jamila's comment"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

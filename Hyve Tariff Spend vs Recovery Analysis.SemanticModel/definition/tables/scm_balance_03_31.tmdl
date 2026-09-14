@@ -1,0 +1,66 @@
+table scm_balance_03_31
+	lineageTag: 191b441c-ab0c-4ba2-a5df-4c44900df2fe
+
+	column gl_acct_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 6839d598-8901-4f3f-97f6-e24c6c961431
+		summarizeBy: sum
+		sourceColumn: gl_acct_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_project
+		dataType: int64
+		formatString: 0
+		lineageTag: f8aeb535-9915-4a4a-abc5-5a227de3a60a
+		summarizeBy: sum
+		sourceColumn: gl_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 681c5216-2acb-45e6-b5b5-67908af6c5f5
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_trans_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b9f8ffa-528e-4f00-970e-bf2b129b58be
+		summarizeBy: none
+		sourceColumn: gl_trans_date
+
+		variation Variation
+			isDefault
+			relationship: 2e57cb0f-0b1f-4bb8-851c-51f473b287db
+			defaultHierarchy: LocalDateTable_83b857ff-7156-4ac0-a6f2-92480953165f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_amt
+		dataType: double
+		lineageTag: bdfec19a-aae9-45b4-82e5-ce10e93d7205
+		summarizeBy: sum
+		sourceColumn: gl_amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition scm_balance_03_31 = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD_US", "select /*+label('From PBI model/Dataflow Hyve Finance/Hyve Tariff Spend vs Recovery Analysis by alyssa.lei')*/#(lf)gl_acct_no, gl_project, region_no,gl_trans_date, sum(gl_amt) as ""gl_amt"" #(lf)from dm_hygbl.dm_hyve_finance_journal_entry_summary_mi#(lf)where gl_trans_date <'2025-04-01' and region_no=10001#(lf)group by gl_acct_no, gl_project, region_no,gl_trans_date")
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

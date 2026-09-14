@@ -1,0 +1,430 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "aec00a7b01e534660911",
+  "position": {
+    "x": 184,
+    "y": 49,
+    "z": 0,
+    "height": 642,
+    "width": 1086,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "dt_month"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.dt_month",
+              "nativeQueryRef": "Month and Year of Transaction",
+              "displayName": "Month and Year of Transaction"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "ODM"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.ODM",
+              "nativeQueryRef": "ODM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "po_no"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.po_no",
+              "nativeQueryRef": "PO",
+              "displayName": "PO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "cust_code"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.cust_code",
+              "nativeQueryRef": "Cust Code",
+              "displayName": "Cust Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "cust_program"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.cust_program",
+              "nativeQueryRef": "Cust Program",
+              "displayName": "Cust Program"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "APN"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.APN",
+              "nativeQueryRef": "APN"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "MPN"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.MPN",
+              "nativeQueryRef": "MPN"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.Description",
+              "nativeQueryRef": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Supplier"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.Supplier",
+              "nativeQueryRef": "Supplier"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Commodity Group"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.Commodity Group",
+              "nativeQueryRef": "Commodity Group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "HTS Code"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.HTS Code",
+              "nativeQueryRef": "HTS Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Received Date"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.Received Date",
+              "nativeQueryRef": "Received Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Received Qty"
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.Received Qty)",
+              "nativeQueryRef": "Received Qty"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "PO Line Cost"
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.PO Line Cost)",
+              "nativeQueryRef": "Total PO Line Cost",
+              "displayName": "Total PO Line Cost"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "current_sku_tariff_pocv"
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.current_sku_tariff_pocv)",
+              "nativeQueryRef": "Tariff Rate",
+              "displayName": "Tariff Rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "percentage_of_total_base_cost"
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.percentage_of_total_base_cost)",
+              "nativeQueryRef": "percentage_of_total_base_cost1",
+              "displayName": "percentage_of_total_base_cost"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Country of Origin"
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.Country of Origin)",
+              "nativeQueryRef": "Country of Origin"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_spend_GL_cost_attribution"
+                    }
+                  },
+                  "Property": "Ship to Country"
+                }
+              },
+              "queryRef": "fact_spend_GL_cost_attribution.Ship to Country",
+              "nativeQueryRef": "Ship to Country"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "GL Cost attribution_final"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_spend_GL_cost_attribution.GL Cost attribution_final)",
+              "nativeQueryRef": "Sum of GL Cost attribution_final",
+              "displayName": "Tariff Charge"
+            }
+          ],
+          "showAll": true
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_spend_GL_cost_attribution"
+                  }
+                },
+                "Property": "dt_month"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Part Level Cost Attribution Detail'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

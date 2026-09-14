@@ -1,0 +1,64 @@
+table dim_customer
+	lineageTag: e7896457-3838-467d-a506-2d9eb7fee79a
+
+	column cust_no
+		dataType: int64
+		formatString: 0
+		lineageTag: be67aab3-b260-423a-b648-de4fd7ba51de
+		summarizeBy: sum
+		sourceColumn: cust_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_name
+		dataType: string
+		lineageTag: 57a26437-41d8-46e3-b14a-c44d997a7194
+		summarizeBy: none
+		sourceColumn: cust_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code
+		dataType: string
+		lineageTag: 22e319b9-3151-47f9-96f8-0272b7470131
+		summarizeBy: none
+		sourceColumn: cust_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_group
+		dataType: string
+		lineageTag: 79153d68-ed65-402d-b0e0-7c161d6b336e
+		summarizeBy: none
+		sourceColumn: cust_code_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 67531564-8f2c-48a4-b7d7-14a584da53a2
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cust_key = [region_no]&"\"&[cust_no]
+		lineageTag: 3dd05511-1f9c-471a-8115-e3e62ce048f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD", "select /*+label('From PBI model/Dataflow Hyve Finance/Hyve Tariff Spend vs Recovery Analysis by alyssa.lei')*/#(lf)cust_no,cust_name,cust_code,cust_code_group,region_no from dim_hygbl.dim_hyve_customer"),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([cust_code] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

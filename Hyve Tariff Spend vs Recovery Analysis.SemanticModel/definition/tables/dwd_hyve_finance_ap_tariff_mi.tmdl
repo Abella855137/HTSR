@@ -1,0 +1,1077 @@
+table dwd_hyve_finance_ap_tariff_mi
+	lineageTag: 1b10bb8e-217e-4360-ae81-e923735bc489
+
+	column data_source
+		dataType: string
+		lineageTag: 0b6d3474-8b3a-40c0-a7a3-19c3e0f41d2c
+		summarizeBy: none
+		sourceColumn: data_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 527f3b8f-1245-466e-be34-cb30d1103c1b
+		summarizeBy: sum
+		sourceColumn: je_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fe81f2c-430f-4199-a3a0-fd209b8a9b5b
+		summarizeBy: sum
+		sourceColumn: je_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_acct_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 81fab1f5-0d4e-474f-a0e2-7bcde9229c6b
+		summarizeBy: sum
+		sourceColumn: gl_acct_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_company
+		dataType: int64
+		formatString: 0
+		lineageTag: a56541e4-5d1a-474d-a3c1-ae4e32cf59f0
+		summarizeBy: sum
+		sourceColumn: gl_company
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_trans_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d44a9e8-124c-40c4-832c-601acc6c816d
+		summarizeBy: none
+		sourceColumn: gl_trans_date
+
+		variation Variation
+			isDefault
+			relationship: 3492e5b6-9653-46ed-9a64-283091706148
+			defaultHierarchy: LocalDateTable_73b87e3a-30f0-4aac-aa6b-562d7c1be7f8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f91c849-1ce0-448a-8b94-1525a3c906a7
+		summarizeBy: sum
+		sourceColumn: doc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_amt
+		dataType: double
+		lineageTag: 75fc96e7-c815-41e9-a919-445cd821f58a
+		summarizeBy: sum
+		sourceColumn: gl_amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gl_amt_no_duplicate
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 5fd8d86d-7ad1-4ba9-88bd-d1c2a40f9d51
+		summarizeBy: sum
+		sourceColumn: gl_amt_no_duplicate
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_line_row_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 605258f7-c5ce-475f-8b07-d5ad4c70be79
+		summarizeBy: sum
+		sourceColumn: je_line_row_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 66edcc4c-585f-4035-b12f-6a6415750a5e
+		summarizeBy: sum
+		sourceColumn: gl_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: db161ddd-6347-4aed-983a-106558c4041c
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_project
+		dataType: int64
+		formatString: 0
+		lineageTag: cdc6119f-00d1-4536-bf28-239d956dc1b5
+		summarizeBy: sum
+		sourceColumn: gl_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column proj_name
+		dataType: string
+		lineageTag: c62415ae-39c4-4d4d-ac69-7683bbcaa211
+		summarizeBy: none
+		sourceColumn: proj_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 8482dfc7-402d-4e8c-9857-efbb4b023bed
+		summarizeBy: sum
+		sourceColumn: scm_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_name
+		dataType: string
+		lineageTag: da89586a-d250-4e94-8768-964fd1f93979
+		summarizeBy: none
+		sourceColumn: scm_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_doc_no
+		dataType: string
+		lineageTag: 590a842f-18fc-47e8-8d8c-931ef6bda74e
+		summarizeBy: none
+		sourceColumn: vend_doc_doc_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 78918f1f-3d84-4af9-95fd-11beef45e625
+		summarizeBy: sum
+		sourceColumn: vend_doc_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_vend_name
+		dataType: string
+		lineageTag: 9e6c995e-d8bd-458b-8007-a0b16bc3c29a
+		summarizeBy: none
+		sourceColumn: vend_doc_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_entry_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 023600f9-7264-41cd-bb94-e573e4704c27
+		summarizeBy: none
+		sourceColumn: vend_doc_entry_datetime
+
+		variation Variation
+			isDefault
+			relationship: d3b30581-a50e-45f3-8fe9-e5d44a3b9e1a
+			defaultHierarchy: LocalDateTable_230f4a70-b0f8-45c3-a61e-51a80898e324.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_creator_name
+		dataType: string
+		lineageTag: ac8ac2c9-75ea-4e04-a9d5-cab5fc7ce2ec
+		summarizeBy: none
+		sourceColumn: vend_doc_creator_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_inv_no
+		dataType: string
+		lineageTag: e323a265-7d98-455a-a33a-496730919204
+		summarizeBy: none
+		sourceColumn: vend_inv_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_ref
+		dataType: string
+		lineageTag: c5d21a11-5428-495e-b5e4-f83c2173363b
+		summarizeBy: none
+		sourceColumn: doc_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_ref_corrected
+		dataType: string
+		lineageTag: b83499b7-b7a5-475a-8e8a-4ab63ede38c3
+		summarizeBy: none
+		sourceColumn: doc_ref_corrected
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_amt
+		dataType: double
+		lineageTag: b7d1ebee-9402-4afa-ae17-e7e6af580f8e
+		summarizeBy: sum
+		sourceColumn: doc_amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column doc_amt_no_duplicate
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d49691b4-2940-4872-b941-11f8f798eccb
+		summarizeBy: sum
+		sourceColumn: doc_amt_no_duplicate
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_row_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 31616c40-9160-4b8b-a021-c2ac8819aecb
+		summarizeBy: sum
+		sourceColumn: doc_row_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 03d659f3-35c9-457c-aa49-e50a88d2f7ae
+		summarizeBy: none
+		sourceColumn: doc_date
+
+		variation Variation
+			isDefault
+			relationship: a5a3bf34-38f4-48cc-9021-9ed7051062bb
+			defaultHierarchy: LocalDateTable_805b1d36-6ca7-4036-b92f-74463ae08ae3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f1ed63d-2939-465c-b156-37baa43adf14
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: string
+		lineageTag: c72b944e-b067-407d-9ca8-5d8c44be4280
+		summarizeBy: none
+		sourceColumn: order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: c49de259-6335-4b46-9ea0-94c1a88be3c5
+		summarizeBy: sum
+		sourceColumn: order_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_no
+		dataType: string
+		lineageTag: 214e7b08-a541-4f51-bb86-6f7afa859adc
+		summarizeBy: none
+		sourceColumn: sku_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column rec_qty
+		dataType: int64
+		formatString: #,0
+		lineageTag: b95bbc22-4d29-497b-8bb5-48ea19603c55
+		summarizeBy: sum
+		sourceColumn: rec_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cost
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: baae0e76-2707-447b-b6c3-6aaa020070de
+		summarizeBy: sum
+		sourceColumn: po_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_total_cost
+		dataType: double
+		lineageTag: 9701d462-d0f5-4148-864b-d84fdc9fc45d
+		summarizeBy: sum
+		sourceColumn: po_total_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rec_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e40fd8e4-db4b-469a-ac14-29b5066ed702
+		summarizeBy: none
+		sourceColumn: rec_datetime
+
+		variation Variation
+			isDefault
+			relationship: deadd08b-2bc8-4b52-b461-d803cee7de07
+			defaultHierarchy: LocalDateTable_b0f99d60-00a2-4669-8bde-41d6db8db47a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_creator_name
+		dataType: string
+		lineageTag: cc4c85a6-7daa-4bf2-98f2-12ab73cfac79
+		summarizeBy: none
+		sourceColumn: po_creator_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_creation_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a3e0dbd9-da51-4684-9561-b1282a55bf96
+		summarizeBy: none
+		sourceColumn: po_creation_date
+
+		variation Variation
+			isDefault
+			relationship: 29933fde-9cbc-4a97-bdc3-e0ee9fc4d55e
+			defaultHierarchy: LocalDateTable_01bc3512-e854-4796-abc9-8892ee9fcb7f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no
+		dataType: string
+		lineageTag: b3b9b299-c740-49b8-9e87-9338e3e9580d
+		summarizeBy: none
+		sourceColumn: part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_part_no
+		dataType: string
+		lineageTag: c877ca54-668e-404e-a6b5-9e7b76fa2486
+		summarizeBy: none
+		sourceColumn: mfg_part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column cis_hts
+		dataType: string
+		lineageTag: be577137-3abc-4529-938e-d65c371fb994
+		summarizeBy: none
+		sourceColumn: cis_hts
+
+		annotation SummarizationSetBy = Automatic
+
+	column cis_sku_coo
+		dataType: string
+		lineageTag: 685540d5-26cb-4054-a476-6d33187b85c1
+		summarizeBy: none
+		sourceColumn: cis_sku_coo
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_part_flag
+		dataType: string
+		lineageTag: e05f93c1-fdd3-4941-a322-c15c34419f91
+		summarizeBy: none
+		sourceColumn: acp_part_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_nw_flag
+		dataType: string
+		lineageTag: 1e990784-e897-4c93-bc51-02614ef52195
+		summarizeBy: none
+		sourceColumn: acp_nw_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_svr_flag
+		dataType: string
+		lineageTag: e0cd7622-a7ec-4910-9767-bbf4755fb0f2
+		summarizeBy: none
+		sourceColumn: acc_svr_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column short_desc
+		dataType: string
+		lineageTag: 303da67d-1016-4bc3-9e1d-cdf17cac4eb5
+		summarizeBy: none
+		sourceColumn: short_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column long_desc
+		dataType: string
+		lineageTag: 288f9c8c-a6f5-4161-b1c2-41ef3058645b
+		summarizeBy: none
+		sourceColumn: long_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_category
+		dataType: string
+		lineageTag: 40e8f2d8-14f3-47e8-a511-62b72e5fbf97
+		summarizeBy: none
+		sourceColumn: sku_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_cust_part_no
+		dataType: string
+		lineageTag: 0e7a934e-e39a-433e-9fca-31e2746e841f
+		summarizeBy: none
+		sourceColumn: woody_cust_part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 10777921-72ce-47e0-96e3-0632f961ca54
+		summarizeBy: sum
+		sourceColumn: po_cust_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_name
+		dataType: string
+		lineageTag: fa9410b0-d319-4692-b690-3e2fb0980e8b
+		summarizeBy: none
+		sourceColumn: po_cust_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_code
+		dataType: string
+		lineageTag: 5fcd901e-201f-40b7-b621-822828a6e1a9
+		summarizeBy: none
+		sourceColumn: po_cust_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ap_hold_doc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: ec7415cb-6647-4a39-a40e-ff049c7667c7
+		summarizeBy: sum
+		sourceColumn: ap_hold_doc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column ap_hold_inv_no
+		dataType: string
+		lineageTag: 5c4ceacb-a8ed-45d9-8064-ee9dce1b1ee7
+		summarizeBy: none
+		sourceColumn: ap_hold_inv_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_snapshot_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 43e28768-4f7b-4394-9fbc-598ae086aae7
+		summarizeBy: none
+		sourceColumn: dys_snapshot_date
+
+		variation Variation
+			isDefault
+			relationship: 47de7438-5131-45c2-998e-fe27b98025f8
+			defaultHierarchy: LocalDateTable_c182f539-55fb-4e30-9022-91ef4982adcf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dys_entry_number
+		dataType: string
+		lineageTag: c8376a32-bcaf-434a-97d5-9b1c38bc0e74
+		summarizeBy: none
+		sourceColumn: dys_entry_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_customer_ref_no
+		dataType: string
+		lineageTag: 7360ab88-5953-42c6-bf4c-b442016ec7c6
+		summarizeBy: none
+		sourceColumn: dys_customer_ref_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_org_vend_inv_no
+		dataType: string
+		lineageTag: 4af07ddb-c379-4968-a0e5-b6298c9855dd
+		summarizeBy: none
+		sourceColumn: dys_org_vend_inv_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_org_vend_inv_ln_no
+		dataType: string
+		lineageTag: 1beec98b-4197-4a0a-aa9d-fcc316841160
+		summarizeBy: none
+		sourceColumn: dys_org_vend_inv_ln_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_org_vend_inv_ln_value
+		dataType: double
+		lineageTag: 2cdccaf6-da65-405c-9ec7-51666ee087be
+		summarizeBy: sum
+		sourceColumn: dys_org_vend_inv_ln_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dys_hts_tariff
+		dataType: string
+		lineageTag: 977ca6c9-8df4-4f82-bed3-f07e6e990ad0
+		summarizeBy: none
+		sourceColumn: dys_hts_tariff
+
+		annotation SummarizationSetBy = Automatic
+
+	column dys_entered_value_usd
+		dataType: double
+		lineageTag: 2cda38ef-3e51-472e-a231-acbcf6d373d4
+		summarizeBy: sum
+		sourceColumn: dys_entered_value_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dys_duty
+		dataType: double
+		lineageTag: 4cbe4eda-a7cd-425d-bc8f-382baf4dd2d1
+		summarizeBy: sum
+		sourceColumn: dys_duty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dys_rate
+		dataType: double
+		lineageTag: b4e5badb-b590-4091-a6bf-305f0b8b5b8f
+		summarizeBy: sum
+		sourceColumn: dys_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oh_ship_to_country
+		dataType: string
+		lineageTag: 6964bd25-fe47-402d-b638-e05219c6eb44
+		summarizeBy: none
+		sourceColumn: oh_ship_to_country
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_city
+		dataType: string
+		lineageTag: f39ec432-537e-44e4-a3f0-87b8905ac15f
+		summarizeBy: none
+		sourceColumn: oh_ship_to_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_addr
+		dataType: string
+		lineageTag: 1d099600-b7c2-4c42-8b12-0bdeaced5fad
+		summarizeBy: none
+		sourceColumn: oh_ship_to_addr
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_po_box
+		dataType: string
+		lineageTag: 0d077471-88c2-4599-91ca-9378ad24f8f3
+		summarizeBy: none
+		sourceColumn: oh_ship_to_po_box
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_state
+		dataType: string
+		lineageTag: 7ba2c258-019a-4141-b48e-845ee63480bd
+		summarizeBy: none
+		sourceColumn: oh_ship_to_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_loc
+		dataType: int64
+		formatString: 0
+		lineageTag: 73a221be-0828-41ba-8f5a-0889ab7c9ff5
+		summarizeBy: sum
+		sourceColumn: oh_ship_to_loc
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_zip
+		dataType: string
+		lineageTag: 460656f4-e454-4964-94a9-b7d969718491
+		summarizeBy: none
+		sourceColumn: oh_ship_to_zip
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_name
+		dataType: string
+		lineageTag: c73551f7-6b84-4906-8efc-981c7e01f1ac
+		summarizeBy: none
+		sourceColumn: oh_ship_to_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column etl_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 23dae97e-d080-4280-82d8-569601b9f6f6
+		summarizeBy: none
+		sourceColumn: etl_timestamp
+
+		variation Variation
+			isDefault
+			relationship: bd70fbb3-7aa7-4edd-badd-c27a265b1458
+			defaultHierarchy: LocalDateTable_31fa1c9f-2464-4a63-a15f-db36803c6327.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_month
+		dataType: string
+		lineageTag: 45fe110f-51f3-4ebc-b77d-77b169aee71b
+		summarizeBy: none
+		sourceColumn: dt_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: bd7cc4d6-73a1-4442-9a05-2b8c4ab51984
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [je_no]&"\"&[je_line_no]&"\"&[sku_no]
+		lineageTag: b54fe542-767b-40ba-b6f4-39b60dbef5c1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_v2 =
+			
+			var manual_order=LOOKUPVALUE(BSIC_manual_result[Order],BSIC_manual_result[KEY],dwd_hyve_finance_ap_tariff_mi[KEY])
+			return
+			IF(ISBLANK([order_no]),manual_order,[order_no])
+		lineageTag: 1ad7eab8-ac96-4e21-9797-771b9c0139a7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2 =
+			
+			var cust_code_from_order=LOOKUPVALUE(BSIC_manual_result[cust_code_v2],BSIC_manual_result[KEY],dwd_hyve_finance_ap_tariff_mi[KEY])
+			var result1=IF(ISBLANK([po_cust_code]),cust_code_from_order,[po_cust_code])
+			var result2=IF(result1="WOODY_SPARE","WOODY",result1)
+			var result3=IF(LOOKUPVALUE('Hyve controlled invoices'[KEY],'Hyve controlled invoices'[KEY],dwd_hyve_finance_ap_tariff_mi[KEY])=BLANK(),BLANK(),"Woody")
+			var cust_code_per_ap_reference=LOOKUPVALUE('reference AP VEND DOC'[cust_code_v2],'reference AP VEND DOC'[KEY],dwd_hyve_finance_ap_tariff_mi[KEY_VEND_DOC])
+			var cust_code_per_ap_tracker_S1=IF([order_no]=BLANK(),LOOKUPVALUE('Tariff Expense Tracker'[cust_code_v3],'Tariff Expense Tracker'[AP Doc#],dwd_hyve_finance_ap_tariff_mi[doc_no]),BLANK())
+			var cust_code_per_ap_tracker_S2=IF([order_no]=BLANK(),LOOKUPVALUE('Tariff Expense Tracker'[cust_code_v4],'Tariff Expense Tracker'[Invoice# ],dwd_hyve_finance_ap_tariff_mi[vend_inv_no]),BLANK())
+			var cust_code_per_ap_tracker_FINAL= IF([order_no]=BLANK(),IF(cust_code_per_ap_tracker_S1<>BLANK(),cust_code_per_ap_tracker_S1,cust_code_per_ap_tracker_S2),LOOKUPVALUE('Tariff Expense Tracker'[cust_code_v2],'Tariff Expense Tracker'[PO Number],dwd_hyve_finance_ap_tariff_mi[order_no]))
+			RETURN
+			IF(result3<>BLANK(),result3,
+			IF(cust_code_per_ap_reference<>BLANK(),cust_code_per_ap_reference,
+			IF(result2<>BLANK(),result2,
+			IF(cust_code_per_ap_tracker_FINAL<>BLANK(),cust_code_per_ap_tracker_FINAL,"Unassigned"))))
+		lineageTag: 38669f29-50e9-4f9c-84a7-498ddfc3ac77
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'acc/acp flag' = IF([acc_svr_flag]="Y"||[acp_nw_flag]="Y"||[acp_part_flag]="Y","Y","N")
+		lineageTag: b6d057bf-4d51-43e3-a59b-23ad18179e21
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Woody Control vs Hyve Controlled' =
+			
+			IF([Jamila's comment]="GL Move Only","Spend exclusion",
+			    IF([acc/acp flag]="Y"&&[cust_code_v2]="WOODY","Woody Controlled Part Spend",
+			IF([acc/acp flag]="N"&&[cust_code_v2]="WOODY","Hyve Controlled Part Spend",
+			IF([acc/acp flag]="N"&&[cust_code_v2]=BLANK(),"Hyve Controlled Part Spend",
+			"Non Woody Spend"))))
+		lineageTag: 4f5acb77-78c4-4a44-b1b0-7cb84980b924
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&Month = DATE(YEAR([gl_trans_date]),MONTH([gl_trans_date]),1)
+		formatString: yyyy-mm
+		lineageTag: c0b87885-7d69-4314-8d2c-a49cf5d56740
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'SCM No & Vend Name' = [gl_project]&"\"&[scm_vend_name]
+		lineageTag: d76eae52-07e2-4139-90da-1d569e144b64
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercompany_flag =
+			
+			var result1=LOOKUPVALUE(dm_hyve_po_receiving_tariff_report_mi[intercomp_vend_flag],dm_hyve_po_receiving_tariff_report_mi[doc_no],dwd_hyve_finance_ap_tariff_mi[order_no])
+			var result2=LOOKUPVALUE('cust code result per manual order'[intercomp_vend_flag],'cust code result per manual order'[doc_no],dwd_hyve_finance_ap_tariff_mi[order_no])
+			var result3=IF(ISBLANK(result1),result2,result1)
+			RETURN
+			IF(result3=BLANK(),BLANK(),"intercomp_vend")
+		lineageTag: dc0ec2d5-3c9d-48ee-bc2f-06c029e28dbf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Jamila''s comment' = LOOKUPVALUE('Jamila list'[Jamila],'Jamila list'[doc],dwd_hyve_finance_ap_tariff_mi[doc_no])
+		lineageTag: c647997d-90a3-44fc-8811-b51fdd7ba61f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Excluded_flag =
+			
+			IF([Jamila's comment]="GL Move Only","GL Move Only",
+			IF([intercompany_flag]="Y","Intercompany Vend",BLANK()))
+		lineageTag: 850de20e-a210-4183-bb89-7e5245b5ceaf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_POCV = [region_no]&"\"&[order_no]&"\"&[order_line_no]&"\"&[sku_no]&"\"&[rec_datetime]
+		lineageTag: acf51813-8c2b-48be-9d1f-9d1f1d348b25
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU_COO_S1 = ```
+			
+			var s1=LOOKUPVALUE('Top SKU for Tariff'[updated_coo],'Top SKU for Tariff'[sku_no],dwd_hyve_finance_ap_tariff_mi[sku_no])
+			var s2=CALCULATE(MAX(dwd_hyve_finance_ap_tariff_mi[cis_sku_coo]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[KEY_POCV]))
+			var s3=LOOKUPVALUE(dim_part[sku_coo],dim_part[KEY],dwd_hyve_finance_ap_tariff_mi[KEY_SKU])
+			RETURN
+			IF(LEN(s1)>1,s1,
+			IF(LEN(s2)>1,s2,
+			IF(LEN(s3)>1,s3,
+			s1&s2&s3)))
+			
+			```
+		lineageTag: e7ea9d2a-c859-41da-9ee0-d232db53aded
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gl_amt_order_level = CALCULATE(SUM([gl_amt_no_duplicate]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]))
+		lineageTag: b43bf773-c251-4061-969e-e081bbe15238
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KEY_SKU =
+			
+			[region_no]&"\"&[sku_no]
+		lineageTag: be22365f-d0dc-4aa6-b0e0-a2749a7194dd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column COO_flag =
+			
+			var flag=SEARCH("CN",[SKU_COO_S1],,BLANK())
+			return
+			IF(flag<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 419be676-bc2f-47e3-b837-ca3baf90946b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_total_cost = [po_cost]*[rec_qty]
+		lineageTag: 2c9ea707-1b0a-4713-94c1-5548475543d8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COO_contains_CN_sku_cnt = CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[dt_month]))
+		formatString: 0
+		lineageTag: c1c690db-679a-4f6e-a801-532867cc0ef4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentage_of_total_base_cost = ```
+			
+			var total_cost_coo_china=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]),dwd_hyve_finance_ap_tariff_mi[COO_flag]=1)
+			var total_cost_all_part=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]))
+			return
+			IF([line_total_cost]=0,0,
+			IF([COO_contains_CN_sku_cnt]=0,
+			[line_total_cost]/total_cost_all_part,
+			IF([COO_flag]=1,[line_total_cost]/total_cost_coo_china,BLANK())))
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 281daa80-a039-4441-9af1-25109d80121e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_sku_tariff_pocv% = ```
+			
+			VAR S0=LOOKUPVALUE(dm_hyve_po_receiving_tariff_report_mi[TARIFF_V2],dm_hyve_po_receiving_tariff_report_mi[KEY],dwd_hyve_finance_ap_tariff_mi[KEY_POCV])
+			var s1=LOOKUPVALUE(current_system_tariff_rate[total tariff],current_system_tariff_rate[sku_no],dwd_hyve_finance_ap_tariff_mi[sku_no])
+			var s2=IF([COO_flag]=1&&[gl_trans_date]<DATE(2025,1,1),1,0)
+			return
+			IF(S0<>BLANK(),S0,
+			IF(s2=1,
+			IF(s1=0.7||s1=0.45,0.25,
+			IF(s1=0.525||s1=0.275,0.075,
+			IF(s1=0.075,0.075,
+			IF(s1=0.25,0.25,0.25)))),S1))
+			
+			
+			```
+		lineageTag: c5d2a563-289f-4ff5-9f61-9a94b4c07a20
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL Cost attribution_s1' =
+			
+			///PO only hasn 1 SKU
+			var SKU_cnt_order_level=CALCULATE(DISTINCTCOUNT([KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			return
+			IF(SKU_cnt_order_level=1,[total_gl_amt_order_level],BLANK())
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1f98ca4c-e92b-47c6-8232-c2c8eededc89
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s2' =
+			
+			///all SKU under the PO doesn't contains COO China
+			var SKU_cnt_order_level=CALCULATE(COUNT([KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			return
+			IF([COO_contains_CN_sku_cnt]=0&&SKU_cnt_order_level>1,[total_gl_amt_order_level]*[percentage_of_total_base_cost],BLANK())
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3d363852-0a88-47c4-a162-2fb4d0748f47
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s3' =
+			
+			///some SKU contain COO China
+			IF([GL Cost attribution_s1]=BLANK()&&[GL Cost attribution_s2]=BLANK(),
+			IF([current_sku_tariff_pocv%]<>BLANK()&&[COO_flag]=1,[line_total_cost]*[current_sku_tariff_pocv%],
+			IF([current_sku_tariff_pocv%]=BLANK()&&[COO_flag]=1,[line_total_cost]*0.25,0)))
+		lineageTag: bd4406fb-206e-4520-ba49-7bf24509d33b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL Cost attribution_s4' =
+			
+			VAR S1=CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_v2],dwd_hyve_finance_ap_tariff_mi[dt_month]))
+			VAR S2=[total_gl_amt_order_level]-S1
+			RETURN
+			IF([line_total_cost]=0,0,
+			IF(S2=0,[GL Cost attribution_s3],
+			[total_gl_amt_order_level]*[percentage_of_total_base_cost]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5da3dfac-f50c-4c3e-80ba-8772afba08b7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_final' =
+			
+			VAR S0=CALCULATE(COUNT(dwd_hyve_finance_ap_tariff_mi[KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			var s1=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			var s2=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			RETURN
+			IF([order_no]=BLANK(),[gl_amt_no_duplicate],
+			IF(s1=BLANK(),
+			IF(dwd_hyve_finance_ap_tariff_mi[COO_flag]=1,[total_gl_amt_order_level]/dwd_hyve_finance_ap_tariff_mi[COO_contains_CN_sku_cnt],
+			IF(s2=0,
+			[total_gl_amt_order_level]/S0)),dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 19943516-4f0e-4bfa-bfdd-72102c6d808d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'ACC/ACP Type' =
+			IF([acc_svr_flag]="Y","ACC",
+			IF([acp_nw_flag]="Y","NW",
+			IF([acp_part_flag]="Y","ACP","Non ACC/ACP")))
+		lineageTag: 23640536-4d1d-4611-b6f8-28a2e5832f7c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name =
+			
+			SWITCH(dwd_hyve_finance_ap_tariff_mi[region_no],10001,"Hyve US",10002,"Hyve UK",10006,"Hyve CN",10007, "Hyve WW")
+		lineageTag: 2d8cc385-39ca-4d93-8770-05f91ceb7cfd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Userid = ```
+			100 
+			```
+		formatString: 0
+		lineageTag: 789f8186-5e2a-4109-a566-652b17af308a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_VEND_DOC = [region_no]&"\"&[doc_no]
+		lineageTag: ea0754f6-ef4a-480f-865c-0d1534b32d54
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_loc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ea78d39-e5b0-4b3a-85d3-4258d0f92698
+		summarizeBy: sum
+		sourceColumn: to_loc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column INV_Program = ```
+			
+			VAR CUST=LOOKUPVALUE('~INV location_mapping'[Cust],'~INV location_mapping'[Location],[to_loc_no])
+			VAR PROGRAM=LOOKUPVALUE('~INV location_mapping'[Cust program],'~INV location_mapping'[Location],[to_loc_no])
+			var woody=IF(CUST="Woody"&&[cust_code_v2]="WOODY",PROGRAM,BLANK())
+			var eve=IF(CUST="Eve"&&[cust_code_v2]="EVE","EVE",BLANK())
+			var _all_cust=IF(CUST="All",PROGRAM,BLANK())
+			RETURN
+			IF(woody<>BLANK(),woody,
+			IF(eve<>BLANK(),eve,
+			_all_cust))
+			
+			```
+		lineageTag: 0c1ae25c-8bb2-4edd-b0f9-0a0b0afb60aa
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_by_location =
+			
+			VAR _tt = LOOKUPVALUE('~Hill''s location mapping'[program_name], '~Hill''s location mapping'[loc_no], dwd_hyve_finance_ap_tariff_mi[to_loc_no])
+			VAR CUST=LOOKUPVALUE('~Hill''s location mapping'[Cust], '~Hill''s location mapping'[loc_no], dwd_hyve_finance_ap_tariff_mi[to_loc_no])
+			VAR _Result = SWITCH(TRUE()
+			                ,CUST="WOODY"&&[cust_code_v2]="WOODY",_tt
+			                ,CUST="ALL"&&_tt<>BLANK(),_tt,BLANK()
+			)
+			RETURN _Result
+		lineageTag: 6a9fe94a-f463-41dc-8fbc-d828f43f0b57
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Cost attribution_s5' = ```
+			
+			IF([GL Cost attribution_s2]<>BLANK(),[GL Cost attribution_s2],  
+			IF([GL Cost attribution_s4]<>BLANK(),[GL Cost attribution_s4],BLANK()))
+			```
+		lineageTag: 48319b29-c865-48bb-b987-6c65d8339620
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column asset_tag_check
+		type: calculated
+		lineageTag: 87558582-d384-444c-af92-060042622b00
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_program_final =
+			
+			var _ExcludeBSIC = {"TBD", "Unable", "Smaller amt","MFG"}
+			var cust_code = IF(SUMX(_ExcludeBSIC,IF(CONTAINSSTRING(dwd_hyve_finance_ap_tariff_mi[cust_code_v2], [Value]),1,0)) > 0, BLANK(), dwd_hyve_finance_ap_tariff_mi[cust_code_v2])
+			RETURN
+			COALESCE([program_by_location],[INV_Program],cust_code,"Unassigned")
+		lineageTag: accce534-ea96-4fd1-9372-9c98fdd42af1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dwd_hyve_finance_ap_tariff_mi = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD_US", "SELECT /*+label('From PBI model/Dataflow Hyve Finance/Hyve Tariff Spend vs Recovery Analysis by alyssa.lei')*/ #(lf)    a.*,#(lf)    b.to_loc_no#(lf)FROM #(lf)    dw_hygbl.dwd_hyve_finance_ap_tariff_mi AS a#(lf)LEFT JOIN #(lf)    dw_hygbl.dwd_hyve_pur_related_order_header AS b#(lf)ON #(lf)a.region_no = b.region_no#(lf)and a.order_type=b.order_type#(lf)and a.order_no=b.order_no")
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

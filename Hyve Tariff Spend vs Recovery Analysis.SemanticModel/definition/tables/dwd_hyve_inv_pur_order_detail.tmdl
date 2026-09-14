@@ -1,0 +1,64 @@
+table dwd_hyve_inv_pur_order_detail
+	lineageTag: 27729802-a9f3-45a0-9041-7f802d103b2f
+
+	column po_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 032d7ce1-f891-4f84-9a98-b6fccd46dc07
+		summarizeBy: sum
+		sourceColumn: po_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_part_no
+		dataType: string
+		lineageTag: 27275355-2a63-485e-b583-43a727d4e426
+		summarizeBy: none
+		sourceColumn: line_part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_line_order_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 28d1c608-ba33-49e8-ac65-8d86f8c6eed2
+		summarizeBy: sum
+		sourceColumn: total_line_order_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_line_received_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: f8adcb06-f1e9-4cb4-b5dc-25c26edd4f2a
+		summarizeBy: sum
+		sourceColumn: total_line_received_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_line_received_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c4f73872-fa8b-42ce-a7b8-6c1674d1f346
+		summarizeBy: none
+		sourceColumn: max_line_received_date
+
+		variation Variation
+			isDefault
+			relationship: 08723d98-e92b-4c93-ab6f-dda8dba8eaf3
+			defaultHierarchy: LocalDateTable_c7871f1e-73ad-46e7-8679-dba479022b5c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dwd_hyve_inv_pur_order_detail = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD_US", "SELECT#(lf)    po_no,#(lf)    line_part_no,#(lf)    SUM(line_order_qty) AS total_line_order_qty,#(lf)    SUM(line_received_qty) AS total_line_received_qty,#(lf)    MAX(line_received_date) AS max_line_received_date#(lf)FROM dw_hygbl.dwd_hyve_inv_pur_order_detail#(lf)WHERE line_received_date > '2024-01-01'#(lf)GROUP BY po_no, line_part_no;")
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

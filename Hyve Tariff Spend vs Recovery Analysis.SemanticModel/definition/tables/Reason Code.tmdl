@@ -1,0 +1,146 @@
+table 'Reason Code'
+	lineageTag: 67f3cb5d-6d19-459e-89c3-86708caa6689
+
+	column 'Part No'
+		dataType: string
+		lineageTag: 9ba189ac-abbb-4b99-9198-a3427a860b58
+		summarizeBy: none
+		sourceColumn: Part No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason Code'
+		dataType: string
+		lineageTag: 124b60db-285f-4633-a5d2-91cff58ee712
+		summarizeBy: none
+		sourceColumn: Reason Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_no =
+			
+			var s1=CALCULATE(MAX('Completed INV Correction'[Transfer to SCM#]),FILTER(ALL('Completed INV Correction'),'Completed INV Correction'[Part#]='Reason Code'[Part No]&&'Completed INV Correction'[Pick Date]='Completed INV Correction'[Last_pick_date]))
+			var s2=LOOKUPVALUE('Manual Adjustments'[SCM#],'Manual Adjustments'[Part #],'Reason Code'[Part No])
+			var s3= CALCULATE(MAX('Completed INV Correction'[Transfer to SCM#]),FILTER(ALL('Completed INV Correction'),'Completed INV Correction'[Part#]='Reason Code'[Part No]))
+			return
+			IF(s1<>BLANK(),s1,
+			IF(s2<>BLANK(),s2,s3))
+		formatString: 0
+		lineageTag: 5de3d0a3-3878-44d6-a9b2-491884bceb61
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total INV correction' = CALCULATE(SUM('Completed INV Correction'[Total Amt]),FILTER(ALL('Completed INV Correction'),'Completed INV Correction'[Part#]='Reason Code'[Part No]))+CALCULATE(SUM('Manual Adjustments'[Total Amount]),FILTER(ALL('Manual Adjustments'),'Reason Code'[scm_no]='Manual Adjustments'[SCM#]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d13f116b-05e2-42bc-85b5-ae215c310f27
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		dataType: string
+		lineageTag: 30a808d9-7d46-4367-b0e5-83dcca7ad07d
+		summarizeBy: none
+		sourceColumn: Column3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		lineageTag: 2c0f3e59-a977-462e-87db-8ad778d0e207
+		summarizeBy: none
+		sourceColumn: Column4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		dataType: string
+		lineageTag: 4ae1326b-69e6-425c-9f30-b4c43d8c295e
+		summarizeBy: none
+		sourceColumn: Column5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column6
+		dataType: string
+		lineageTag: 72ba6ecd-1f45-47a0-a4ef-778f17181bb9
+		summarizeBy: none
+		sourceColumn: Column6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column7
+		dataType: string
+		lineageTag: 8e8db24c-1691-482f-aeb1-44b6509a969b
+		summarizeBy: none
+		sourceColumn: Column7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column8
+		dataType: string
+		lineageTag: f3727467-0e97-4d34-a8ff-620684efe66f
+		summarizeBy: none
+		sourceColumn: Column8
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column9
+		dataType: string
+		lineageTag: 4e450602-7759-4afc-83c3-993a78cee029
+		summarizeBy: none
+		sourceColumn: Column9
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column10
+		dataType: string
+		lineageTag: 8e8a5d89-3fa6-413f-9027-a58b33abfc03
+		summarizeBy: none
+		sourceColumn: Column10
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column11
+		dataType: string
+		lineageTag: d0905ff3-8a14-4aba-ad30-e1b98fee7790
+		summarizeBy: none
+		sourceColumn: Column11
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column12
+		dataType: string
+		lineageTag: 393c0958-560d-45ea-b346-cec6153a70e8
+		summarizeBy: none
+		sourceColumn: Column12
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column13
+		dataType: string
+		lineageTag: f4cdd814-0467-4fe5-8e40-7f5c89d26669
+		summarizeBy: none
+		sourceColumn: Column13
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Reason Code' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"reason code xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="reason code.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"导入的 Excel 工作簿" = Excel.Workbook(#"reason code xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    detail_Sheet = #"导入的 Excel 工作簿"{[Item="detail",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(detail_Sheet, [PromoteAllScalars=true]),
+				    更改的类型 = Table.TransformColumnTypes(提升的标题,{{"Part No", type text}, {"Reason Code", type text}})
+				in
+				    更改的类型
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

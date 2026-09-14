@@ -1,0 +1,777 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Cost Attribution",
+  "name": "eb23959fd402763087d6",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "cf36854a8690f87d993f",
+    "sections": {
+      "cf36854a8690f87d993f": {
+        "visualContainers": {
+          "6557de8fce90d79a5978": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "00c39fb11cd9043dded0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_code"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_code"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6c8231c1d0b7bb46d8ba": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a3b79c1425ee462760b0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "APN"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "APN"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "aec00a7b01e534660911": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "df2c9a3646c723e0c09c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "dt_month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b0675c40c4677c9c3a9b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "ODM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d49b13d45d6d1baa2734",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "po_no"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2d95eafe04a409577737",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "APN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2cdb4df89646093b9551",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "MPN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d3cee682d66700d0bbcc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Description"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5adb977609b0e6586bde",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Supplier"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "206f07bde07c4794b089",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Commodity Group"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db9a25b11470c02e1b86",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "HTS Code"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7a1751be4b60e9901ac0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Received Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f57efe4a94b170ba3692",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Received Qty"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "37e045020b62cd2a5ad7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "PO Line Cost"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "49e5c48650d065bb0114",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Country of Origin"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d829549600a8548a6d3e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Ship to Country"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02d4b9a2c61a59681d32",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "fact_spend_GL_cost_attribution"
+                            }
+                          },
+                          "Property": "GL Cost attribution_final"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7a269545058b098bba51",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "percentage_of_total_base_cost"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "609ea8331c792e720715",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "current_sku_tariff_pocv"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f8cd6b4c33ab60bc6501",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_code"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "546b8c438dba9072d8cd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_program"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "dt_month"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "75395f0ca3dade845930": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ac0075edc30c9b6b4604",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "dt_month"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "dt_month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "86d0c5c9ea501ebeae14": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ed9432b5bc4ad563d3c1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Supplier"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2caee520b96a5640aba0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "ODM"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "ODM"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "fact_spend_GL_cost_attribution.ODM"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "fact_spend_GL_cost_attribution"
+                              }
+                            },
+                            "Property": "ODM"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "fact_spend_GL_cost_attribution.Supplier"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "3001eeae85b4beed0607": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6a02f9180673260628ec",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Commodity Group"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "Commodity Group"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b1bde508a9e8433c67e2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "996a69bac99d27b0dd88",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_program"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "cust_program"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f762bb9db527e663b0e0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0f9e6931448c98cdb3cd",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_spend_GL_cost_attribution"
+                        }
+                      },
+                      "Property": "po_no"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "massFilter2E7137AC1174403C8CF3456F3EB0B7D7",
+              "objects": {}
+            }
+          },
+          "853eb8044b795e309acb": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "0b086638e4c85a16d27d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

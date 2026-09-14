@@ -1,0 +1,566 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ca43848dabbeb03ce3b6",
+  "position": {
+    "x": 183.77602297200286,
+    "y": 351.93108399138549,
+    "z": 12000,
+    "height": 335.39124192390523,
+    "width": 1081.5218951902368,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "region_name"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.region_name",
+              "nativeQueryRef": "region_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "order_no"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.order_no",
+              "nativeQueryRef": "order_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "order_type"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.order_type)",
+              "nativeQueryRef": "order_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "ext_qty"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.ext_qty)",
+              "nativeQueryRef": "ext_qty"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "oh_ship_date"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.oh_ship_date",
+              "nativeQueryRef": "oh_ship_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "oh_invoice_date"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.oh_invoice_date",
+              "nativeQueryRef": "oh_invoice_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_rack_line_ipn"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_rack_line_ipn",
+              "nativeQueryRef": "so_rack_line_ipn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_kit_line_ipn"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_kit_line_ipn",
+              "nativeQueryRef": "so_kit_line_ipn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_rack_line_model"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_rack_line_model",
+              "nativeQueryRef": "so_rack_line_model"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_kit_line_part_no"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_kit_line_part_no",
+              "nativeQueryRef": "so_kit_line_part_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_rack_cnt"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.so_rack_cnt)",
+              "nativeQueryRef": "so_rack_cnt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_server_cnt"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_server_cnt",
+              "nativeQueryRef": "so_server_cnt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_end_user_po"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_end_user_po",
+              "nativeQueryRef": "so_end_user_po"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_end_user_po_date"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_end_user_po_date",
+              "nativeQueryRef": "so_end_user_po_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "asset_tag"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.asset_tag)",
+              "nativeQueryRef": "asset_tag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "oh_from_loc_no"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.oh_from_loc_no)",
+              "nativeQueryRef": "oh_from_loc_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "oh_to_loc_no"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.oh_to_loc_no)",
+              "nativeQueryRef": "oh_to_loc_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_cust_no"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.so_cust_no)",
+              "nativeQueryRef": "so_cust_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "so_cust_name"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.so_cust_name",
+              "nativeQueryRef": "so_cust_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "cust_code_group"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.cust_code_group",
+              "nativeQueryRef": "cust_code",
+              "displayName": "cust_code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "amazon_part_number"
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.amazon_part_number)",
+              "nativeQueryRef": "line_items",
+              "displayName": "line_items"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "item"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.item",
+              "nativeQueryRef": "item_category",
+              "displayName": "item_category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.description",
+              "nativeQueryRef": "item_desc1",
+              "displayName": "item_desc"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                        }
+                      },
+                      "Property": "line_price_usd"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(tt_woody_tariff_recovery_202411052028.line_price_usd)",
+              "nativeQueryRef": "Sum of line_price_usd"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "quote_match_cmmt"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.quote_match_cmmt",
+              "nativeQueryRef": "quote_match_cmmt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "quote_file_name"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.quote_file_name",
+              "nativeQueryRef": "quote_file_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "valid_to_date"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.valid_to_date",
+              "nativeQueryRef": "quote_valid_to_date",
+              "displayName": "quote_valid_to_date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                    }
+                  },
+                  "Property": "order_no_v2"
+                }
+              },
+              "queryRef": "tt_woody_tariff_recovery_202411052028.order_no_v2",
+              "nativeQueryRef": "invoice order",
+              "displayName": "invoice order"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "tt_woody_tariff_recovery_202411052028"
+                  }
+                },
+                "Property": "amazon_part_number"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detail Data'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

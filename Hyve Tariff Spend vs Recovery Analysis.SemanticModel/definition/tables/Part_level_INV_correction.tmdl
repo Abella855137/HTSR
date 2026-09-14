@@ -1,0 +1,78 @@
+table Part_level_INV_correction
+	lineageTag: ebdd2ca3-6893-41ee-9802-67265338d0cf
+
+	column 'Total Correction Amt'
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 56062703-b652-4c9a-a699-7f713aef7220
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Correction Amt]
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_no
+		formatString: 0
+		lineageTag: c8e2d87c-9958-47c9-bb83-4575013eff33
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [scm_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Part_no
+		lineageTag: eabaccdc-8fe7-42c9-b2f2-53408f8334a6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Part_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason_code = ```
+			
+			 var s1=LOOKUPVALUE('Reason Code'[Reason Code],'Reason Code'[Part No],[Part_no])
+			 return
+			IF(s1="TBD"&&ABS(Part_level_INV_correction[Total Correction Amt])<100,"No Assessment",
+			IF(s1=BLANK()&&ABS(Part_level_INV_correction[Total Correction Amt])<100,"No Assessment",
+			IF(s1=BLANK(),"TBD",S1)))
+			```
+		lineageTag: 053a0c2b-1491-4cbc-8cfb-2ad57455f410
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Part_level_INV_correction = calculated
+		mode: import
+		source =
+				
+				var INV_correction=
+				GROUPBY(
+				    SELECTCOLUMNS(
+				        'Completed INV Correction',
+				        "scm_no", 'Completed INV Correction'[Transfer to SCM#],
+				        "Part_no", 'Completed INV Correction'[Part#],
+				        "INV correction amt", 'Completed INV Correction'[Total Amt]
+				    ),
+				    [scm_no],
+				    [Part_no],
+				    "Total Correction Amt",
+				    SUMX(CURRENTGROUP(), -[INV correction amt])
+				)
+				VAR manual_adj=
+				GROUPBY(
+				    SELECTCOLUMNS(
+				        'Manual Adjustments',
+				        "scm_no", 'Manual Adjustments'[SCM#],
+				        "Part_no", 'Manual Adjustments'[Part #],
+				        "INV correction amt", 'Manual Adjustments'[Total Amount]
+				    ),
+				    [scm_no],
+				    [Part_no],
+				    "Total Correction Amt",
+				    SUMX(CURRENTGROUP(), [INV correction amt])
+				)
+				
+				return
+				UNION(INV_correction,manual_adj)
+
+	annotation PBI_Id = 267ce693e3264e4d82e60800f6219c6f
+

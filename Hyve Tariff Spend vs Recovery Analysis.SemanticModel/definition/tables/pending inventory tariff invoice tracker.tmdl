@@ -1,0 +1,294 @@
+table 'pending inventory tariff invoice tracker'
+	lineageTag: 28b04522-94a2-4018-832a-a51e13d8f162
+
+	column 'Vendor Number '
+		dataType: int64
+		formatString: 0
+		lineageTag: 430a3627-348e-4583-9aab-2855de67a7f2
+		summarizeBy: sum
+		sourceColumn: "Vendor Number "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		lineageTag: 7c497fe5-1ad3-433b-acea-b5b4a756c538
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 61e4370b-e679-4b2b-b3cd-db06c1c48f45
+		summarizeBy: sum
+		sourceColumn: Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 0868bb29-bec1-4190-a5d7-b83a2efd3883
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Ship-To Location'
+		dataType: string
+		lineageTag: f98f8d1d-de8e-4f06-a30e-34051b76f48e
+		summarizeBy: none
+		sourceColumn: PO Ship-To Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: cf68e5ec-3814-4c61-a02f-519802e502b2
+		summarizeBy: sum
+		sourceColumn: PO Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Line#'
+		dataType: int64
+		formatString: 0
+		lineageTag: ffa0f465-b8d9-460e-8d2f-86081ca6d047
+		summarizeBy: sum
+		sourceColumn: PO Line#
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyve Part Number '
+		dataType: string
+		lineageTag: 9982d7c9-e211-49ca-8ee1-7927c5dc784d
+		summarizeBy: none
+		sourceColumn: "Hyve Part Number "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MFG Part Number'
+		dataType: string
+		lineageTag: 5f28a8d5-2150-48d0-be4d-4248fd0e5fe0
+		summarizeBy: none
+		sourceColumn: MFG Part Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Ship Term'
+		dataType: string
+		lineageTag: 1a1d9277-0d1f-4f51-9716-8b8ff2bd9719
+		summarizeBy: none
+		sourceColumn: PO Ship Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HTS Code'
+		dataType: string
+		lineageTag: b1112a5d-195e-452d-ab03-eb0bbbd9a7db
+		summarizeBy: none
+		sourceColumn: HTS Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tariff Part Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: b59a702c-87bf-4d2a-8da5-9a5c226c88fa
+		summarizeBy: sum
+		sourceColumn: Tariff Part Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Base Price'
+		dataType: double
+		lineageTag: 02840b4c-6a29-4904-8a22-8a6e708e8030
+		summarizeBy: sum
+		sourceColumn: PO Base Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Unit Tariff Rate=O2/M2'
+		dataType: string
+		lineageTag: cd9551dc-1301-4e23-8fe1-89e29fdeb79e
+		summarizeBy: none
+		sourceColumn: PO Unit Tariff Rate=O2/M2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Unit Tariff Amount'
+		dataType: string
+		lineageTag: 4cba0609-00d2-4975-a789-628799b9cd40
+		summarizeBy: none
+		sourceColumn: PO Unit Tariff Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tariff Rate (Invoice)'
+		dataType: double
+		lineageTag: c620fc0c-3720-4ec4-a9d7-ff2fb3d2fd8d
+		summarizeBy: sum
+		sourceColumn: Tariff Rate (Invoice)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Unit Amount (Invoice)=R2/L2'
+		dataType: double
+		lineageTag: d6ecbdac-49f2-4255-9f03-7d80572bef17
+		summarizeBy: sum
+		sourceColumn: Tariff Unit Amount (Invoice)=R2/L2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Total Amount (Invoice by Rate)=L2*M2*P2'
+		dataType: double
+		lineageTag: 9da7e1d7-545a-4b1a-81db-7a92476b9afb
+		summarizeBy: sum
+		sourceColumn: Tariff Total Amount (Invoice by Rate)=L2*M2*P2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Total Amount (Actual)'
+		dataType: double
+		lineageTag: 06a4df11-81cd-4440-8dbd-dcebddf38cea
+		summarizeBy: sum
+		sourceColumn: Tariff Total Amount (Actual)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Part COO in CIS'
+		dataType: string
+		lineageTag: 21be6a65-5235-477c-af9a-4c60f5990d88
+		summarizeBy: none
+		sourceColumn: Part COO in CIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO COO'
+		dataType: string
+		lineageTag: 0c883284-8bf5-4652-b172-8ee1cdbeb262
+		summarizeBy: none
+		sourceColumn: PO COO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipment COO (Invoice)'
+		dataType: string
+		lineageTag: 9d38ae6d-d464-4df2-aadd-ccf831aab8a7
+		summarizeBy: none
+		sourceColumn: Shipment COO (Invoice)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Vendor Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5ba1ac4-192e-4c44-8401-5e2a5afbe390
+		summarizeBy: sum
+		sourceColumn: Invoice Vendor Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Vendor Name'
+		dataType: string
+		lineageTag: 8dbce31f-ed3e-48bd-a2fa-0f507ef3d3e8
+		summarizeBy: none
+		sourceColumn: Invoice Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice# '
+		dataType: string
+		lineageTag: 923b5da9-40a8-470e-940e-4ee6a01bd3a8
+		summarizeBy: none
+		sourceColumn: "Invoice# "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Date'
+		dataType: string
+		lineageTag: 78a62d3d-69bf-4a8e-b271-cbea1e8c7f65
+		summarizeBy: none
+		sourceColumn: Invoice Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCM Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 25d4615a-3eb5-4f17-8b34-85799f1ab67c
+		summarizeBy: sum
+		sourceColumn: SCM Number
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Doc#'
+		dataType: string
+		lineageTag: 9e5868f3-7417-4775-9bdb-6f6a9a77de13
+		summarizeBy: none
+		sourceColumn: AP Doc#
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discrepancy (Yes/No)'
+		dataType: string
+		lineageTag: d14298bc-8679-4f61-a30f-42d410674b02
+		summarizeBy: none
+		sourceColumn: Discrepancy (Yes/No)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discrepancy Reason'
+		dataType: string
+		lineageTag: d6275646-d7c1-44da-9a8c-6a4cc39dcaa7
+		summarizeBy: none
+		sourceColumn: Discrepancy Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Comments'
+		dataType: string
+		lineageTag: 4f63cc27-a9ae-45c5-a481-ce8d072f49bd
+		summarizeBy: none
+		sourceColumn: AP Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = 'pending inventory tariff invoice tracker'[PO Number]&"\"&[Hyve Part Number ]
+		lineageTag: 8bc58aff-7bfd-4022-aa6d-b7f96146f7f3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'pending inventory tariff invoice tracker' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"pending inventory tariff invoice tracker xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="pending inventory tariff invoice tracker.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"pending inventory tariff invoice tracker xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Vendor Number ", Int64.Type}, {"Vendor Name", type text}, {"Customer Number", Int64.Type}, {"Customer Name", type text}, {"PO Ship-To Location", type text}, {"PO Number", Int64.Type}, {"PO Line#", Int64.Type}, {"Hyve Part Number ", type text}, {"MFG Part Number", type text}, {"PO Ship Term", type text}, {"HTS Code", type any}, {"Tariff Part Qty", Int64.Type}, {"PO Base Price", type number}, {"PO Unit Tariff Rate#(lf)=O2/M2", type any}, {"PO Unit Tariff Amount", type any}, {"Tariff Rate (Invoice)", type number}, {"Tariff Unit Amount (Invoice)#(lf)=R2/L2", type number}, {"Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", type number}, {"Tariff Total Amount #(lf)(Actual)", type number}, {"Part COO in CIS", type text}, {"PO COO", type text}, {"Shipment COO (Invoice)", type any}, {"Invoice Vendor Number", Int64.Type}, {"Invoice Vendor Name", type text}, {"Invoice# ", type any}, {"Invoice Date", type any}, {"SCM Number", type any}, {"AP Doc#", type any}, {"Discrepancy (Yes/No)", type text}, {"Discrepancy Reason", type text}, {"AP Comments", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

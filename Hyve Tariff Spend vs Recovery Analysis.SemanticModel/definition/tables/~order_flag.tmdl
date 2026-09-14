@@ -1,0 +1,160 @@
+table ~order_flag
+	lineageTag: aff0f131-5897-4ac2-b119-c09d7bdee7e3
+
+	column row_cnt
+		dataType: int64
+		formatString: 0
+		lineageTag: 0850aaf8-97bf-4d24-9c43-e71a4b7687db
+		summarizeBy: sum
+		sourceColumn: row_cnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f154e2b9-430a-4334-a790-241fd38c82c0
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 51fa7dba-259b-4d9b-9c85-1d521e1c4ca3
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: string
+		lineageTag: 6d2daade-d2ca-419b-ba07-22f62dfe2f42
+		summarizeBy: none
+		sourceColumn: order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_cust_name
+		dataType: string
+		lineageTag: 2d386792-312b-45cd-80fe-95dbcd94724c
+		summarizeBy: none
+		sourceColumn: order_cust_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column icpvpo_region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 5024bf54-5612-4ea2-b31f-256e367271a1
+		summarizeBy: sum
+		sourceColumn: icpvpo_region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column icpvpo_order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: e210f3d2-af77-4d32-8499-34e5cb64a3fd
+		summarizeBy: sum
+		sourceColumn: icpvpo_order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column icpvpo_order_no
+		dataType: int64
+		formatString: 0
+		lineageTag: c91f0a7b-4c9b-4220-9259-9295ec23b877
+		summarizeBy: sum
+		sourceColumn: icpvpo_order_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column icpvpo_loc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 87f7faf1-5df2-4190-a04f-32a945cb0e97
+		summarizeBy: sum
+		sourceColumn: icpvpo_loc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column icpvpo_vend_name
+		dataType: string
+		lineageTag: 01e4c69f-5cdc-4b83-86d3-44f0235590d6
+		summarizeBy: none
+		sourceColumn: icpvpo_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercompany_flag
+		dataType: string
+		lineageTag: a232cefa-0e43-44f0-99fd-c049dc811a90
+		summarizeBy: none
+		sourceColumn: intercompany_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_level_prod_line
+		dataType: string
+		lineageTag: b7e8cbc7-31f9-467c-9571-7b37cfa09f9a
+		summarizeBy: none
+		sourceColumn: first_level_prod_line
+
+		annotation SummarizationSetBy = Automatic
+
+	column internal_cust_program
+		dataType: string
+		lineageTag: 0e49f4b3-8b10-42fa-871c-ff29f244ad12
+		summarizeBy: none
+		sourceColumn: internal_cust_program
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_top_line_sys_type_desc
+		dataType: string
+		lineageTag: b1e33b4c-cac8-4271-af7b-d824d1b734b3
+		summarizeBy: none
+		sourceColumn: order_top_line_sys_type_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_janus_flag
+		dataType: string
+		lineageTag: c0e40957-99e6-44d0-8731-138dafa658b7
+		summarizeBy: none
+		sourceColumn: so_janus_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_flag_s1
+		dataType: string
+		lineageTag: 0c1eb572-fc4a-416d-806d-64efc4b84407
+		summarizeBy: none
+		sourceColumn: cust_flag_s1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_flag_s1_source
+		dataType: string
+		lineageTag: 8ba3e993-073a-4c0e-93dc-045def2d8def
+		summarizeBy: none
+		sourceColumn: cust_flag_s1_source
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ~order_flag = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD_US", "select /*+label('From PBI model/Dataflow Hyve Finance/Hyve Tariff Spend vs Recovery Analysis by alyssa.lei')*/#(lf)COUNT(*) OVER(PARTITION BY - 999) AS row_cnt,#(lf)region_no,order_type, order_no, order_cust_name,cust_flag_s1,cust_flag_s1_source, icpvpo_region_no, icpvpo_order_type, icpvpo_order_no, icpvpo_loc_no, icpvpo_vend_name,#(lf)case when upper(order_cust_name) like '%HYVE%' and upper(icpvpo_vend_name) like '%HYVE%' then 'INTERCOCOMPANY'#(lf)when upper(order_cust_name) like '%HYVE%' and icpvpo_order_no is null then 'SAGE'#(lf)else 'NA' end as 'intercompany_flag',#(lf)first_level_prod_line, internal_cust_program, order_top_line_sys_type_desc,#(lf)case when oh_ship_to_state = 'TN' and internal_cust_program like '%SPARE%' and region_no = 10001 then 'JANUS'#(lf)else 'NON_JANUS' end as 'so_janus_flag'#(lf)from#(lf)dm_hygbl.dm_hyve_biz_perf_rawdata_mi#(lf)where order_type = 1#(lf)#(lf)#(lf)")
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

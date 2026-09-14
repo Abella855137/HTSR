@@ -1,0 +1,82 @@
+table 'Top SKU for Tariff'
+	lineageTag: 29fc81d8-71bc-4121-9069-89428ab8bebe
+
+	column sku_no
+		dataType: string
+		lineageTag: 9481adb4-2cb0-4597-96fe-54990893ffd4
+		summarizeBy: none
+		sourceColumn: sku_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current COO'
+		dataType: string
+		lineageTag: 21833490-203b-40d2-abd9-aa53e6f3144e
+		summarizeBy: none
+		sourceColumn: Current COO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Confirmed New COO'
+		dataType: string
+		lineageTag: 038c0351-447b-4632-a90c-aa5ce419f919
+		summarizeBy: none
+		sourceColumn: Confirmed New COO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONFIRMED/ CORRECT HTS'
+		dataType: string
+		lineageTag: 1c4aadc0-9aee-4b91-bbf7-89c24bc2c4ca
+		summarizeBy: none
+		sourceColumn: CONFIRMED/ CORRECT HTS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Correct Rate (China)'
+		dataType: double
+		lineageTag: 61c3bf81-1f1f-449a-8495-536142450ce0
+		summarizeBy: sum
+		sourceColumn: Correct Rate (China)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column updated_coo = CALCULATE(MAX('Top SKU for Tariff'[Current COO]),ALLEXCEPT('Top SKU for Tariff','Top SKU for Tariff'[sku_no]))
+		lineageTag: 416ea42c-8ddb-4073-9bce-587ff7537ee5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Top SKU for Tariff' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/HyveBIProjects/", [ApiVersion = 15]),
+				    #"Top SKU for Tariff xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/Content/" = Source{[Name="Top SKU for Tariff.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/HyveBIProjects/Shared Documents/Tariff/Content/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Top SKU for Tariff xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/Content/"),
+				    #"Review list SKU List_Sheet" = #"Imported Excel Workbook"{[Item="Review list SKU List",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Review list SKU List_Sheet", [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"sku_no", "Current COO", "Confirmed New COO", "CONFIRMED/ CORRECT HTS", "Correct Rate (China)"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each ([#"Correct Rate (China)"] <> null and [#"Correct Rate (China)"] <> "" and [#"Correct Rate (China)"] <> "No HTS Found")),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"Correct Rate (China)", Percentage.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

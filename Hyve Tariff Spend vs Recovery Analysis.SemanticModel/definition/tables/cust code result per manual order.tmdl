@@ -1,0 +1,2380 @@
+table 'cust code result per manual order'
+	isHidden
+	lineageTag: 2c16dc05-3091-494e-b69f-8f1a9931ebe5
+
+	column row_cnt
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 846d5bc5-5ee7-4931-b4cc-2775d3b713eb
+		summarizeBy: sum
+		sourceColumn: row_cnt
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8700d6c6-0cce-4bf8-a213-3b9eb2f4fed1
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 477cede6-500a-47c6-a416-ea9d4321e69f
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_no
+		dataType: string
+		isHidden
+		lineageTag: 43d8bfeb-3792-4e30-b5bf-702d698795b9
+		summarizeBy: none
+		sourceColumn: doc_no
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_line_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 217a9bb8-3749-419d-99e8-66e572d1710c
+		summarizeBy: sum
+		sourceColumn: doc_line_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column loc_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9796b018-0a33-4c8d-8d5f-3f117df8fc9e
+		summarizeBy: none
+		sourceColumn: loc_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hill He Marked'
+		dataType: string
+		isHidden
+		lineageTag: cb0fc26a-15c3-468d-b239-dd7c1c3d96af
+		summarizeBy: none
+		sourceColumn: Hill He Marked
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_vend_name
+		dataType: string
+		isHidden
+		lineageTag: 26e07eac-23d5-4f21-b5bc-642c4ac659f2
+		summarizeBy: none
+		sourceColumn: po_vend_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_name
+		dataType: string
+		isHidden
+		lineageTag: d8ef150f-def5-4d44-8aa0-36213a369f26
+		summarizeBy: none
+		sourceColumn: po_cust_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_code
+		dataType: string
+		isHidden
+		lineageTag: 3580a400-950c-4ca7-a396-aaca89e3389e
+		summarizeBy: none
+		sourceColumn: po_cust_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no
+		dataType: string
+		isHidden
+		lineageTag: 74a921a5-6581-4c7a-8ec9-7589347a4697
+		summarizeBy: none
+		sourceColumn: part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_part_no
+		dataType: string
+		isHidden
+		lineageTag: 2bd20dac-c77a-419d-9c80-32fb5e30a37c
+		summarizeBy: none
+		sourceColumn: mfg_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_cust_part_no
+		dataType: string
+		isHidden
+		lineageTag: f0e35aac-388e-4c14-9c4c-89effe7140ef
+		summarizeBy: none
+		sourceColumn: woody_cust_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eve_cust_part_no
+		dataType: string
+		isHidden
+		lineageTag: fe1b8cde-3e06-44dc-95b3-07f52dacdb2f
+		summarizeBy: none
+		sourceColumn: eve_cust_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pk
+		dataType: string
+		isHidden
+		lineageTag: 098850d8-761b-4e38-a065-8245b1bae019
+		summarizeBy: none
+		sourceColumn: pk
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column loc_no_1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1fbbdbf8-348f-4e87-9d87-3c899e83a128
+		summarizeBy: sum
+		sourceColumn: loc_no_1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column inv_type
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d51ed016-9e56-4787-af82-161a6c9fa028
+		summarizeBy: sum
+		sourceColumn: inv_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 715ece57-6c0b-442c-b9c7-151d4522683d
+		summarizeBy: sum
+		sourceColumn: sku_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_type
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7073a08a-86ed-4c40-84ab-74b84d36ac66
+		summarizeBy: sum
+		sourceColumn: trans_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7d676165-4186-43e7-9b30-dce47603ebe6
+		summarizeBy: none
+		sourceColumn: doc_date
+
+		variation 变体
+			isDefault
+			relationship: b68ede53-d94e-4edd-8222-15667b1258f9
+			defaultHierarchy: LocalDateTable_30b45fef-eb5f-45ff-bbac-38cca9c667e3.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_no_2
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d81a2479-8066-41b8-ab9c-02f2f2bcd54e
+		summarizeBy: sum
+		sourceColumn: doc_no_2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type_3
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c87dda87-6703-42dc-b001-a14f400551f6
+		summarizeBy: sum
+		sourceColumn: order_type_3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_line_no_4
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a58f5b22-37c0-4187-987c-665835f37bcc
+		summarizeBy: sum
+		sourceColumn: doc_line_no_4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		isHidden
+		lineageTag: 31e22e13-7ee9-40d4-bdbb-6279d6d33987
+		summarizeBy: none
+		sourceColumn: source
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_qty
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 28e2704d-6312-4676-9029-12e166cf23d8
+		summarizeBy: sum
+		sourceColumn: trans_qty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_cost
+		dataType: double
+		isHidden
+		lineageTag: 22e8334d-46c9-4bc8-8d73-670782e591ce
+		summarizeBy: sum
+		sourceColumn: trans_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column odometer
+		dataType: string
+		isHidden
+		lineageTag: 39875327-5d97-4264-a82d-e41eb8882b29
+		summarizeBy: none
+		sourceColumn: odometer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9b41cac9-82b4-4ea8-8396-ee0fb160ff1d
+		summarizeBy: sum
+		sourceColumn: entry_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column rec_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 06a3aa34-f107-40b0-b910-929ee5d266e5
+		summarizeBy: sum
+		sourceColumn: rec_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column rec_line_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3ad0e063-4349-440d-bb5e-d6b9bec4a7e6
+		summarizeBy: sum
+		sourceColumn: rec_line_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_change
+		dataType: string
+		isHidden
+		lineageTag: 655f718f-2858-44bc-9234-bc9e5ed9428f
+		summarizeBy: none
+		sourceColumn: cost_change
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_datetime
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 018f855c-0733-4445-9b90-0b96a233bec8
+		summarizeBy: none
+		sourceColumn: entry_datetime
+
+		variation 变体
+			isDefault
+			relationship: 3796aeca-b066-43a0-a1fb-c853945e8ae9
+			defaultHierarchy: LocalDateTable_0a4e8b63-36ca-4851-a72d-3469969047af.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ext_qty
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3dcd928e-0a59-4182-a357-56342405ab18
+		summarizeBy: sum
+		sourceColumn: ext_qty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column report_run_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 81b5fef3-8a4a-49d0-8df9-688b8baf2ef2
+		summarizeBy: none
+		sourceColumn: report_run_date
+
+		variation 变体
+			isDefault
+			relationship: b68befed-c343-47e0-821a-5d14b7b7be46
+			defaultHierarchy: LocalDateTable_ff3f7f65-50a4-4c6e-95a4-e80144d66c7e.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_name
+		dataType: string
+		isHidden
+		lineageTag: e94d04de-8c97-4bad-b403-82527ce743de
+		summarizeBy: none
+		sourceColumn: trans_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_col_name
+		dataType: string
+		isHidden
+		lineageTag: 3a3eba0a-92cf-4a91-9eea-ffa3d41c69d3
+		summarizeBy: none
+		sourceColumn: trans_col_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_date_str
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: bc1091f2-5581-4bf7-8076-fae9698f85b8
+		summarizeBy: none
+		sourceColumn: doc_date_str
+
+		variation 变体
+			isDefault
+			relationship: bf6254bf-3149-4562-8742-79d58947b23e
+			defaultHierarchy: LocalDateTable_c88eaabf-ce8c-497d-a63a-90c55e894e70.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entry_datetime_str
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: e3c5503b-bf3d-427d-88b9-aab04b9b1c81
+		summarizeBy: none
+		sourceColumn: entry_datetime_str
+
+		variation 变体
+			isDefault
+			relationship: 3cf6b632-1f3e-40b8-985d-03cc9376cb7b
+			defaultHierarchy: LocalDateTable_dcee0214-6266-457b-87f6-a7b33bf599f9.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column update_cost
+		dataType: string
+		isHidden
+		lineageTag: 5d1133d9-63fe-4569-905b-a608f1c206e9
+		summarizeBy: none
+		sourceColumn: update_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_from
+		dataType: string
+		isHidden
+		lineageTag: 52bcbbc4-d58e-4469-83ab-bdedac203d46
+		summarizeBy: none
+		sourceColumn: cost_from
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ext_ref
+		dataType: string
+		isHidden
+		lineageTag: 7f74be48-a97f-4e25-9fae-c342f527a7b6
+		summarizeBy: none
+		sourceColumn: oh_ext_ref
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_int_ref_type
+		dataType: string
+		isHidden
+		lineageTag: 31d07849-0933-42ce-aabb-98fb79397e17
+		summarizeBy: none
+		sourceColumn: oh_int_ref_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_int_ref_no
+		dataType: string
+		isHidden
+		lineageTag: 522fc7fb-4bdb-4700-86a4-0ae7eb53b9a1
+		summarizeBy: none
+		sourceColumn: oh_int_ref_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_from_loc_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 374d02e0-bdbb-4a2a-887f-b16e33441b1a
+		summarizeBy: sum
+		sourceColumn: oh_from_loc_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_to_loc_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f77d0cfc-96ea-42de-976c-e5d23ee7a740
+		summarizeBy: sum
+		sourceColumn: oh_to_loc_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_exp_code
+		dataType: string
+		isHidden
+		lineageTag: 2bf5c58e-b7a7-46c4-95f5-4ecffbace4b5
+		summarizeBy: none
+		sourceColumn: oh_exp_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_sales_rel_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 99e8d1ef-6975-40c1-be11-8bda5321462f
+		summarizeBy: none
+		sourceColumn: oh_sales_rel_date
+
+		variation 变体
+			isDefault
+			relationship: abdb5ecd-95f7-4538-93cb-e74762e16d36
+			defaultHierarchy: LocalDateTable_3c804187-616f-4223-a480-b6117fb24df3.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_credit_rel_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: b2c1e9ec-a49a-43ad-a9be-5467d1f11b9a
+		summarizeBy: none
+		sourceColumn: oh_credit_rel_date
+
+		variation 变体
+			isDefault
+			relationship: 2821e4d4-70d5-4084-90bc-a18bb378c3d7
+			defaultHierarchy: LocalDateTable_45ab3d00-bea2-412c-9954-531b145a5534.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_date
+		dataType: string
+		isHidden
+		lineageTag: 4957b2e6-1d48-4972-9970-6dff1cabd77d
+		summarizeBy: none
+		sourceColumn: oh_ship_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_total_cost
+		dataType: double
+		isHidden
+		lineageTag: c3034058-9a73-46d0-b4e5-7349b594801f
+		summarizeBy: sum
+		sourceColumn: oh_total_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oh_total_order
+		dataType: string
+		isHidden
+		lineageTag: 748a5dd9-6410-4b13-af62-ebe7be0b64c9
+		summarizeBy: none
+		sourceColumn: oh_total_order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_sales_total
+		dataType: string
+		isHidden
+		lineageTag: 7c1119f4-15db-43bd-a3be-cdb11b2b2410
+		summarizeBy: none
+		sourceColumn: oh_sales_total
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_method
+		dataType: string
+		isHidden
+		lineageTag: 414427d3-91ff-4a03-b4de-47d3cde90efe
+		summarizeBy: none
+		sourceColumn: oh_ship_method
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_addr
+		dataType: string
+		isHidden
+		lineageTag: e5db003a-be61-4482-b054-d7e67482cbdc
+		summarizeBy: none
+		sourceColumn: oh_ship_to_addr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_city
+		dataType: string
+		isHidden
+		lineageTag: ef4466ae-df1f-463f-8a0f-b345231d2cfb
+		summarizeBy: none
+		sourceColumn: oh_ship_to_city
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_country
+		dataType: string
+		isHidden
+		lineageTag: b7a4f40f-fba9-4bdd-967f-10fcf3cd2d64
+		summarizeBy: none
+		sourceColumn: oh_ship_to_country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_loc
+		dataType: string
+		isHidden
+		lineageTag: 62471483-8b4d-4ecc-ade3-752a088b2356
+		summarizeBy: none
+		sourceColumn: oh_ship_to_loc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_name
+		dataType: string
+		isHidden
+		lineageTag: 86b42d74-9f92-4978-9fda-580541d7dab0
+		summarizeBy: none
+		sourceColumn: oh_ship_to_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_po_box
+		dataType: string
+		isHidden
+		lineageTag: c82dff24-08b2-442e-96ba-22a5a726d0bb
+		summarizeBy: none
+		sourceColumn: oh_ship_to_po_box
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_state
+		dataType: string
+		isHidden
+		lineageTag: aa0d65fe-e748-4486-b750-68b311e7643b
+		summarizeBy: none
+		sourceColumn: oh_ship_to_state
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_to_zip
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 20a37503-c11c-4fa7-89db-7b8b97416672
+		summarizeBy: sum
+		sourceColumn: oh_ship_to_zip
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column od_int_ref_type
+		dataType: string
+		isHidden
+		lineageTag: 4f652cc8-6bcb-4938-bc2d-6fa5836cf2f0
+		summarizeBy: none
+		sourceColumn: od_int_ref_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column od_int_ref_no
+		dataType: string
+		isHidden
+		lineageTag: 6b12d49e-3c5c-4748-aaa5-7b8ddb1ba95f
+		summarizeBy: none
+		sourceColumn: od_int_ref_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column od_int_ref_line_no
+		dataType: string
+		isHidden
+		lineageTag: 2c9662fb-4f57-493d-b501-6a8fae6d0b20
+		summarizeBy: none
+		sourceColumn: od_int_ref_line_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column od_ext_ref
+		dataType: string
+		isHidden
+		lineageTag: 33e9978d-5a9f-4270-9710-6473b6bb8900
+		summarizeBy: none
+		sourceColumn: od_ext_ref
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_exp_gl_acct_no
+		dataType: string
+		isHidden
+		lineageTag: 5a42933f-2ba5-439a-a57f-cfac6d1e2aab
+		summarizeBy: none
+		sourceColumn: oh_exp_gl_acct_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_exp_gl_project
+		dataType: string
+		isHidden
+		lineageTag: b151ba86-f2e6-4656-9e90-14aff6d5564c
+		summarizeBy: none
+		sourceColumn: oh_exp_gl_project
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_exp_desc
+		dataType: string
+		isHidden
+		lineageTag: 2cfeb931-8d5b-4b66-8db1-dc48587f6172
+		summarizeBy: none
+		sourceColumn: oh_exp_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_vend_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8c10a0b7-dbf8-4ec6-8323-48c226b30162
+		summarizeBy: sum
+		sourceColumn: po_vend_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6156a5dc-ea0b-4a17-9fd6-0973f581bf63
+		summarizeBy: sum
+		sourceColumn: po_cust_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_name_5
+		dataType: string
+		isHidden
+		lineageTag: de4f9edc-e052-4dd4-be4a-e7950e9c2ad0
+		summarizeBy: none
+		sourceColumn: po_cust_name_5
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cust_code_6
+		dataType: string
+		isHidden
+		lineageTag: 9b1e1302-73ee-4092-95bc-aece8e1b9750
+		summarizeBy: none
+		sourceColumn: po_cust_code_6
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_inv_amt1
+		dataType: double
+		isHidden
+		lineageTag: 9299f722-24c4-47f9-8b43-8b0b5e08bd2d
+		summarizeBy: sum
+		sourceColumn: vend_inv_amt1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vend_inv_no
+		dataType: string
+		isHidden
+		lineageTag: 223344c4-a7ae-4422-a24d-6b8abb563cf2
+		summarizeBy: none
+		sourceColumn: vend_inv_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_inv_doc_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b30a486a-387f-47df-aea6-ef81e9e8b52b
+		summarizeBy: sum
+		sourceColumn: vend_inv_doc_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_inv_amt2
+		dataType: string
+		isHidden
+		lineageTag: e42dcff5-d939-4946-9d64-ccc967b33c36
+		summarizeBy: none
+		sourceColumn: vend_inv_amt2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sernbr_asset_tag_list
+		dataType: string
+		isHidden
+		lineageTag: 98d0f25c-4f13-46e6-83ff-10dcf38a5c25
+		summarizeBy: none
+		sourceColumn: sernbr_asset_tag_list
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sernbr_ser_no_list
+		dataType: string
+		isHidden
+		lineageTag: 08f5ef60-e894-4cf4-99da-682bcf0bacff
+		summarizeBy: none
+		sourceColumn: sernbr_ser_no_list
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_po_region_no
+		dataType: string
+		isHidden
+		lineageTag: b3138cd1-2817-4243-ae35-f5a9cc47bfac
+		summarizeBy: none
+		sourceColumn: icp_po_region_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_po_type
+		dataType: string
+		isHidden
+		lineageTag: ab81b0a7-e6b4-477f-a821-0bd1a06d8499
+		summarizeBy: none
+		sourceColumn: icp_po_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_po_no
+		dataType: string
+		isHidden
+		lineageTag: d021fc4e-66ab-48b3-9ca5-08d5ff9458ab
+		summarizeBy: none
+		sourceColumn: icp_po_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_po_rec_loc
+		dataType: string
+		isHidden
+		lineageTag: 9adcd40a-a065-4981-a59a-9b903712398a
+		summarizeBy: none
+		sourceColumn: icp_po_rec_loc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_po_part_exist
+		dataType: string
+		isHidden
+		lineageTag: 8a802c4a-450b-41a2-8a4f-d27d6593171c
+		summarizeBy: none
+		sourceColumn: icp_po_part_exist
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_ds_sso_type
+		dataType: string
+		isHidden
+		lineageTag: 5421cc70-7dab-4699-8774-fdb2de04df98
+		summarizeBy: none
+		sourceColumn: icp_ds_sso_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_ds_sso_no
+		dataType: string
+		isHidden
+		lineageTag: 25e08da0-18e4-46ef-9b83-6e3f587de251
+		summarizeBy: none
+		sourceColumn: icp_ds_sso_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column icp_ds_sso_cust_no
+		dataType: string
+		isHidden
+		lineageTag: 00738f7f-2c02-41a6-89be-88d14abf721b
+		summarizeBy: none
+		sourceColumn: icp_ds_sso_cust_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_unit_price
+		dataType: string
+		isHidden
+		lineageTag: b0c6202f-8d71-49ad-882f-7882abdb1d0a
+		summarizeBy: none
+		sourceColumn: so_unit_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_net_price
+		dataType: string
+		isHidden
+		lineageTag: 80a82332-5790-4bfb-a28a-a861aa33db56
+		summarizeBy: none
+		sourceColumn: so_net_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_kit_line_no
+		dataType: string
+		isHidden
+		lineageTag: e4bed772-42b7-46d9-88c0-79e675adc15a
+		summarizeBy: none
+		sourceColumn: so_kit_line_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_kit_line_sku_no
+		dataType: string
+		isHidden
+		lineageTag: 23b0bacf-7cff-4ddb-a7e6-07739328025b
+		summarizeBy: none
+		sourceColumn: so_kit_line_sku_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_rack_line_sku_no
+		dataType: string
+		isHidden
+		lineageTag: b40f4b96-4e11-41ec-8a62-96e9c778d6df
+		summarizeBy: none
+		sourceColumn: so_rack_line_sku_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_rack_cnt
+		dataType: string
+		isHidden
+		lineageTag: 3520c8b3-8e58-48a0-81e0-8f7ef479fb75
+		summarizeBy: none
+		sourceColumn: so_rack_cnt
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_server_cnt
+		dataType: string
+		isHidden
+		lineageTag: 805f3131-911f-40d1-9841-aeaf0417c86f
+		summarizeBy: none
+		sourceColumn: so_server_cnt
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_sales_master_acct
+		dataType: string
+		isHidden
+		lineageTag: a83882d0-d131-41c1-8a83-0938f54e36c6
+		summarizeBy: none
+		sourceColumn: so_sales_master_acct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cust_type
+		dataType: string
+		isHidden
+		lineageTag: 2bed90de-5c92-4b1d-a96c-09d68361ca5a
+		summarizeBy: none
+		sourceColumn: so_cust_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_sales_master_acct_name
+		dataType: string
+		isHidden
+		lineageTag: b5b44387-b8ab-4a25-8eca-12e027f1c685
+		summarizeBy: none
+		sourceColumn: so_sales_master_acct_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercomp_cust_flag
+		dataType: string
+		isHidden
+		lineageTag: 8e25af9f-603d-4f3c-ab38-05d5d9b2056a
+		summarizeBy: none
+		sourceColumn: intercomp_cust_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cust_code
+		dataType: string
+		isHidden
+		lineageTag: 2466bfed-e163-4a4c-88cb-a9a2c62dae09
+		summarizeBy: none
+		sourceColumn: so_cust_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_refusal_order_no
+		dataType: string
+		isHidden
+		lineageTag: 8b610abd-ddb6-4612-804a-b447b2051089
+		summarizeBy: none
+		sourceColumn: so_refusal_order_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_end_user_po_date
+		dataType: string
+		isHidden
+		lineageTag: 17b10f4f-a82a-449d-839a-a2cdc8fe4ecb
+		summarizeBy: none
+		sourceColumn: so_end_user_po_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_end_user_po
+		dataType: string
+		isHidden
+		lineageTag: 914ec70a-c36f-4717-a0d1-ed3f6f4bf5f8
+		summarizeBy: none
+		sourceColumn: so_end_user_po
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column zero_qty_flag
+		dataType: string
+		isHidden
+		lineageTag: a8378f76-a21a-40ea-9e82-1c7a5c053ec3
+		summarizeBy: none
+		sourceColumn: zero_qty_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_vend_name_7
+		dataType: string
+		isHidden
+		lineageTag: 13160546-b9ee-438f-a814-3a944125606c
+		summarizeBy: none
+		sourceColumn: po_vend_name_7
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_vend_currency
+		dataType: string
+		isHidden
+		lineageTag: 17f7dd4c-e0d4-42cc-bd15-b9fc51ffdc43
+		summarizeBy: none
+		sourceColumn: po_vend_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercomp_vend_flag
+		dataType: string
+		isHidden
+		lineageTag: 036dcd3b-3d9b-45a9-a4b2-ee7e8dbbe9bf
+		summarizeBy: none
+		sourceColumn: intercomp_vend_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_ppdc_code
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c674d770-a5e3-41ac-ae99-db3de09e2e9e
+		summarizeBy: sum
+		sourceColumn: po_ppdc_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_unit_cost
+		dataType: double
+		isHidden
+		lineageTag: 928d12dc-84f0-4c81-9de3-46c206ff01bb
+		summarizeBy: sum
+		sourceColumn: po_unit_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column so_cust_no
+		dataType: string
+		isHidden
+		lineageTag: b9f06674-32bd-48d3-a86e-54649587e84b
+		summarizeBy: none
+		sourceColumn: so_cust_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cust_name
+		dataType: string
+		isHidden
+		lineageTag: 068e9945-cbd8-4d99-bddb-a15b15cb4f8e
+		summarizeBy: none
+		sourceColumn: so_cust_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipbooking_asset_tag_list
+		dataType: string
+		isHidden
+		lineageTag: 9ddd906c-3f89-4e37-ab76-c507099208a4
+		summarizeBy: none
+		sourceColumn: shipbooking_asset_tag_list
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cat
+		dataType: string
+		isHidden
+		lineageTag: 33c93287-a499-413f-992a-12f0dda33b3c
+		summarizeBy: none
+		sourceColumn: so_cat
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column etl_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 0063da5f-ddf5-4dee-84b0-5d067c57bd75
+		summarizeBy: none
+		sourceColumn: etl_timestamp
+
+		variation 变体
+			isDefault
+			relationship: 9d9f16d0-f2b5-412b-bfa5-f9e83b546d4b
+			defaultHierarchy: LocalDateTable_644cf197-2fcf-4fad-9516-57b545f33643.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 77bc5e8d-9da0-47c1-8bc0-15d0ba02c733
+		summarizeBy: none
+		sourceColumn: dt_month
+
+		variation 变体
+			isDefault
+			relationship: ac914438-4111-4079-a4fe-f2e6de4dbbb5
+			defaultHierarchy: LocalDateTable_c7e94ebc-7bf3-47e3-b3b4-d420bca7f97d.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column region_no_8
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fe426466-8e2a-49c5-be24-6da14ba70b96
+		summarizeBy: sum
+		sourceColumn: region_no_8
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_no_9
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 90d4fff3-e109-4aa1-8ef4-c56dac06ee65
+		summarizeBy: sum
+		sourceColumn: sku_no_9
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no_10
+		dataType: string
+		isHidden
+		lineageTag: c4bbea99-7808-4a1d-8f73-e28468794e2d
+		summarizeBy: none
+		sourceColumn: part_no_10
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fg_type
+		dataType: string
+		isHidden
+		lineageTag: 93a37804-f3ea-4c99-8c4c-f988722d3bb6
+		summarizeBy: none
+		sourceColumn: fg_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sys_type_no
+		dataType: string
+		isHidden
+		lineageTag: 57d0abd0-e1ff-4c59-82ed-70133bead297
+		summarizeBy: none
+		sourceColumn: sys_type_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sys_type_desc
+		dataType: string
+		isHidden
+		lineageTag: 5e8362fd-c085-419b-a4ab-b02df64fd00a
+		summarizeBy: none
+		sourceColumn: sys_type_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_part_no_11
+		dataType: string
+		isHidden
+		lineageTag: 7671dc45-1c47-45ac-ba35-e0995342931d
+		summarizeBy: none
+		sourceColumn: mfg_part_no_11
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_vend_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a5571cf0-43fb-4f8f-b387-a87d0b0758d3
+		summarizeBy: sum
+		sourceColumn: mfg_vend_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_vend_name
+		dataType: string
+		isHidden
+		lineageTag: d3305395-b69a-499d-a21f-ce0c057c1264
+		summarizeBy: none
+		sourceColumn: mfg_vend_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column short_desc
+		dataType: string
+		isHidden
+		lineageTag: f81b9705-abc5-4947-ad13-325bf905e2ea
+		summarizeBy: none
+		sourceColumn: short_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column long_desc
+		dataType: string
+		isHidden
+		lineageTag: bba2be3f-93ec-41e7-8a72-eaf27407dc8b
+		summarizeBy: none
+		sourceColumn: long_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column master_flag
+		dataType: string
+		isHidden
+		lineageTag: 605ecfc1-6fa1-491f-97ea-3f2126ed9cf2
+		summarizeBy: none
+		sourceColumn: master_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vpl_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c30f026f-c267-4074-a056-c8f2c3f86d09
+		summarizeBy: sum
+		sourceColumn: vpl_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vpl_desc
+		dataType: string
+		isHidden
+		lineageTag: 8e5a7c82-c1d6-44d6-b14c-bf7694a9fe06
+		summarizeBy: none
+		sourceColumn: vpl_desc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vpl_code
+		dataType: string
+		isHidden
+		lineageTag: d62be9b3-4438-4a11-80f9-5ebb7211da5d
+		summarizeBy: none
+		sourceColumn: vpl_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column weight
+		dataType: double
+		isHidden
+		lineageTag: f116947b-3293-41b4-a1d7-f1f13ee29b6e
+		summarizeBy: sum
+		sourceColumn: weight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prod_type
+		dataType: string
+		isHidden
+		lineageTag: 214cc8f5-01e8-4609-ab2e-391aafe07d38
+		summarizeBy: none
+		sourceColumn: prod_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column model
+		dataType: string
+		isHidden
+		lineageTag: a2c02675-5995-4529-bd54-a081724059cd
+		summarizeBy: none
+		sourceColumn: model
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_cost
+		dataType: double
+		isHidden
+		lineageTag: beee1f90-313d-473f-bb66-26f2b0411be9
+		summarizeBy: sum
+		sourceColumn: po_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column abc_code
+		dataType: string
+		isHidden
+		lineageTag: 059e9118-cbee-4f0c-9b59-c7c96dadb22f
+		summarizeBy: none
+		sourceColumn: abc_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ser_no_flag
+		dataType: string
+		isHidden
+		lineageTag: 04fd0e48-a4f4-446a-8587-be9030157db0
+		summarizeBy: none
+		sourceColumn: ser_no_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column avail_to_sell
+		dataType: string
+		isHidden
+		lineageTag: 06fb48ca-4127-44f0-a7e2-d76dacfca203
+		summarizeBy: none
+		sourceColumn: avail_to_sell
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_status
+		dataType: string
+		isHidden
+		lineageTag: ae0ac5b0-5aae-4aa7-957b-97b10a8a19a8
+		summarizeBy: none
+		sourceColumn: active_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_status_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: e386bfbf-084b-4928-95df-ac293bd92821
+		summarizeBy: none
+		sourceColumn: active_status_date
+
+		variation 变体
+			isDefault
+			relationship: 27394bb3-6177-4914-994e-ef13fe501562
+			defaultHierarchy: LocalDateTable_d26b2197-c581-4110-a284-4f30262732e3.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column accept_rma
+		dataType: string
+		isHidden
+		lineageTag: 6246bbf0-a5e3-4714-8d49-ae8bbd040054
+		summarizeBy: none
+		sourceColumn: accept_rma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column production_flag
+		dataType: string
+		isHidden
+		lineageTag: fc0dbad8-1a1b-4061-8438-aac8e1e9bc46
+		summarizeBy: none
+		sourceColumn: production_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_part_flag
+		dataType: string
+		isHidden
+		lineageTag: 002cf469-6c7b-465d-ada2-18bad00b2d5a
+		summarizeBy: none
+		sourceColumn: acp_part_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_nw_flag
+		dataType: string
+		isHidden
+		lineageTag: 2d838558-abbb-4f59-893e-05eced6aafd4
+		summarizeBy: none
+		sourceColumn: acp_nw_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_svr_flag
+		dataType: string
+		isHidden
+		lineageTag: 9d779c9b-570b-4365-ac84-be356c7eaa34
+		summarizeBy: none
+		sourceColumn: acc_svr_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_fidc
+		dataType: string
+		isHidden
+		lineageTag: daf64780-f71a-4861-bb11-f6baae1907d8
+		summarizeBy: none
+		sourceColumn: acp_fidc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column chatter_src_flag
+		dataType: string
+		isHidden
+		lineageTag: 9c46eb56-ceb1-4fe9-aa2a-dc012f87c4c2
+		summarizeBy: none
+		sourceColumn: chatter_src_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_sku_cust_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5103e4a2-6def-49b1-989b-1dddd13baf51
+		summarizeBy: sum
+		sourceColumn: cust_sku_cust_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_sku_cust_name
+		dataType: string
+		isHidden
+		lineageTag: 1b0f0e6c-b877-46eb-b308-c5730868a12b
+		summarizeBy: none
+		sourceColumn: cust_sku_cust_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_cust_part_no_12
+		dataType: string
+		isHidden
+		lineageTag: e7930dc1-0eaf-4801-9d12-f555fb5279a4
+		summarizeBy: none
+		sourceColumn: woody_cust_part_no_12
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column chatter_cust_part_no
+		dataType: string
+		isHidden
+		lineageTag: 83303a58-722f-43ed-bd80-8e43e421f4f9
+		summarizeBy: none
+		sourceColumn: chatter_cust_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_spare_cust_part_no
+		dataType: string
+		isHidden
+		lineageTag: 1d329875-c3b6-4d69-b3d1-d6b0fba56676
+		summarizeBy: none
+		sourceColumn: woody_spare_cust_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column hts_import
+		dataType: string
+		isHidden
+		lineageTag: d0636cac-01dc-4df7-a2f8-69504cd3c511
+		summarizeBy: none
+		sourceColumn: hts_import
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column usage_type
+		dataType: string
+		isHidden
+		lineageTag: 7e27cb92-3cf8-4cf0-9df2-9a9a392f7771
+		summarizeBy: none
+		sourceColumn: usage_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 06ed80a6-8908-405b-acd9-c2f156d4c846
+		summarizeBy: sum
+		sourceColumn: group_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_master_entry_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9005b9d5-afa6-4e25-9fad-c81b7bfb128e
+		summarizeBy: sum
+		sourceColumn: part_master_entry_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_master_entry_datetime
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 1c5151c6-3b88-486b-818f-edcb0fa4b0b4
+		summarizeBy: none
+		sourceColumn: part_master_entry_datetime
+
+		variation 变体
+			isDefault
+			relationship: 2901f8b7-1530-4bae-af55-dfe36db88cfb
+			defaultHierarchy: LocalDateTable_afe4cd18-3296-4693-8d03-b44be25c4e72.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column etl_timestamp_13
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 40e1a63b-83aa-424d-b7d9-9dd56e3cb980
+		summarizeBy: none
+		sourceColumn: etl_timestamp_13
+
+		variation 变体
+			isDefault
+			relationship: 11010126-19d5-47d5-a214-f63fbf3ef28b
+			defaultHierarchy: LocalDateTable_1a9f437c-5171-426f-957f-211d64232399.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3f1eba76-20a1-4fb8-b87a-4cc56bbeb6d6
+		summarizeBy: sum
+		sourceColumn: company_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_cust_part_no_list
+		dataType: string
+		isHidden
+		lineageTag: 0380bf29-fb2b-43ca-b51a-e7fd79064cbb
+		summarizeBy: none
+		sourceColumn: woody_cust_part_no_list
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column jv_business
+		dataType: string
+		isHidden
+		lineageTag: dafb56f5-1e01-4e27-b3ba-13e87a32ae6f
+		summarizeBy: none
+		sourceColumn: jv_business
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_platform
+		dataType: string
+		isHidden
+		lineageTag: 1d02b18e-a24b-4f49-acad-91d626fcc07b
+		summarizeBy: none
+		sourceColumn: cust_platform
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ave_cost
+		dataType: double
+		isHidden
+		lineageTag: b7416d60-97d7-48f7-a303-58d547d5d84e
+		summarizeBy: sum
+		sourceColumn: ave_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column complete_flag
+		dataType: string
+		isHidden
+		lineageTag: e3e3a5b7-8dba-42d2-87f8-a1ad8dcc0747
+		summarizeBy: none
+		sourceColumn: complete_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_coo
+		dataType: string
+		isHidden
+		lineageTag: cdfe444f-4008-4d0f-96d4-1ae2104566e3
+		summarizeBy: none
+		sourceColumn: sku_coo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_allocation_id_required_flag
+		dataType: string
+		isHidden
+		lineageTag: efb0dffe-222b-4cca-819b-b3d2e6d7b05a
+		summarizeBy: none
+		sourceColumn: woody_allocation_id_required_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_model_group
+		dataType: string
+		isHidden
+		lineageTag: 17b803fc-85a0-42bb-aa18-fcf40884fb0c
+		summarizeBy: none
+		sourceColumn: woody_model_group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_portal_category
+		dataType: string
+		isHidden
+		lineageTag: 3ac965a4-aa07-40bf-8920-c32b017d0ef4
+		summarizeBy: none
+		sourceColumn: part_portal_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no_noprefix
+		dataType: string
+		isHidden
+		lineageTag: 33afdc2c-f1a6-443f-a477-079939c33c90
+		summarizeBy: none
+		sourceColumn: part_no_noprefix
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plm_part_family
+		dataType: string
+		isHidden
+		lineageTag: 53059932-482b-471a-a51a-ee255ed70cbd
+		summarizeBy: none
+		sourceColumn: plm_part_family
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plm_part_category
+		dataType: string
+		isHidden
+		lineageTag: baf634d6-3ea2-4a5c-a975-63e9018c63e6
+		summarizeBy: none
+		sourceColumn: plm_part_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column universal_vendor_name
+		dataType: string
+		isHidden
+		lineageTag: 7fbaae4c-e0a6-4b98-908e-bcdb88da4683
+		summarizeBy: none
+		sourceColumn: universal_vendor_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column universal_vendor_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9011adbf-349b-4419-b879-15ecdafffb30
+		summarizeBy: sum
+		sourceColumn: universal_vendor_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plm_life_cycle
+		dataType: string
+		isHidden
+		lineageTag: 98607f32-7a2e-4acb-b685-1e8e88bd9cdc
+		summarizeBy: none
+		sourceColumn: plm_life_cycle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column moq_qty
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 70238b18-48bf-4ea0-9fc7-23f38ec49c01
+		summarizeBy: sum
+		sourceColumn: moq_qty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eoq_qty
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cbf67ba4-a7d2-4a05-a0ad-5b55bfc8b91d
+		summarizeBy: sum
+		sourceColumn: eoq_qty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_name
+		dataType: string
+		isHidden
+		lineageTag: 670834e5-392b-45e4-abd2-18f19a498793
+		summarizeBy: none
+		sourceColumn: model_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_fidc
+		dataType: string
+		isHidden
+		lineageTag: 383f36a6-d3b8-4523-94ec-753b3e5e6791
+		summarizeBy: none
+		sourceColumn: part_fidc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_fidc
+		dataType: string
+		isHidden
+		lineageTag: 09a2526d-c0fa-49d9-930c-7de0b2afdd68
+		summarizeBy: none
+		sourceColumn: group_fidc
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column prod_code
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a7a244d0-a94c-4c40-9488-fcacb867dc76
+		summarizeBy: sum
+		sourceColumn: prod_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sug_retail_price
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 73403052-0312-49cf-b4ad-9dfb0f53e80f
+		summarizeBy: sum
+		sourceColumn: sug_retail_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column consign_flag
+		dataType: string
+		isHidden
+		lineageTag: 644f1d93-a550-4f75-a399-e17b294ca33e
+		summarizeBy: none
+		sourceColumn: consign_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_code
+		dataType: string
+		isHidden
+		lineageTag: 5f07506f-3dd5-400b-80d5-2c95883357d1
+		summarizeBy: none
+		sourceColumn: seg_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column std_whls_price
+		dataType: string
+		isHidden
+		lineageTag: 927a2318-6b82-45a9-91f7-7311f3141258
+		summarizeBy: none
+		sourceColumn: std_whls_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column inv_flat_sku_flag
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a50f12e8-17ca-468f-90c5-69585e1c6a7f
+		summarizeBy: sum
+		sourceColumn: inv_flat_sku_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_strategic_category
+		dataType: string
+		isHidden
+		lineageTag: c1df06ff-c090-41e2-9a32-4df3b17c7018
+		summarizeBy: none
+		sourceColumn: woody_strategic_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eve_cust_part_no_14
+		dataType: string
+		isHidden
+		lineageTag: 225c0552-c5a6-4bc3-b122-0e99655285a6
+		summarizeBy: none
+		sourceColumn: eve_cust_part_no_14
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eve_cust_part_no_list
+		dataType: string
+		isHidden
+		lineageTag: 5002e131-6231-4e0a-a7a0-7766b26a0b2c
+		summarizeBy: none
+		sourceColumn: eve_cust_part_no_list
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column manufacturer_name
+		dataType: string
+		isHidden
+		lineageTag: 20756da4-c358-4dc9-968e-1575852030fb
+		summarizeBy: none
+		sourceColumn: manufacturer_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plm_part_no
+		dataType: string
+		isHidden
+		lineageTag: 968a4c01-83cd-4598-8c7b-ff661484ba42
+		summarizeBy: none
+		sourceColumn: plm_part_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column buy_sell_flag
+		dataType: string
+		isHidden
+		lineageTag: 77737d2e-0d5b-43a9-a9e9-21dde4a3a29a
+		summarizeBy: none
+		sourceColumn: buy_sell_flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eve_core
+		dataType: string
+		isHidden
+		lineageTag: 95a821c0-00fe-4a2e-af22-58ac908e33aa
+		summarizeBy: none
+		sourceColumn: eve_core
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column eve_oum
+		dataType: string
+		isHidden
+		lineageTag: 37608c09-f557-4eef-9498-347470fbc0cd
+		summarizeBy: none
+		sourceColumn: eve_oum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vpc_code
+		dataType: string
+		isHidden
+		lineageTag: 1cc5e75e-99ff-472c-8eaa-858537a69e88
+		summarizeBy: none
+		sourceColumn: vpc_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mar_comment
+		dataType: string
+		isHidden
+		lineageTag: ac8e8d81-07b8-439e-a762-22020a609d03
+		summarizeBy: none
+		sourceColumn: mar_comment
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column height
+		dataType: double
+		isHidden
+		lineageTag: 0e0e7651-9462-46ba-ad6a-7ad6bfb73328
+		summarizeBy: sum
+		sourceColumn: height
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column width
+		dataType: double
+		isHidden
+		lineageTag: ee534361-0cb8-4e7e-862a-50e1802871be
+		summarizeBy: sum
+		sourceColumn: width
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column length
+		dataType: double
+		isHidden
+		lineageTag: a25e9d71-da4e-418a-b358-aff5e869631d
+		summarizeBy: sum
+		sourceColumn: length
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column plm_part_category_group
+		dataType: string
+		isHidden
+		lineageTag: 6c9e0533-7c76-4eae-a0c4-e52198f31803
+		summarizeBy: none
+		sourceColumn: plm_part_category_group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_flag
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: a50f4845-ac1b-4393-bb22-74641fb5f192
+		summarizeBy: none
+		sourceColumn: date_flag
+
+		variation 变体
+			isDefault
+			relationship: 9bdb55af-964f-47ce-889a-0c7d5be18237
+			defaultHierarchy: LocalDateTable_58f135ff-426d-4f1b-a10b-23f0d6f357e5.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column region_no_15
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c2dead3c-df60-494a-95cf-13a4ef707e66
+		summarizeBy: sum
+		sourceColumn: region_no_15
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'acc/acp flag' = IF([acc_svr_flag]="Y"||[acp_nw_flag]="Y"||[acp_part_flag]="Y","Y","N")
+		isHidden
+		lineageTag: 755b426a-9905-4dee-8115-e44aa601a001
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2 = ```
+			
+			var location=LOOKUPVALUE('~woody_only_locations'[loc_no],'~woody_only_locations'[loc_no],'cust code result per manual order'[loc_no])
+			VAR cust_sku_cust_no=IF([cust_sku_cust_no]=554401,"WOODY",IF([cust_sku_cust_no]=902047,"CHATTER",BLANK()))
+			var woody_part=IF([acc/acp flag]="Y"&&[woody_cust_part_no]<>BLANK(),"WOODY",BLANK())
+			var eve_part=IF([eve_cust_part_no]<>BLANK(),"EVE",BLANK())
+			RETURN
+			IF([po_cust_code]<>BLANK()||[so_cust_code]<>BLANK()||[Hill He Marked]<>BLANK(),[po_cust_code]&[so_cust_code]&[Hill He Marked],
+			IF(location<>BLANK(),"WOODY",
+			IF(cust_sku_cust_no<>BLANK(),cust_sku_cust_no,
+			IF(woody_part<>BLANK(),woody_part,
+			IF(eve_part<>BLANK(),eve_part,BLANK())))))
+			
+			```
+		isHidden
+		lineageTag: 63266b30-3aa5-4561-bbed-625bb7a31e18
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'cust code result per manual order' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date created", Order.Descending}}),
+				    #"Manual order xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="Manual order.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Manual order xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    _Formatter_Formatted_with_Sybas_Sheet = #"Imported Excel Workbook"{[Item="_Formatter_Formatted_with_Sybas",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(_Formatter_Formatted_with_Sybas_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"row_cnt", Int64.Type}, {"region_no", Int64.Type}, {"order_type", Int64.Type}, {"doc_no", Int64.Type}, {"doc_line_no", Int64.Type}, {"loc_no", Int64.Type}, {"Hill He Marked", type text}, {"po_vend_name", type text}, {"po_cust_name", type text}, {"po_cust_code", type text}, {"part_no", type text}, {"mfg_part_no", type any}, {"woody_cust_part_no", type text}, {"eve_cust_part_no", type any}, {"pk", type text}, {"loc_no_1", Int64.Type}, {"inv_type", Int64.Type}, {"sku_no", Int64.Type}, {"trans_type", Int64.Type}, {"doc_date", type datetime}, {"doc_no_2", Int64.Type}, {"order_type_3", Int64.Type}, {"doc_line_no_4", Int64.Type}, {"source", type text}, {"trans_qty", Int64.Type}, {"trans_cost", type number}, {"odometer", type text}, {"entry_id", Int64.Type}, {"rec_no", Int64.Type}, {"rec_line_no", Int64.Type}, {"cost_change", type text}, {"entry_datetime", type datetime}, {"ext_qty", Int64.Type}, {"report_run_date", type datetime}, {"trans_name", type text}, {"trans_col_name", type text}, {"doc_date_str", type date}, {"entry_datetime_str", type date}, {"update_cost", type text}, {"cost_from", type text}, {"oh_ext_ref", type text}, {"oh_int_ref_type", type any}, {"oh_int_ref_no", type any}, {"oh_from_loc_no", Int64.Type}, {"oh_to_loc_no", Int64.Type}, {"oh_exp_code", type text}, {"oh_sales_rel_date", type datetime}, {"oh_credit_rel_date", type datetime}, {"oh_ship_date", type text}, {"oh_total_cost", type number}, {"oh_total_order", type text}, {"oh_sales_total", type text}, {"oh_ship_method", type text}, {"oh_ship_to_addr", type text}, {"oh_ship_to_city", type text}, {"oh_ship_to_country", type text}, {"oh_ship_to_loc", type text}, {"oh_ship_to_name", type text}, {"oh_ship_to_po_box", type text}, {"oh_ship_to_state", type text}, {"oh_ship_to_zip", Int64.Type}, {"od_int_ref_type", type any}, {"od_int_ref_no", type any}, {"od_int_ref_line_no", type any}, {"od_ext_ref", type text}, {"oh_exp_gl_acct_no", type text}, {"oh_exp_gl_project", type text}, {"oh_exp_desc", type text}, {"po_vend_no", Int64.Type}, {"po_cust_no", Int64.Type}, {"po_cust_name_5", type text}, {"po_cust_code_6", type text}, {"vend_inv_amt1", type number}, {"vend_inv_no", type any}, {"vend_inv_doc_no", Int64.Type}, {"vend_inv_amt2", type any}, {"sernbr_asset_tag_list", type text}, {"sernbr_ser_no_list", type text}, {"icp_po_region_no", type text}, {"icp_po_type", type text}, {"icp_po_no", type text}, {"icp_po_rec_loc", type text}, {"icp_po_part_exist", type text}, {"icp_ds_sso_type", type text}, {"icp_ds_sso_no", type text}, {"icp_ds_sso_cust_no", type text}, {"so_unit_price", type text}, {"so_net_price", type text}, {"so_kit_line_no", type text}, {"so_kit_line_sku_no", type text}, {"so_rack_line_sku_no", type text}, {"so_rack_cnt", type text}, {"so_server_cnt", type text}, {"so_sales_master_acct", type text}, {"so_cust_type", type text}, {"so_sales_master_acct_name", type text}, {"intercomp_cust_flag", type text}, {"so_cust_code", type text}, {"so_refusal_order_no", type text}, {"so_end_user_po_date", type text}, {"so_end_user_po", type text}, {"zero_qty_flag", type text}, {"po_vend_name_7", type text}, {"po_vend_currency", type text}, {"intercomp_vend_flag", type text}, {"po_ppdc_code", Int64.Type}, {"po_unit_cost", type number}, {"so_cust_no", type text}, {"so_cust_name", type text}, {"shipbooking_asset_tag_list", type text}, {"so_cat", type text}, {"etl_timestamp", type datetime}, {"dt_month", type date}, {"region_no_8", Int64.Type}, {"sku_no_9", Int64.Type}, {"part_no_10", type text}, {"fg_type", type text}, {"sys_type_no", type text}, {"sys_type_desc", type text}, {"mfg_part_no_11", type any}, {"mfg_vend_no", Int64.Type}, {"mfg_vend_name", type text}, {"short_desc", type text}, {"long_desc", type text}, {"master_flag", type text}, {"vpl_no", Int64.Type}, {"vpl_desc", type text}, {"vpl_code", type text}, {"weight", type number}, {"prod_type", type text}, {"model", type text}, {"po_cost", type number}, {"abc_code", type text}, {"ser_no_flag", type text}, {"avail_to_sell", type text}, {"active_status", type text}, {"active_status_date", type datetime}, {"accept_rma", type text}, {"production_flag", type text}, {"acp_part_flag", type text}, {"acp_nw_flag", type text}, {"acc_svr_flag", type text}, {"acp_fidc", type text}, {"chatter_src_flag", type text}, {"cust_sku_cust_no", Int64.Type}, {"cust_sku_cust_name", type text}, {"woody_cust_part_no_12", type text}, {"chatter_cust_part_no", type text}, {"woody_spare_cust_part_no", type text}, {"hts_import", type any}, {"usage_type", type text}, {"group_id", Int64.Type}, {"part_master_entry_id", Int64.Type}, {"part_master_entry_datetime", type datetime}, {"etl_timestamp_13", type datetime}, {"company_no", Int64.Type}, {"woody_cust_part_no_list", type text}, {"jv_business", type text}, {"cust_platform", type text}, {"ave_cost", type number}, {"complete_flag", type text}, {"sku_coo", type text}, {"woody_allocation_id_required_flag", type text}, {"woody_model_group", type text}, {"part_portal_category", type text}, {"part_no_noprefix", type text}, {"plm_part_family", type text}, {"plm_part_category", type text}, {"universal_vendor_name", type text}, {"universal_vendor_id", Int64.Type}, {"plm_life_cycle", type text}, {"moq_qty", Int64.Type}, {"eoq_qty", Int64.Type}, {"model_name", type text}, {"part_fidc", type text}, {"group_fidc", type text}, {"prod_code", Int64.Type}, {"sug_retail_price", Int64.Type}, {"consign_flag", type text}, {"seg_code", type text}, {"std_whls_price", type text}, {"inv_flat_sku_flag", Int64.Type}, {"woody_strategic_category", type text}, {"eve_cust_part_no_14", type any}, {"eve_cust_part_no_list", type any}, {"manufacturer_name", type text}, {"plm_part_no", type text}, {"buy_sell_flag", type text}, {"eve_core", type text}, {"eve_oum", type text}, {"vpc_code", type text}, {"mar_comment", type text}, {"height", type number}, {"width", type number}, {"length", type number}, {"plm_part_category_group", type text}, {"date_flag", type date}, {"region_no_15", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+

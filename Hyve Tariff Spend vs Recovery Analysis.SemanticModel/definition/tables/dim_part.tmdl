@@ -1,0 +1,207 @@
+table dim_part
+	lineageTag: 259a558b-2335-4535-8b4d-95e10bdd8cea
+
+	column po_cost
+		dataType: double
+		lineageTag: 32612334-4cb3-4d7a-9711-7183013dc951
+		summarizeBy: sum
+		sourceColumn: po_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sku_no
+		dataType: string
+		lineageTag: d9c8731b-070a-43ca-a178-e762aa696287
+		summarizeBy: none
+		sourceColumn: sku_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no
+		dataType: string
+		lineageTag: 74ab8963-1081-4471-9837-7caf152d50a5
+		summarizeBy: none
+		sourceColumn: part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: fc8c29c9-b443-4af1-a246-b244d9cfeca4
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_coo
+		dataType: string
+		lineageTag: ac84c5e9-3a30-4835-b5e9-e074a0270778
+		summarizeBy: none
+		sourceColumn: sku_coo
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: bcb7e577-cdff-4f05-8b28-c881355596f0
+		summarizeBy: sum
+		sourceColumn: mfg_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column mfg_vend_name
+		dataType: string
+		lineageTag: 6c747538-8cf8-4f48-9f68-06a88aeb2b01
+		summarizeBy: none
+		sourceColumn: mfg_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column universal_vendor_name
+		dataType: string
+		lineageTag: 9217fd69-acf5-494a-a9c5-032f90752ca9
+		summarizeBy: none
+		sourceColumn: universal_vendor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column plm_part_family
+		dataType: string
+		lineageTag: 2c1011f0-1310-46a2-85e5-b0bf7e097ebe
+		summarizeBy: none
+		sourceColumn: plm_part_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column vpc_code
+		dataType: string
+		lineageTag: 593bffe1-9a99-4af3-a891-040ac6cad66f
+		summarizeBy: none
+		sourceColumn: vpc_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column weight
+		dataType: double
+		lineageTag: 767981b9-2214-4a01-a0b8-4969466aba04
+		summarizeBy: sum
+		sourceColumn: weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column long_desc
+		dataType: string
+		lineageTag: ce90c039-1fd2-4540-8eff-3a28e0a225d5
+		summarizeBy: none
+		sourceColumn: long_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column hts_import_org
+		dataType: string
+		lineageTag: 9ab8c984-f7a8-42e4-87da-dc5b3d111585
+		summarizeBy: none
+		sourceColumn: hts_import_org
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_part_flag
+		dataType: string
+		lineageTag: 5fcaab22-2a4e-42f6-a350-aead62b16289
+		summarizeBy: none
+		sourceColumn: acp_part_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_svr_flag
+		dataType: string
+		lineageTag: 5c69cd4b-860c-4ccc-a9c0-2917a08d1251
+		summarizeBy: none
+		sourceColumn: acc_svr_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column acp_nw_flag
+		dataType: string
+		lineageTag: 213ceee3-c6cb-46f1-a7ee-fe0f529be079
+		summarizeBy: none
+		sourceColumn: acp_nw_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column hts_import_updated
+		dataType: string
+		lineageTag: 3a55ae51-f471-4891-92a6-bbe75f3e0207
+		summarizeBy: none
+		sourceColumn: hts_import_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [region_no]&"\"&[sku_no]
+		lineageTag: 0325b451-84a8-4a44-b660-917e29c116a4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column prod_type
+		dataType: string
+		lineageTag: dd37edc0-b837-4225-aead-1b4fab04c19b
+		summarizeBy: none
+		sourceColumn: prod_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column abc_code
+		dataType: string
+		lineageTag: 1ed522d4-a6a8-4a70-aead-4521d4ed520f
+		summarizeBy: none
+		sourceColumn: abc_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column usage_type
+		dataType: string
+		lineageTag: dd6e19f1-5209-4a40-a8f1-3788a6925ebb
+		summarizeBy: none
+		sourceColumn: usage_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column woody_model_group
+		dataType: string
+		lineageTag: 73b22baa-4139-4308-830f-a9151d0ed174
+		summarizeBy: none
+		sourceColumn: woody_model_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column ~REF_region_part = [region_no]&"/"&[part_no]
+		lineageTag: 8dc21b97-1e4d-41f3-b31c-2469721b74be
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_part = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.Query("dsn=VERTICA_PROD_US", "select /*+label('From PBI model/Dataflow Hyve Finance/Hyve Tariff Spend vs Recovery Analysis by alyssa.lei')*/#(lf)po_cost,sku_no,prod_type,abc_code,part_no,region_no,sku_coo,mfg_vend_no ,mfg_vend_name ,universal_vendor_name , plm_part_family,vpc_code,weight,long_desc,hts_import,acp_part_flag,acc_svr_flag,acp_nw_flag,usage_type,woody_model_group from  dim_hygbl.dim_hyve_part #(lf)"),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"hts_import", "hts_import_org"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns", "hts_import_org", "hts_import_org - Copy"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Duplicated Column",{{"hts_import_org - Copy", "hts_import_updated"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns1",".","",Replacer.ReplaceText,{"hts_import_updated"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

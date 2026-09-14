@@ -1,0 +1,46 @@
+table '~Hill''s location mapping'
+	lineageTag: 3cca9b57-e2d3-4dff-931a-e54a2d258cfd
+
+	column loc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: c7b7c1c1-7548-48a4-bf46-290b93b600ae
+		summarizeBy: none
+		sourceColumn: loc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_name
+		dataType: string
+		lineageTag: 60206a7b-ae9b-445a-add3-d5b78338bba0
+		summarizeBy: none
+		sourceColumn: program_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cust
+		dataType: string
+		lineageTag: 200ab384-e6b1-4979-b722-e0781fd2fcc6
+		summarizeBy: none
+		sourceColumn: Cust
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~Hill''s location mapping' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each [Date created] > #datetime(2025, 9, 23, 0, 0, 0)),
+				    #"tt loc info xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Filtered Rows"{[Name="tt loc info.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"tt loc info xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"loc_no", Int64.Type}, {"program_name", type text}, {"Cust", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

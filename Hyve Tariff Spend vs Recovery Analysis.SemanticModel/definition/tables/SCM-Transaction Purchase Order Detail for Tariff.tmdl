@@ -1,0 +1,315 @@
+table 'SCM-Transaction Purchase Order Detail for Tariff'
+	lineageTag: cccbe2b4-b473-471b-96b7-5169a8885864
+
+	measure 'SCM Balance' =
+			
+			SUMX(
+			    SUMMARIZE(
+			        'SCM-Transaction Purchase Order Detail for Tariff',
+			        'SCM-Transaction Purchase Order Detail for Tariff'[scm_no],        // 按订单ID分组
+			        "UniquePrice", MAX('SCM-Transaction Purchase Order Detail for Tariff'[scm_pl_gl_balance])  // 取每个订单的价格（假设价格相同）
+			    ),
+			    [UniquePrice]                     // 对去重后的价格求和
+			)
+		lineageTag: 95eb67aa-1233-47e1-a57f-3a5fd8b13294
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scm_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dad1bc7-b441-411a-aa2a-73fe18f318db
+		summarizeBy: sum
+		sourceColumn: scm_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_name
+		dataType: string
+		lineageTag: 61809d1d-d6e0-4ee3-a78a-843d832a211c
+		summarizeBy: none
+		sourceColumn: scm_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_claim_type
+		dataType: int64
+		formatString: 0
+		lineageTag: c88e05c7-8259-43d7-a8d8-f804a188dd43
+		summarizeBy: sum
+		sourceColumn: scm_claim_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_status
+		dataType: string
+		lineageTag: e06f2343-3a08-45ec-a3a7-a9db57d91767
+		summarizeBy: none
+		sourceColumn: scm_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column close_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 16a3c0c2-5bc7-4184-8a73-dc27ad13db17
+		summarizeBy: none
+		sourceColumn: close_date
+
+		variation Variation
+			isDefault
+			relationship: 9ad2493b-3e9e-46c2-a43b-8e2ae6dcf3d5
+			defaultHierarchy: LocalDateTable_036204dd-1c49-406e-8348-c237446a0496.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f61eb408-4d6a-4f83-b858-93cb0646b0c9
+		summarizeBy: sum
+		sourceColumn: vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_name
+		dataType: string
+		lineageTag: 709b8c32-5de4-4603-8f07-e21194c61e32
+		summarizeBy: none
+		sourceColumn: vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_pl_gl_balance
+		dataType: double
+		lineageTag: c0205296-5cfc-42ae-9089-a3458374baa0
+		summarizeBy: sum
+		sourceColumn: scm_pl_gl_balance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scm_po_open
+		dataType: int64
+		formatString: 0
+		lineageTag: 97c07777-8100-41e9-b259-1d553797f80a
+		summarizeBy: sum
+		sourceColumn: scm_po_open
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_po_actual
+		dataType: double
+		lineageTag: ce98a166-db06-4750-8b73-1f03a2f436de
+		summarizeBy: sum
+		sourceColumn: scm_po_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column status
+		dataType: string
+		lineageTag: d4b900da-ab5f-4e4d-8e77-db853af958a6
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f5889f5-0a79-4985-afec-53e1bd59f099
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_category
+		dataType: string
+		lineageTag: 3021a76f-8ec2-45f8-9a35-1b4831b008fc
+		summarizeBy: none
+		sourceColumn: trans_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 98bc8e32-507b-40fc-b126-848314a83eab
+		summarizeBy: sum
+		sourceColumn: order_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 08c86de2-3ea9-4702-ae54-3dfa22691e62
+		summarizeBy: sum
+		sourceColumn: order_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column expect_date
+		dataType: string
+		lineageTag: 03706f7f-62dc-490b-a950-3728b648e849
+		summarizeBy: none
+		sourceColumn: expect_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column rec_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bf3273e3-1735-40ed-8cb2-e6f0aad5db6c
+		summarizeBy: none
+		sourceColumn: rec_date
+
+		variation Variation
+			isDefault
+			relationship: 974c12b7-a304-4cea-9293-73139a4f271a
+			defaultHierarchy: LocalDateTable_9e7def2d-7ae7-48e4-8729-8ef4526b2866.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column part_no
+		dataType: string
+		lineageTag: a3e27e0c-ab0f-4e1b-ad61-74dd69c1d7be
+		summarizeBy: none
+		sourceColumn: part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column prod_type
+		dataType: string
+		lineageTag: 64d701d7-431e-4569-b914-e649cdfc79fd
+		summarizeBy: none
+		sourceColumn: prod_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_qty
+		dataType: string
+		lineageTag: 1da77b20-1868-4112-a977-687488017b1d
+		summarizeBy: none
+		sourceColumn: order_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column rec_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 0760d64d-1cc9-484b-8979-548c6c19a9f2
+		summarizeBy: sum
+		sourceColumn: rec_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_exp
+		dataType: double
+		lineageTag: 0da2ac9c-40bb-4c07-a16d-5dde2e2ff572
+		summarizeBy: sum
+		sourceColumn: unit_exp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column open_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 070c02cc-7d2e-442a-8c05-49574c2cf818
+		summarizeBy: sum
+		sourceColumn: open_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column open_amount
+		dataType: string
+		lineageTag: 93a11d7d-b474-4191-ad96-c1ba3e9092a3
+		summarizeBy: none
+		sourceColumn: open_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column usage_amount
+		dataType: double
+		lineageTag: 802eb9dc-3341-4358-b6a1-b44269e8345c
+		summarizeBy: sum
+		sourceColumn: usage_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_amount
+		dataType: double
+		lineageTag: aba4bcb4-1e4b-48fc-afa4-105154a58d92
+		summarizeBy: sum
+		sourceColumn: total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KEY = [order_no]&"\"&[part_no]
+		lineageTag: ac81783a-68d5-4517-a8e5-03475399bf6a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_type = LOOKUPVALUE('Draft Vendor Agreement tracker'[Where do we expect Tariff cost to come from?],'Draft Vendor Agreement tracker'[Vendor #],'SCM-Transaction Purchase Order Detail for Tariff'[vend_no])
+		lineageTag: c2cc39a3-8241-4787-a6b3-ddc575e39229
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column tariff_actual_payment = CALCULATE(SUM('Tariff Expense Tracker'[Tariff Total Amount (Actual)]),FILTER(ALL('Tariff Expense Tracker'),'SCM-Transaction Purchase Order Detail for Tariff'[KEY]='Tariff Expense Tracker'[KEY]))
+		lineageTag: 81b689e9-29eb-4104-a0db-23d41d563fda
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Year&Month = IF([rec_date]>DATE(2025,3,31),DATE(YEAR([rec_date]),MONTH([rec_date]),1),BLANK())
+		formatString: Long Date
+		lineageTag: 9734958a-d782-4844-b699-7057fc041eac
+		summarizeBy: none
+
+		variation 变体
+			isDefault
+			relationship: 346cee77-f2bd-464f-ac5a-d8ce9538d867
+			defaultHierarchy: LocalDateTable_974b0b82-e975-4af4-b594-33fefe7801b1.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'SCM-Transaction Purchase Order Detail for Tariff' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"US - SCM-Transaction Purchase Order Detail for Tariff xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="US - SCM-Transaction Purchase Order Detail for Tariff.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"US - SCM-Transaction Purchase Order Detail for Tariff xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    #"claim_type 95,96_Sheet" = #"Imported Excel Workbook"{[Item="claim_type 95,96",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"claim_type 95,96_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"scm_no", Int64.Type}, {"scm_name", type text}, {"scm_claim_type", Int64.Type}, {"scm_status", type text}, {"close_date", type date}, {"vend_no", Int64.Type}, {"vend_name", type text}, {"scm_pl_gl_balance", type number}, {"scm_po_open", Int64.Type}, {"scm_po_actual", type number}, {"status", type text}, {"order_type", Int64.Type}, {"trans_category", type text}, {"order_no", Int64.Type}, {"order_line_no", Int64.Type}, {"expect_date", type text}, {"rec_date", type date}, {"part_no", type text}, {"prod_type", type text}, {"order_qty", type text}, {"rec_qty", Int64.Type}, {"unit_exp", type number}, {"open_qty", Int64.Type}, {"open_amount", type text}, {"usage_amount", type number}, {"total_amount", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([scm_claim_type] = 96))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

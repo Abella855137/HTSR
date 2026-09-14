@@ -1,0 +1,172 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU06",
+      "reportVersionAtImport": {
+        "visual": "1.8.92",
+        "report": "2.0.92",
+        "page": "1.3.92"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Custom11558440422495986.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.96",
+        "report": "2.0.96",
+        "page": "1.3.96"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2041daecb60300a8dcb8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "gl_trans_date"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dwd_hyve_finance_ap_tariff_mi",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "gl_trans_date"
+                    }
+                  },
+                  "Right": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Literal": {
+                          "Value": "datetime'2018-11-30T00:00:00'"
+                        }
+                      },
+                      "TimeUnit": 5
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "massFilter2E7137AC1174403C8CF3456F3EB0B7D7"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU06",
+          "path": "BaseThemes/CY24SU06.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Custom11558440422495986.json",
+          "path": "Custom11558440422495986.json",
+          "type": "Image"
+        },
+        {
+          "name": "Hyve_Horizontal_2024Mar_narrow5141200505180403.svg",
+          "path": "Hyve_Horizontal_2024Mar_narrow5141200505180403.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Hyve_Horizontal_2024Mar_narrow6118010840303294.svg",
+          "path": "Hyve_Horizontal_2024Mar_narrow6118010840303294.svg",
+          "type": "Image"
+        },
+        {
+          "name": "PBI_Template_update_no_slicer43246336053768064.svg",
+          "path": "PBI_Template_update_no_slicer43246336053768064.svg",
+          "type": "Image"
+        },
+        {
+          "name": "PBI_Template_update_no_slicer600824249843233.svg",
+          "path": "PBI_Template_update_no_slicer600824249843233.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

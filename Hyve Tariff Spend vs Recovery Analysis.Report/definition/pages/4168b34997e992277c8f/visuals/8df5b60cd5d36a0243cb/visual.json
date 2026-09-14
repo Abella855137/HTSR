@@ -1,0 +1,235 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8df5b60cd5d36a0243cb",
+  "position": {
+    "x": 184.46232626188737,
+    "y": 514.9963423555231,
+    "z": 4000,
+    "height": 181.6532553035845,
+    "width": 518.74177029992688,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Recovery Data Scope",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Data Source: ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Data from line items value in quote file"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Date ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Scope",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.3333px"
+                    }
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " "
+                  },
+                  {
+                    "value": "From Dec 2019 to last month",
+                    "textStyle": {
+                      "fontSize": "13.3333px"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Order Type: ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "OT1 and ship date not null"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4. ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Customer Program:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.3333px"
+                    }
+                  },
+                  {
+                    "value": " All",
+                    "textStyle": {
+                      "fontSize": "13.3333px"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "5. Cust:",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " Woody + Eve"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "6. ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.3333px"
+                    }
+                  },
+                  {
+                    "value": "Line Items: ",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "5081, 3065, 5082, 5093"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "7. Refresh Schedule :",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " Monthly, 1st week of every month"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "8. Last data refresh: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.3333px"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

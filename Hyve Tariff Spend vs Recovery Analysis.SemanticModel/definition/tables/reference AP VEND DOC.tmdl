@@ -1,0 +1,148 @@
+table 'reference AP VEND DOC'
+	isHidden
+	lineageTag: 2a3ed1c5-eee2-4f98-8d3c-61425b8782c6
+
+	column region_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 16aee0f9-1783-4f64-ae3d-9fe161e491fc
+		summarizeBy: sum
+		sourceColumn: region_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_no
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ac637772-1063-4eed-9854-37aef1185127
+		summarizeBy: sum
+		sourceColumn: vend_doc_no
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_order_no/order_type
+		dataType: string
+		isHidden
+		lineageTag: 834b0010-a854-4e3a-be85-5b052770c1a3
+		summarizeBy: none
+		sourceColumn: reference_order_no/order_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_tracking_no/carton#
+		dataType: string
+		isHidden
+		lineageTag: 55a2050f-fd29-49b5-aef4-93be455698b7
+		summarizeBy: none
+		sourceColumn: reference_tracking_no/carton#
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_others
+		dataType: string
+		isHidden
+		lineageTag: 90018a50-4229-4038-9d49-213adc6d2a6e
+		summarizeBy: none
+		sourceColumn: reference_others
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code
+		dataType: string
+		isHidden
+		lineageTag: 3f2a9b99-b872-4caa-a51e-51417d7c6db0
+		summarizeBy: none
+		sourceColumn: cust_code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column comments
+		dataType: string
+		isHidden
+		lineageTag: 7a8990d0-1598-4d86-a3f6-7c5aa1a028ac
+		summarizeBy: none
+		sourceColumn: comments
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 70350f9f-bd19-4589-90dc-e3c46f8472fb
+		summarizeBy: sum
+		sourceColumn: entry_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_datetime
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 23fd13ff-0476-4222-948e-ec14329a834e
+		summarizeBy: none
+		sourceColumn: entry_datetime
+
+		variation Variation
+			isDefault
+			relationship: 21c8fc19-0312-4744-976c-433fcb13343b
+			defaultHierarchy: LocalDateTable_4e08b097-7e72-4e6d-b9c6-90fac97ce43e.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [region_no]&"\"&[vend_doc_no]
+		lineageTag: 6e48f515-9aec-4ee4-8e66-d30fa434e630
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2 =
+			
+			var s1=CALCULATE(DISTINCTCOUNT([cust_code]),ALLEXCEPT('reference AP VEND DOC','reference AP VEND DOC'[KEY]))
+			return
+			IF(s1>1,BLANK(),[cust_code])
+		lineageTag: 3c3c8deb-b854-49e5-8163-5f54e578af24
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'reference AP VEND DOC' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"reference AP VEND DOC xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Frt out Spend vs Recovery/" = #"Sorted Rows"{[Name="reference AP VEND DOC.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Frt out Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"reference AP VEND DOC xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Frt out Spend vs Recovery/"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"region_no", Int64.Type}, {"vend_doc_no", Int64.Type}, {"reference_order_no/order_type", type any}, {"reference_tracking_no/carton#", type text}, {"reference_others", type text}, {"cust_code", type text}, {"comments", type text}, {"entry_id", Int64.Type}, {"entry_datetime", type datetime}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+

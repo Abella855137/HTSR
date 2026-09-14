@@ -1,0 +1,216 @@
+table 'SCM Monthly Accrual'
+	lineageTag: 040ccf43-a83a-47d1-abc7-058aa753cd5b
+
+	measure 'Ending Accrual Amt' = SUM('SCM Monthly Accrual'[Accrual Amt])-SUM('SCM Monthly Accrual'[Spend Amt])-SUM('SCM Monthly Accrual'[INV Correction Amt(completed)])-SUM('SCM Monthly Accrual'[AP Hold (Tariff Dispute)])-SUM('SCM Monthly Accrual'[Manual Adjustment Amt])-SUM('SCM Monthly Accrual'[INV Correction Amt(pending)])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c9e5b81c-4c93-4712-a6a1-ee7d726ac934
+
+	measure 'gaps(net accrual vs spend)' = [Net Accrual Amt]-[Total Spend]
+		lineageTag: e2cf0ac7-2932-4268-b0c3-ac29084781ef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure total_gaps(accrual_spend) = SUM('SCM Monthly Accrual'[Gaps(Accrual vs. Spend)])
+		lineageTag: db1785ef-f045-4f42-a493-51aec96d335e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Accrual Amt' = SUM('SCM Monthly Accrual'[Accrual Amt])-SUM('SCM Monthly Accrual'[INV Correction Amt(completed)])-SUM('SCM Monthly Accrual'[Manual Adjustment Amt])-SUM('SCM Monthly Accrual'[INV Correction Amt(pending)])
+		lineageTag: c6b03355-f58b-4b81-8d49-60721b650138
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Spend' = SUM('SCM Monthly Accrual'[Spend Amt])+SUM('SCM Monthly Accrual'[AP Hold (Tariff Dispute)])
+		lineageTag: 5bc2c092-ab54-4005-a01e-1280c355f6ec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Parent Reserve' = CALCULATE(MAX('SCM Monthly Accrual'[scm_balance]),'SCM Monthly Accrual'[scm_no]=5040558)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1409cbb7-5909-4db9-ba28-2d254751f045
+
+	measure 'Pending Inventory Corrections' = SUM('SCM Monthly Accrual'[INV Correction Amt(pending)])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7c16e4f0-dede-4215-bcf5-838e5f5b7b58
+
+	measure 'Supplier SCM (Supplier IOR)' = CALCULATE(SUM('SCM Monthly Accrual'[scm_balance]),'SCM Monthly Accrual'[vend_type]="(2) Vendor Invoice"||'SCM Monthly Accrual'[vend_type]="(4) Mixed IOR")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 74d8deff-cbd0-4ed8-8b72-9269fbd60357
+
+	measure 'Supplier SCM (Hyve IOR)' = CALCULATE(SUM('SCM Monthly Accrual'[scm_balance]),'SCM Monthly Accrual'[vend_type]<>"(2) Vendor Invoice",'SCM Monthly Accrual'[vend_type]<>"(4) Mixed IOR",'SCM Monthly Accrual'[scm_no]<>5040558)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 95c221f3-cb3c-4aa7-a1dd-1eed14eda0d0
+
+	measure 'SCM Payment Hold' = SUM('SCM Monthly Accrual'[AP Hold (Tariff Dispute)])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 425c6ad1-31b6-4249-badf-232da812703c
+
+	measure Gaps = SUM('SCM Monthly Accrual'[Accrual Amt])-SUM('SCM Monthly Accrual'[Spend Amt])-SUM('SCM Monthly Accrual'[INV Correction Amt(completed)])-SUM('SCM Monthly Accrual'[AP Hold (Tariff Dispute)])-SUM('SCM Monthly Accrual'[Manual Adjustment Amt])+SUM('SCM Monthly Accrual'[scm_balance_in_March])-SUM('SCM Monthly Accrual'[scm_balance])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: b9bd22f0-b06e-42c1-a276-b250e272e2cc
+
+	measure 'border line' = BLANK()
+		formatString: 0
+		lineageTag: 3b52b00e-047a-4ece-9aa9-8862ff7171fd
+
+	column scm_no
+		formatString: 0
+		lineageTag: 522b37ac-dabd-4098-87f4-1404116a43d8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [scm_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		formatString: Long Date
+		lineageTag: cc13c41f-de59-4bd0-8ec8-f9661b88b1b2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [month]
+
+		variation 变体
+			isDefault
+			relationship: e8c8590a-5423-4160-a5e2-6170e9c05471
+			defaultHierarchy: LocalDateTable_742d410b-9aa5-4818-9a1d-e0b14c8117fd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column latest_month = MAX('SCM Monthly Accrual'[month])
+		formatString: Long Date
+		lineageTag: 00b2fa20-cc2f-4342-9cf1-c204b2f278b2
+		summarizeBy: none
+
+		variation 变体
+			isDefault
+			relationship: 4041c673-81eb-408f-9ff4-2cffb98ab93e
+			defaultHierarchy: LocalDateTable_e10ddf59-58e9-47ee-b948-51eb54478552.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Accrual Amt' = CALCULATE(SUM('SCM-Transaction Purchase Order Detail for Tariff'[total_amount]),FILTER(ALL('SCM-Transaction Purchase Order Detail for Tariff'),'SCM Monthly Accrual'[scm_no]='SCM-Transaction Purchase Order Detail for Tariff'[scm_no]&&[month]='SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0389922a-e675-4e8d-a19a-2ab98863ee09
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Spend Amt' = CALCULATE(SUM('Tariff Expense Tracker'[Tariff Total Amount (Actual)]),FILTER(ALL('Tariff Expense Tracker'),'SCM Monthly Accrual'[scm_no]='Tariff Expense Tracker'[SCM Number]&&'SCM Monthly Accrual'[month]='Tariff Expense Tracker'[Year&month]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 122f133a-d4a9-4043-baf4-d989612262e9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-DO"}
+
+	column 'INV Correction Amt(completed)' = -CALCULATE(SUM('Completed INV Correction'[Total Amt]),FILTER(ALL('Completed INV Correction'),'SCM Monthly Accrual'[scm_no]='Completed INV Correction'[Transfer to SCM#]&&'SCM Monthly Accrual'[month]='Completed INV Correction'[Year&Month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f7347b31-96e8-4064-8061-a16dd4a01f98
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Hold (Tariff Dispute)' = CALCULATE(SUM('pending inventory tariff invoice tracker'[Tariff Total Amount (Actual)]),FILTER(ALL('pending inventory tariff invoice tracker'),'SCM Monthly Accrual'[scm_no]='pending inventory tariff invoice tracker'[SCM Number]&&'SCM Monthly Accrual'[month]='SCM Monthly Accrual'[latest_month]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 204a38db-3f1b-471c-a100-2067cdc183a8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV Correction Amt(pending)' = CALCULATE(sum('Pending INV correction'[ Total INV Correction ]),FILTER(ALL('Pending INV correction'),'SCM Monthly Accrual'[scm_no]='Pending INV correction'[scm_no]&&'SCM Monthly Accrual'[month]='SCM Monthly Accrual'[latest_month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: b977b603-c503-45e2-92c1-948d41ffc9a9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaps(Accrual vs. Spend)' = [Accrual Amt]-[Spend Amt]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 36bba68f-aa5d-4b2b-b711-d97c5091d424
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_no = LOOKUPVALUE('SCM-Transaction Purchase Order Detail for Tariff'[vend_no],'SCM-Transaction Purchase Order Detail for Tariff'[scm_no],'SCM Monthly Accrual'[scm_no])
+		formatString: 0
+		lineageTag: 25be5e84-ae5a-40b1-a4f9-6233d5343c7f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_name = LOOKUPVALUE('SCM-Transaction Purchase Order Detail for Tariff'[vend_name],'SCM-Transaction Purchase Order Detail for Tariff'[scm_no],'SCM Monthly Accrual'[scm_no])
+		lineageTag: 110657b4-e433-4ab2-bb04-4b02b0d74bfe
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_balance = CALCULATE(MAX('SCM-Transaction Purchase Order Detail for Tariff'[scm_pl_gl_balance]),FILTER(ALL('SCM-Transaction Purchase Order Detail for Tariff'),'SCM Monthly Accrual'[scm_no]='SCM-Transaction Purchase Order Detail for Tariff'[scm_no]&&[month]='SCM Monthly Accrual'[latest_month]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: c28bb002-4987-447b-9934-eea73160a8fd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-DO"}
+
+	column 'SCM | Vend' = [scm_no]&"|"&[scm_vend_name]
+		lineageTag: 6d317ca6-2e6e-4d5f-ba52-eb99ef46f3b1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manual Adjustment Amt' = CALCULATE(SUM('Manual Adjustments'[Total Amount]),FILTER(ALL('Manual Adjustments'),'SCM Monthly Accrual'[scm_no]='Manual Adjustments'[SCM#]&&'SCM Monthly Accrual'[month]='Manual Adjustments'[Year&month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 697741c6-fab5-4bb4-83be-ccd07d7b0d22
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCM MJE Amt' = CALCULATE(SUM('SCM MJE'[gl_amt]),FILTER(ALL('SCM MJE'),'SCM Monthly Accrual'[scm_no]='SCM MJE'[SCM#]&&'SCM MJE'[Month]='SCM Monthly Accrual'[month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3c8bbeb8-a037-4aba-9426-18a7887103b1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_balance_in_March = -CALCULATE(SUM(scm_balance_03_31[gl_amt]),FILTER(ALL(scm_balance_03_31),'SCM Monthly Accrual'[scm_no]=scm_balance_03_31[gl_project]&&[month]='SCM Monthly Accrual'[latest_month]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: abe4d3de-fd6f-488b-b215-60e26c4bcd94
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_type = LOOKUPVALUE('Draft Vendor Agreement tracker'[Where do we expect Tariff cost to come from?],'Draft Vendor Agreement tracker'[Vendor #],'SCM Monthly Accrual'[scm_vend_no])
+		lineageTag: 3e29a466-c2a6-4be9-8366-e97e182340cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tariff Group' =
+			IF([scm_no]=5040558,"Parent Reserve",
+			IF([vend_type]<>BLANK(),
+			IF([vend_type]="(2) Vendor Invoice"||[vend_type]="(4) Mixed IOR","Supplier SCM (Supplier IOR)",
+			"Supplier SCM (Hyve IOR)"),"TBD"))
+		lineageTag: 4b93ee15-cf0f-49c6-8321-5bbf4159311a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SCM Monthly Accrual' = calculated
+		mode: import
+		source = ```
+				
+				var scm_no=DISTINCT(SELECTCOLUMNS(FILTER('SCM-Transaction Purchase Order Detail for Tariff','SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]<>BLANK()||'SCM-Transaction Purchase Order Detail for Tariff'[scm_no]=5040558),"scm_no",'SCM-Transaction Purchase Order Detail for Tariff'[scm_no]))
+				var month=DISTINCT(SELECTCOLUMNS(FILTER('SCM-Transaction Purchase Order Detail for Tariff','SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]<>BLANK()),"month",'SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]))
+				return
+				CROSSJOIN(scm_no,month)
+				
+				```
+
+	annotation PBI_Id = d8a86480a93a4dc38353d8e956a45fd1
+

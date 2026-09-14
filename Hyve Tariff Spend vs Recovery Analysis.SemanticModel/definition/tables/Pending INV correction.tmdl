@@ -1,0 +1,93 @@
+table 'Pending INV correction'
+	lineageTag: da75efe9-6abe-4595-8b9f-dcb0100bc39b
+
+	column sku_no
+		dataType: int64
+		formatString: 0
+		lineageTag: a2931622-c49e-4352-8399-91f1cfa25ff0
+		summarizeBy: sum
+		sourceColumn: sku_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 78d36a1c-a45d-49ae-a31b-538e975cdee7
+		summarizeBy: sum
+		sourceColumn: sku_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no
+		dataType: string
+		lineageTag: 0b190507-d38b-4d67-9261-1317cca7188e
+		summarizeBy: none
+		sourceColumn: part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_no
+		dataType: int64
+		formatString: 0
+		lineageTag: d726392c-0cbf-4885-93c1-bc841306915d
+		summarizeBy: sum
+		sourceColumn: scm_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_name
+		dataType: string
+		lineageTag: 02d77780-c9a7-404e-8aa1-2c5bfd8103dc
+		summarizeBy: none
+		sourceColumn: scm_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Total INV Correction '
+		dataType: double
+		lineageTag: 3191febe-aa1c-4a77-8dff-1564f0d9ad29
+		summarizeBy: sum
+		sourceColumn: " Total INV Correction "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Impacted Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3c07a1f-388d-494f-b9d5-1ba2cba4f9f2
+		summarizeBy: sum
+		sourceColumn: Impacted Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Unit over accural Amt '
+		dataType: double
+		lineageTag: 34f3ed2d-9f79-4ad9-b54b-734193b90727
+		summarizeBy: sum
+		sourceColumn: " Unit over accural Amt "
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Pending INV correction' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"Actual INV correction result xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/Recovery data from Connor/" = #"Sorted Rows"{[Name="Actual INV correction result.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/Recovery data from Connor/"]}[Content],
+				    #"导入的 Excel 工作簿" = Excel.Workbook(#"Actual INV correction result xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/Recovery data from Connor/"),
+				    #"Pending INC Correction_Sheet" = #"导入的 Excel 工作簿"{[Item="Pending INC Correction",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(#"Pending INC Correction_Sheet", [PromoteAllScalars=true]),
+				    更改的类型 = Table.TransformColumnTypes(提升的标题,{{"sku_no", Int64.Type}, {"sku_vend_no", Int64.Type}, {"part_no", type text}, {"scm_no", Int64.Type}, {"scm_name", type text}, {" Total INV Correction ", type number}, {"Impacted Qty", Int64.Type}, {" Unit over accural Amt ", type number}})
+				in
+				    更改的类型
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = 导航
+

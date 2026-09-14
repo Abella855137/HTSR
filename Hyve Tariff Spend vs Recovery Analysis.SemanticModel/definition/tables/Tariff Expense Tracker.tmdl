@@ -1,0 +1,441 @@
+table 'Tariff Expense Tracker'
+	lineageTag: fa3bb9dd-273e-4e7d-964f-bc8d5d12d60c
+
+	column 'Vendor Number '
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e7b9d67-e7e8-43b6-bffb-0fc6f091cd1a
+		summarizeBy: sum
+		sourceColumn: "Vendor Number "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		lineageTag: b339052f-b411-402f-901f-74b2c3dbba39
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5d04e48-b224-4af6-afed-cc7462d4de91
+		summarizeBy: sum
+		sourceColumn: Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 66632122-b8ee-44b0-9c81-e1c54f771d20
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Ship-To Location'
+		dataType: string
+		lineageTag: fc69b828-6d77-48f0-a2b4-7844ee7c7c80
+		summarizeBy: none
+		sourceColumn: PO Ship-To Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Number'
+		dataType: string
+		lineageTag: daf89968-23ec-4914-b63c-b72ad26883e1
+		summarizeBy: none
+		sourceColumn: PO Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Line#'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5570fc15-b2ec-47f7-92ea-011ef2c8ca41
+		summarizeBy: sum
+		sourceColumn: PO Line#
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyve Part Number '
+		dataType: string
+		lineageTag: bed7cbb7-c221-4afe-a88b-274a89ce983b
+		summarizeBy: none
+		sourceColumn: "Hyve Part Number "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MFG Part Number'
+		dataType: string
+		lineageTag: 28f25f3f-d018-4af0-9759-bd03fa7e44b4
+		summarizeBy: none
+		sourceColumn: MFG Part Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Ship Term'
+		dataType: string
+		lineageTag: c4599064-9892-4861-9fb1-7873d7097cdd
+		summarizeBy: none
+		sourceColumn: PO Ship Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HTS Code (Invoice Part Level)'
+		dataType: string
+		lineageTag: e9a6459a-1719-4869-ad5a-3e5ca40f8aac
+		summarizeBy: none
+		sourceColumn: HTS Code (Invoice Part Level)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tariff Part Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a8a24de-bc93-40fd-b0ff-0ddc17dc563c
+		summarizeBy: sum
+		sourceColumn: Tariff Part Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Base Price'
+		dataType: double
+		lineageTag: f62ef5e6-93a9-4372-9834-78956a7880cc
+		summarizeBy: sum
+		sourceColumn: PO Base Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Unit Tariff Rate=O2/M2'
+		dataType: string
+		lineageTag: e793d9dd-eb7d-4437-a521-319b043b829d
+		summarizeBy: none
+		sourceColumn: PO Unit Tariff Rate=O2/M2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Unit Tariff Amount'
+		dataType: string
+		lineageTag: 38781b5f-df3f-4551-a33e-95ea3636de1d
+		summarizeBy: none
+		sourceColumn: PO Unit Tariff Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tariff Rate (Invoice)'
+		dataType: double
+		lineageTag: bac438a5-ac61-4c3e-b006-3c67c2b417aa
+		summarizeBy: sum
+		sourceColumn: Tariff Rate (Invoice)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Unit Amount (Invoice)=R2/L2'
+		dataType: double
+		lineageTag: 5ed9368f-3714-4cda-9e71-e2d1c7b390fb
+		summarizeBy: sum
+		sourceColumn: Tariff Unit Amount (Invoice)=R2/L2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Total Amount (Invoice by Rate)=L2*M2*P2'
+		dataType: double
+		lineageTag: 5d6622c5-c885-469a-ac26-10388aac73b2
+		summarizeBy: sum
+		sourceColumn: Tariff Total Amount (Invoice by Rate)=L2*M2*P2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tariff Total Amount (Actual)'
+		dataType: double
+		lineageTag: 259c4ab7-cfb0-4518-b7b5-02d774b230da
+		summarizeBy: sum
+		sourceColumn: Tariff Total Amount (Actual)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Part COO in CIS'
+		dataType: string
+		lineageTag: 40565419-f84d-410a-b9cc-f2cf1333720e
+		summarizeBy: none
+		sourceColumn: Part COO in CIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO COO'
+		dataType: string
+		lineageTag: cd2452df-ca49-45c5-81dc-4fea76c082f7
+		summarizeBy: none
+		sourceColumn: PO COO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipment COO (Invoice)'
+		dataType: string
+		lineageTag: f1854d0e-8f36-437e-a1c3-0802e113d738
+		summarizeBy: none
+		sourceColumn: Shipment COO (Invoice)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Vendor Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: f9accb2d-f3b4-49ec-87b0-a606f491ab35
+		summarizeBy: sum
+		sourceColumn: Invoice Vendor Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Vendor Name'
+		dataType: string
+		lineageTag: 0da5e50d-d952-4633-a259-5e65bea429d1
+		summarizeBy: none
+		sourceColumn: Invoice Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice# '
+		dataType: string
+		lineageTag: f11306f5-a048-4b13-b60c-154f459a9180
+		summarizeBy: none
+		sourceColumn: "Invoice# "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: df3576af-f0b4-423c-af62-acff53321f7e
+		summarizeBy: none
+		sourceColumn: Invoice Date
+
+		variation 变体
+			isDefault
+			relationship: 0c3c0121-8eb2-4528-a0ae-9d70d78534f6
+			defaultHierarchy: LocalDateTable_21761e20-8b36-4b81-97f0-abd3d757ee61.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'SCM Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: f81c8c3d-e256-4bd4-999e-2c8fa51e10ba
+		summarizeBy: sum
+		sourceColumn: SCM Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Doc#'
+		dataType: int64
+		formatString: 0
+		lineageTag: 94cb0504-c3a2-4b2c-a59d-d33b031e4e39
+		summarizeBy: sum
+		sourceColumn: AP Doc#
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discrepancy (Yes/No)'
+		dataType: string
+		lineageTag: f4d089c0-94d0-43f1-a7a7-f03da87db3db
+		summarizeBy: none
+		sourceColumn: Discrepancy (Yes/No)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discrepancy Reason(select from drop down)'
+		dataType: string
+		lineageTag: 2e99084e-d9a6-434b-a9eb-69abfc87ed97
+		summarizeBy: none
+		sourceColumn: Discrepancy Reason(select from drop down)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP CommentsOther Reason Code'
+		dataType: string
+		lineageTag: 64e99c64-5fa1-422c-abee-f6b906bf6d96
+		summarizeBy: none
+		sourceColumn: AP CommentsOther Reason Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discrepancy Report Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b9700144-8c19-488f-839f-d72e2c1299f6
+		summarizeBy: none
+		sourceColumn: Discrepancy Report Date
+
+		variation 变体
+			isDefault
+			relationship: 26d0c18e-a895-4c99-aae9-8c8e7a257bef
+			defaultHierarchy: LocalDateTable_7f879871-18fd-431f-8067-ee222ef677e7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Buyer''s comments'
+		dataType: string
+		lineageTag: f515b559-f559-4ba4-a725-e6edc8a902ba
+		summarizeBy: none
+		sourceColumn: Buyer's comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Tariff Amount Updated Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d5ad54f6-4935-4cba-be74-c7d5b74d5466
+		summarizeBy: none
+		sourceColumn: PO Tariff Amount Updated Date
+
+		variation 变体
+			isDefault
+			relationship: ee5c2366-4017-4143-a3d2-775e06ba3d43
+			defaultHierarchy: LocalDateTable_e97ff56e-33eb-4dff-9345-446688932b3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Discrepancy Close Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb4be6c7-e216-401e-9baa-f2245c010f35
+		summarizeBy: none
+		sourceColumn: Discrepancy Close Date
+
+		variation 变体
+			isDefault
+			relationship: 782ac5b9-b6ca-4e10-abc6-e999b4440c44
+			defaultHierarchy: LocalDateTable_ad3c5b7d-5c58-4b03-b272-187ceedab7aa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PO Part Receive Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: da143cb0-add5-40f3-ae21-d1296cb3e726
+		summarizeBy: none
+		sourceColumn: PO Part Receive Date
+
+		variation 变体
+			isDefault
+			relationship: 46bb095f-baf9-4c83-8608-74692995d5c0
+			defaultHierarchy: LocalDateTable_4725a044-61cb-4a35-9c97-0e8cc8ff8f09.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cust_code =
+			
+			VAR _CurrCust = 'Tariff Expense Tracker'[Customer Number]
+			RETURN CALCULATE(VALUES(dim_customer[cust_code]), dim_customer[cust_no] = _CurrCust, dim_customer[cust_code] <> BLANK())
+		lineageTag: 9e1223e4-6dc6-4733-a65f-e7ac7d495f4c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v2 =
+			
+			var code_cnt=CALCULATE(DISTINCTCOUNTNOBLANK('Tariff Expense Tracker'[cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[PO Number]))
+			return
+			IF(code_cnt>=2,"Multiple Cust",CALCULATE(MAX([Cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[PO Number])))
+		lineageTag: 2bd90144-ab51-4e8d-8b19-c673ad7f518c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v3 =
+			
+			var code_cnt=CALCULATE(DISTINCTCOUNTNOBLANK('Tariff Expense Tracker'[cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[AP Doc#]))
+			return
+			IF(code_cnt>=2,"Multiple Cust",CALCULATE(MAX([Cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[AP Doc#])))
+		lineageTag: 52b7d6e4-0e2a-45bc-b171-c27d26194d7a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_v4 =
+			
+			var code_cnt=CALCULATE(DISTINCTCOUNTNOBLANK('Tariff Expense Tracker'[cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[Invoice# ]))
+			return
+			IF(code_cnt>=2,"Multiple Cust",CALCULATE(MAX([Cust_code]),ALLEXCEPT('Tariff Expense Tracker','Tariff Expense Tracker'[Invoice# ])))
+		lineageTag: 1d9be071-9b14-489e-8bf1-c1451fe77e46
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [PO Number]&"\"&[Hyve Part Number ]
+		lineageTag: cf28a2ba-b103-4e96-bf8c-f8417fb0c945
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&month = DATE(YEAR([Invoice Date]),MONTH([Invoice Date]),1)
+		formatString: General Date
+		lineageTag: 03b62e28-b051-4c12-925d-421bb19fb4b5
+		summarizeBy: none
+
+		variation 变体
+			isDefault
+			relationship: 0247bce3-1c8d-440c-84b9-3dd028607b41
+			defaultHierarchy: LocalDateTable_d1e630e6-fa47-4031-a6ba-aa8a7a9db86c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry ID'
+		dataType: string
+		lineageTag: 99c232bd-8b0a-461a-8d36-9884030c756c
+		summarizeBy: none
+		sourceColumn: Entry ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buyer Review Day'
+		dataType: string
+		lineageTag: e3cc1d2d-4045-41c0-bba1-57d52723ec89
+		summarizeBy: none
+		sourceColumn: Buyer Review Day
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tariff Expense Tracker' = m
+		mode: import
+		source =
+				let
+				    源 = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/HyveBIProjects/", [ApiVersion = 15]),
+				    排序的行 = Table.Sort(源,{{"Date modified", Order.Descending}}),
+				    #"Tariff Expense Tracker xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/AP/" = 排序的行{[Name="Tariff Expense Tracker.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/HyveBIProjects/Shared Documents/Tariff/AP/"]}[Content],
+				    #"导入的 Excel 工作簿" = Excel.Workbook(#"Tariff Expense Tracker xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/AP/"),
+				    Tracker_Sheet = #"导入的 Excel 工作簿"{[Item="Tracker",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(Tracker_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(提升的标题,{"Vendor Number ", "Vendor Name", "Customer Number", "Customer Name", "PO Ship-To Location", "PO Number", "PO Line#", "Hyve Part Number ", "MFG Part Number", "PO Ship Term", "HTS Code#(lf) (Invoice Part Level)", "Tariff Part Qty", "PO Base Price", "PO Unit Tariff Rate#(lf)=O2/M2", "PO Unit Tariff Amount", "Tariff Rate (Invoice)", "Tariff Unit Amount (Invoice)#(lf)=R2/L2", "Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", "Tariff Total Amount #(lf)(Actual)#(lf)", "Part COO in CIS", "PO COO", "Shipment COO (Invoice)", "Invoice Vendor Number", "Invoice Vendor Name", "Invoice# ", "Invoice Date", "Entry ID", "SCM Number", "AP Doc#", "Discrepancy (Yes/No)", "Discrepancy Reason#(lf)(select from drop down)", "AP Comments#(lf)Other Reason Code", "Discrepancy Report Date", "Buyer's comments", "Buyer Review Day", "PO Tariff Amount Updated Date", "Discrepancy Close Date", "PO Part Receive Date"}),
+				    Custom1 = Table.TransformColumnTypes(#"Removed Other Columns",{{"Vendor Number ", Int64.Type}, {"Vendor Name", type text}, {"Customer Number", Int64.Type}, {"Customer Name", type text}, {"PO Ship-To Location", type text}, {"PO Number", type text}, {"PO Line#", Int64.Type}, {"Hyve Part Number ", type text}, {"MFG Part Number", type any}, {"PO Ship Term", type text}, {"HTS Code#(lf) (Invoice Part Level)", type any}, {"Tariff Part Qty", Int64.Type}, {"PO Base Price", type number}, {"PO Unit Tariff Rate#(lf)=O2/M2", type any}, {"PO Unit Tariff Amount", type any}, {"Tariff Rate (Invoice)", type number}, {"Tariff Unit Amount (Invoice)#(lf)=R2/L2", type number}, {"Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", type number}, {"Tariff Total Amount #(lf)(Actual)#(lf)", type number}, {"Part COO in CIS", type text}, {"PO COO", type text}, {"Shipment COO (Invoice)", type any}, {"Invoice Vendor Number", Int64.Type}, {"Invoice Vendor Name", type text}, {"Invoice# ", type any}, {"Invoice Date", type date}, {"SCM Number", Int64.Type}, {"AP Doc#", Int64.Type}, {"Discrepancy (Yes/No)", type text}, {"Discrepancy Reason#(lf)(select from drop down)", type text}, {"AP Comments#(lf)Other Reason Code", type text}, {"Discrepancy Report Date", type date}, {"Buyer's comments", type text}, {"PO Tariff Amount Updated Date", type date}, {"Discrepancy Close Date", type date}, {"PO Part Receive Date", type date}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(Custom1, {{"PO Part Receive Date", null}, {"Discrepancy Close Date", null}, {"PO Tariff Amount Updated Date", null}, {"Discrepancy Report Date", null}})
+				in
+				    #"Replaced Errors"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

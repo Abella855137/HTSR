@@ -1,0 +1,535 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e8070027389202cd99b0",
+  "position": {
+    "x": 15.525606469002694,
+    "y": 49.1644204851752,
+    "z": 3000,
+    "height": 354.50134770889485,
+    "width": 620,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "SCM | Vend"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(SCM Level Accrual.SCM | Vend)",
+              "nativeQueryRef": " SCM | Vend",
+              "displayName": " SCM | Vend"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SCM Level Accrual"
+                    }
+                  },
+                  "Property": "SCM Vend No"
+                }
+              },
+              "queryRef": "SCM Level Accrual.SCM Vend No",
+              "nativeQueryRef": "SCM Vend No"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "Accrual Amt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.Accrual Amt)",
+              "nativeQueryRef": "Accrual Total",
+              "displayName": "Accrual Total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "INV Correction Amt(completed)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.INV Correction Amt(completed))",
+              "nativeQueryRef": "INV Correction Amt(completed)",
+              "displayName": "INV Correction Amt(completed)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "INV Correction Amt(pending)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.INV Correction Amt(pending))",
+              "nativeQueryRef": "INV Correction Amt(pending)",
+              "displayName": "INV Correction Amt(pending)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "Manual Adjustment Amt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.Manual Adjustment Amt)",
+              "nativeQueryRef": "Manual Adjustment Amt",
+              "displayName": "Manual Adjustment Amt"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SCM Level Accrual"
+                    }
+                  },
+                  "Property": "Accrual - INV Adjustment"
+                }
+              },
+              "queryRef": "SCM Level Accrual.Accrual - INV Adjustment",
+              "nativeQueryRef": "Accrual - INV Adjustment"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "AP Hold (Tariff Dispute)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.AP Hold (Tariff Dispute))",
+              "nativeQueryRef": "AP Hold (Tariff Dispute)",
+              "displayName": "AP Hold (Tariff Dispute)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "Spend Amt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.Spend Amt)",
+              "nativeQueryRef": "Spend Amt",
+              "displayName": "Spend Amt"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SCM Level Accrual"
+                    }
+                  },
+                  "Property": "Total Spend + Dispute"
+                }
+              },
+              "queryRef": "SCM Level Accrual.Total Spend + Dispute",
+              "nativeQueryRef": "Total Spend + Dispute"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "MJE (Excluding INV correction)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.MJE (Excluding INV correction))",
+              "nativeQueryRef": "MJE (Excluding INV correction)",
+              "displayName": "MJE (Excluding INV correction)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "scm_balance_in_March"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.scm_balance_in_March)",
+              "nativeQueryRef": "SCM_Balance_in_March",
+              "displayName": "SCM_Balance_in_March"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SCM Level Accrual"
+                    }
+                  },
+                  "Property": "Ending Accrual Amt_v2"
+                }
+              },
+              "queryRef": "SCM Level Accrual.Ending Accrual Amt_v2",
+              "nativeQueryRef": "Ending Accrual Amt",
+              "displayName": "Ending Accrual Amt"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SCM Level Accrual"
+                        }
+                      },
+                      "Property": "scm_balance"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SCM Level Accrual.scm_balance)",
+              "nativeQueryRef": "SCM Balance",
+              "displayName": "SCM Balance"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "247.7579323652257D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SCM LEVEL Accrual.scm_vend_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "247.33272834213568D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "280.83705473345384D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(SCM Level Accrual.SCM | Vend)"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SCM Level Summary'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

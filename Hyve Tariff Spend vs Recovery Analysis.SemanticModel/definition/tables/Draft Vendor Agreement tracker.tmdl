@@ -1,0 +1,120 @@
+table 'Draft Vendor Agreement tracker'
+	lineageTag: 499c5863-6c75-414c-b68d-deeab127fd3a
+
+	column 'Vendor #'
+		dataType: int64
+		formatString: 0
+		lineageTag: bacd7b4c-8656-4305-8ede-e1aff963fd95
+		summarizeBy: sum
+		sourceColumn: Vendor #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		lineageTag: 526e1a9e-95ec-4100-8b81-a8b1dd752ab7
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Incoterm (CIS)'
+		dataType: string
+		lineageTag: 091a0795-6466-4f2e-b965-93d892de5649
+		summarizeBy: none
+		sourceColumn: Incoterm (CIS)
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSM
+		dataType: string
+		lineageTag: 8cb7979e-d153-4f84-b478-fe871a75e0f6
+		summarizeBy: none
+		sourceColumn: PSM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Where do we expect Tariff cost to come from?'
+		dataType: string
+		lineageTag: 94470c8d-57d7-41f6-b817-d02b2299d4f4
+		summarizeBy: none
+		sourceColumn: Where do we expect Tariff cost to come from?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rate Pay expected from Hyve'
+		dataType: string
+		lineageTag: c417a933-84cf-43d3-af0f-2927e26bc406
+		summarizeBy: none
+		sourceColumn: Rate Pay expected from Hyve
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Special Tariff Rate'
+		dataType: string
+		lineageTag: 823c5e8c-0f6a-4835-a999-9b53688f29c0
+		summarizeBy: none
+		sourceColumn: Special Tariff Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Multi COO rule'
+		dataType: string
+		lineageTag: d3102ee6-a223-402f-bfb1-4b76e0b6a690
+		summarizeBy: none
+		sourceColumn: Multi COO rule
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Default Accrual Rate'
+		dataType: double
+		lineageTag: e9f5b7ca-fb13-4225-bb65-a518a8fb05b4
+		summarizeBy: sum
+		sourceColumn: Default Accrual Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Additional Notes'
+		dataType: string
+		lineageTag: 43d963cd-9227-4d97-a6ef-661feb34b871
+		summarizeBy: none
+		sourceColumn: Additional Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: e7d66987-1e55-45c5-90ac-29bd69523254
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Confirmed By: (Date / Person)'
+		dataType: string
+		lineageTag: 5d8305f7-bba3-451f-bcb0-11e777362f1b
+		summarizeBy: none
+		sourceColumn: Confirmed By: (Date / Person)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Draft Vendor Agreement tracker' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/HyveBIProjects/", [ApiVersion = 15]),
+				    #"Draft Vendor Agreement tracker xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/Supply Chain/" = Source{[Name="Draft Vendor Agreement tracker.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/HyveBIProjects/Shared Documents/Tariff/Supply Chain/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Draft Vendor Agreement tracker xlsx_https://tdworldwide sharepoint com/sites/HyveBIProjects/Shared Documents/Tariff/Supply Chain/"),
+				    #"Summary v2_Sheet" = #"Imported Excel Workbook"{[Item="Summary v2",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Summary v2_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Vendor #", Int64.Type}, {"Vendor Name", type text}, {"Incoterm (CIS)", type text}, {"PSM", type text}, {"Where do we expect Tariff cost to come from?", type text}, {"Rate Pay expected from Hyve", type text}, {"Special Tariff Rate", type text}, {"Multi COO rule", type text}, {"Default Accrual Rate", type number}, {"Additional Notes", type text}, {"Status", type text}, {"Confirmed By: (Date / Person)", type text}, {"Column13", type any}, {"Supplier type:", type text}, {"Notes", type text}, {"Column16", type text}}),
+				    删除的列 = Table.RemoveColumns(#"Changed Type",{"Column13", "Supplier type:", "Notes", "Column16"})
+				in
+				    删除的列
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

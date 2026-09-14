@@ -1,0 +1,141 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Transform File from Query1'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Errors in queries that were loaded on 12/9/2025 2:21:25 PM.
+queryGroup 'Query Errors - 12/9/2025 2:21:25 PM'
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation PBI_QueryOrder = ["dwd_hyve_finance_ap_tariff_mi","dm_hyve_po_receiving_tariff_report_mi","BSIC_manual_result","split order per BSIC list","cust code result per manual order","~woody_only_locations","dim_part","current_system_tariff_rate","~order_flag","tt_woody_tariff_recovery_202411052028","dim_customer","Jamila list","Top SKU for Tariff","~glossary","hyve_user_dna","reference AP VEND DOC","Hyve controlled invoices","~INV location_mapping","Sample File","Parameter1","Transform Sample File","Transform File","Tariff Expense Tracker","pending inventory tariff invoice tracker","SCM-Transaction Purchase Order Detail for Tariff","Draft Vendor Agreement tracker","Pending INV correction","Completed INV Correction","dwd_hyve_inv_pur_order_detail","Manual Adjustments","SCM MJE","scm_balance_03_31","Reason Code","~Hill's location mapping","~legacy_invoice_order_no(for intercompany order)","Errors in Tariff Expense Tracker"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dwd_hyve_finance_ap_tariff_mi
+ref table DateTableTemplate_72ce3daa-0850-4325-8418-e3f03d876035
+ref table LocalDateTable_73b87e3a-30f0-4aac-aa6b-562d7c1be7f8
+ref table LocalDateTable_230f4a70-b0f8-45c3-a61e-51a80898e324
+ref table LocalDateTable_805b1d36-6ca7-4036-b92f-74463ae08ae3
+ref table LocalDateTable_b0f99d60-00a2-4669-8bde-41d6db8db47a
+ref table LocalDateTable_01bc3512-e854-4796-abc9-8892ee9fcb7f
+ref table LocalDateTable_c182f539-55fb-4e30-9022-91ef4982adcf
+ref table LocalDateTable_31fa1c9f-2464-4a63-a15f-db36803c6327
+ref table dm_hyve_po_receiving_tariff_report_mi
+ref table LocalDateTable_8ca8f8ba-db5d-441e-a59b-b2e498b74ef4
+ref table LocalDateTable_c434e2a2-5f8d-48ae-8285-9268a9d33538
+ref table LocalDateTable_be35f33a-8922-4e14-8d82-4c5052cbc602
+ref table LocalDateTable_864890a2-b64a-45aa-a87e-05f84493982f
+ref table LocalDateTable_e5296d57-41e7-4cb3-8e9b-60017cf503cc
+ref table LocalDateTable_ff37e2b2-a130-45e5-9149-4928f22e828d
+ref table LocalDateTable_bcf076a7-ad18-429d-8698-81fee68f7f81
+ref table LocalDateTable_0eb35321-6835-4cb9-be6c-fe49e83bfa08
+ref table LocalDateTable_80f7a554-d382-4eea-a6a1-640868186441
+ref table LocalDateTable_b17e6197-22c1-4f58-acb7-7aa8c4c838b1
+ref table LocalDateTable_5a635e3f-d897-46cb-bee3-4ca77cc60b26
+ref table BSIC_manual_result
+ref table LocalDateTable_2c23f5e9-452b-47c0-8116-782a392dc802
+ref table LocalDateTable_8bfba956-2885-416d-b517-d7d51f199b41
+ref table LocalDateTable_63ce0d87-5478-44f0-8f84-fd568ba2993e
+ref table LocalDateTable_e8430786-c580-463c-b91a-736f66e6fed1
+ref table LocalDateTable_fa2594a7-d931-46b6-83c9-a8775c8cc766
+ref table LocalDateTable_2eb08dc3-3960-4670-b130-92fcff2e7056
+ref table LocalDateTable_8abdd08f-a995-4f02-8022-35589149a606
+ref table LocalDateTable_7e7cabfc-3011-494b-b4cf-d6764db45123
+ref table 'split order per BSIC list'
+ref table 'cust code result per manual order'
+ref table LocalDateTable_30b45fef-eb5f-45ff-bbac-38cca9c667e3
+ref table LocalDateTable_0a4e8b63-36ca-4851-a72d-3469969047af
+ref table LocalDateTable_ff3f7f65-50a4-4c6e-95a4-e80144d66c7e
+ref table LocalDateTable_c88eaabf-ce8c-497d-a63a-90c55e894e70
+ref table LocalDateTable_dcee0214-6266-457b-87f6-a7b33bf599f9
+ref table LocalDateTable_3c804187-616f-4223-a480-b6117fb24df3
+ref table LocalDateTable_45ab3d00-bea2-412c-9954-531b145a5534
+ref table LocalDateTable_644cf197-2fcf-4fad-9516-57b545f33643
+ref table LocalDateTable_c7e94ebc-7bf3-47e3-b3b4-d420bca7f97d
+ref table LocalDateTable_d26b2197-c581-4110-a284-4f30262732e3
+ref table LocalDateTable_afe4cd18-3296-4693-8d03-b44be25c4e72
+ref table LocalDateTable_1a9f437c-5171-426f-957f-211d64232399
+ref table LocalDateTable_58f135ff-426d-4f1b-a10b-23f0d6f357e5
+ref table ~woody_only_locations
+ref table dim_part
+ref table current_system_tariff_rate
+ref table LocalDateTable_6b77f67f-52e4-4de5-99b3-da4a92749b93
+ref table ~order_flag
+ref table ~REF_MONTH
+ref table ~Combine_spend_recovery
+ref table tt_woody_tariff_recovery_202411052028
+ref table LocalDateTable_0e1b3db3-a2d9-4ac0-bf97-2ad82b15f96f
+ref table dim_customer
+ref table 'Jamila list'
+ref table 'Top SKU for Tariff'
+ref table LocalDateTable_1e27f346-296c-4915-83d0-79732935c21a
+ref table LocalDateTable_777f6262-97ee-4941-88f3-26e35440ca77
+ref table LocalDateTable_e3bf81ae-b4ee-48f2-bc3e-e49bfe79a82e
+ref table LocalDateTable_c5e9f18a-1b6f-42e7-a4d6-e5f329547ce6
+ref table LocalDateTable_b87c9f0f-4ddd-44c6-a412-e87f1da119e4
+ref table fact_spend_GL_cost_attribution
+ref table LocalDateTable_659b462d-e979-431e-afe2-df48e6fe3090
+ref table ~glossary
+ref table hyve_user_dna
+ref table LocalDateTable_70d81092-521e-451f-81da-a14343070cf6
+ref table 'reference AP VEND DOC'
+ref table LocalDateTable_4e08b097-7e72-4e6d-b9c6-90fac97ce43e
+ref table 'Hyve controlled invoices'
+ref table '~INV location_mapping'
+ref table LocalDateTable_b2c5c92c-6331-4eac-a974-40fa3e0f8feb
+ref table 'Tariff Expense Tracker'
+ref table LocalDateTable_21761e20-8b36-4b81-97f0-abd3d757ee61
+ref table LocalDateTable_7f879871-18fd-431f-8067-ee222ef677e7
+ref table LocalDateTable_e97ff56e-33eb-4dff-9345-446688932b3f
+ref table LocalDateTable_ad3c5b7d-5c58-4b03-b272-187ceedab7aa
+ref table LocalDateTable_4725a044-61cb-4a35-9c97-0e8cc8ff8f09
+ref table 'pending inventory tariff invoice tracker'
+ref table 'SCM-Transaction Purchase Order Detail for Tariff'
+ref table LocalDateTable_036204dd-1c49-406e-8348-c237446a0496
+ref table LocalDateTable_9e7def2d-7ae7-48e4-8729-8ef4526b2866
+ref table 'Draft Vendor Agreement tracker'
+ref table LocalDateTable_974b0b82-e975-4af4-b594-33fefe7801b1
+ref table 'Pending INV correction'
+ref table 'Completed INV Correction'
+ref table LocalDateTable_f9ad4568-306e-4023-b604-711387cc7e15
+ref table LocalDateTable_d1e630e6-fa47-4031-a6ba-aa8a7a9db86c
+ref table LocalDateTable_dfb5917b-2cf9-421b-83d7-543662a0dad5
+ref table 'SCM Monthly Accrual'
+ref table LocalDateTable_e10ddf59-58e9-47ee-b948-51eb54478552
+ref table dwd_hyve_inv_pur_order_detail
+ref table LocalDateTable_c7871f1e-73ad-46e7-8679-dba479022b5c
+ref table 'Manual Adjustments'
+ref table LocalDateTable_e1819cae-224d-4457-9602-338bcc38b729
+ref table LocalDateTable_49434137-3461-46b0-a15b-7fc326111441
+ref table 'SCM MJE'
+ref table LocalDateTable_5dbfeb68-3888-4bc7-8e94-9513bfdb8a4e
+ref table LocalDateTable_e15c9ba9-e2a8-482e-a6bf-6541e3d953f5
+ref table scm_balance_03_31
+ref table LocalDateTable_83b857ff-7156-4ac0-a6f2-92480953165f
+ref table tariff_group
+ref table 'SCM Level Accrual'
+ref table LocalDateTable_742d410b-9aa5-4818-9a1d-e0b14c8117fd
+ref table 'Reason Code'
+ref table LocalDateTable_572ea3da-264f-4959-8c05-0c4d850bd700
+ref table Part_level_INV_correction
+ref table '~Hill''s location mapping'
+ref table '~legacy_invoice_order_no(for intercompany order)'
+ref table LocalDateTable_eb3f1297-05ad-4c4e-b101-813acf53c376
+ref table LocalDateTable_3ce95b8d-f377-4909-bd8d-0b2ddca502d1
+
+ref cultureInfo en-US
+

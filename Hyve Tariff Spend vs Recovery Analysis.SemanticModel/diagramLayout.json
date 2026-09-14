@@ -1,0 +1,503 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 568.173375875524,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1218,
+            "y": 390
+          },
+          "nodeIndex": "dwd_hyve_finance_ap_tariff_mi",
+          "nodeLineageTag": "1b10bb8e-217e-4360-ae81-e923735bc489",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 0
+          },
+          "nodeIndex": "dm_hyve_po_receiving_tariff_report_mi",
+          "nodeLineageTag": "9b2ea134-f0c5-4110-a647-4e5a8260f6b7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "cust code result per manual order",
+          "nodeLineageTag": "2c16dc05-3091-494e-b69f-8f1a9931ebe5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 86
+          },
+          "nodeIndex": "split order per BSIC list",
+          "nodeLineageTag": "e3ad5f70-14c3-4997-ae62-4aab1a137108",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 62
+          },
+          "nodeIndex": "~woody_only_locations",
+          "nodeLineageTag": "98855549-0995-462d-861c-f5bf1ed331c9",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1998,
+            "y": 0
+          },
+          "nodeIndex": "current_system_tariff_rate",
+          "nodeLineageTag": "81b434b9-fca4-49d2-993d-5bfa3b749e85",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 0
+          },
+          "nodeIndex": "dim_part",
+          "nodeLineageTag": "259a558b-2335-4535-8b4d-95e10bdd8cea",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2556,
+            "y": 0
+          },
+          "nodeIndex": "~order_flag",
+          "nodeLineageTag": "aff0f131-5897-4ac2-b119-c09d7bdee7e3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1929,
+            "y": 496
+          },
+          "nodeIndex": "~REF_MONTH",
+          "nodeLineageTag": "96023c34-21b8-41b3-8431-7b13b27231b6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2840,
+            "y": 248
+          },
+          "nodeIndex": "~Combine_spend_recovery",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 198
+          },
+          "nodeIndex": "tt_woody_tariff_recovery_202411052028",
+          "nodeLineageTag": "3e6472b8-f7a4-486e-ba2b-9134b220c4cc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3408,
+            "y": 248
+          },
+          "nodeIndex": "dim_customer",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3692,
+            "y": 272
+          },
+          "nodeIndex": "Jamila list",
+          "nodeLineageTag": "e2cccb7a-0957-4900-a04d-6d01fcd904c2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4260,
+            "y": 248
+          },
+          "nodeIndex": "Top SKU for Tariff",
+          "nodeLineageTag": "29fc81d8-71bc-4121-9069-89428ab8bebe",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4544,
+            "y": 248
+          },
+          "nodeIndex": "fact_spend_GL_cost_attribution",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5112,
+            "y": 272
+          },
+          "nodeIndex": "~glossary",
+          "nodeLineageTag": "7c365922-e9b8-48d0-89ba-ea6f98b7252c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5396,
+            "y": 248
+          },
+          "nodeIndex": "hyve_user_dna",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5680,
+            "y": 296
+          },
+          "nodeIndex": "Hyve controlled invoices",
+          "nodeLineageTag": "20ce2d39-9197-48ab-bfe7-506cdaab74ce",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5964,
+            "y": 200
+          },
+          "nodeIndex": "reference AP VEND DOC",
+          "nodeLineageTag": "2a3ed1c5-eee2-4f98-8d3c-61425b8782c6",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6816,
+            "y": 198
+          },
+          "nodeIndex": "Tariff Expense Tracker",
+          "nodeLineageTag": "fa3bb9dd-273e-4e7d-964f-bc8d5d12d60c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "BSIC_manual_result",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7100,
+            "y": 198
+          },
+          "nodeIndex": "Draft Vendor Agreement tracker",
+          "nodeLineageTag": "499c5863-6c75-414c-b68d-deeab127fd3a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7384,
+            "y": 198
+          },
+          "nodeIndex": "pending inventory tariff invoice tracker",
+          "nodeLineageTag": "28b04522-94a2-4018-832a-a51e13d8f162",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7668,
+            "y": 198
+          },
+          "nodeIndex": "SCM-Transaction Purchase Order Detail for Tariff",
+          "nodeLineageTag": "cccbe2b4-b473-471b-96b7-5169a8885864",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8804,
+            "y": 284
+          },
+          "nodeIndex": "Pending INV correction",
+          "nodeLineageTag": "da75efe9-6abe-4595-8b9f-dcb0100bc39b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9088,
+            "y": 198
+          },
+          "nodeIndex": "Completed INV Correction",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9656,
+            "y": 248
+          },
+          "nodeIndex": "dwd_hyve_inv_pur_order_detail",
+          "nodeLineageTag": "27729802-a9f3-45a0-9041-7f802d103b2f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9940,
+            "y": 198
+          },
+          "nodeIndex": "Manual Adjustments",
+          "nodeLineageTag": "41176454-67a0-4061-80b8-dd487e6a549a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10224,
+            "y": 198
+          },
+          "nodeIndex": "SCM MJE",
+          "nodeLineageTag": "1f60c3de-40e1-49a3-bdac-520e844e6080",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10508,
+            "y": 248
+          },
+          "nodeIndex": "scm_balance_03_31",
+          "nodeLineageTag": "191b441c-ab0c-4ba2-a5df-4c44900df2fe",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10792,
+            "y": 248
+          },
+          "nodeIndex": "tariff_group",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9372,
+            "y": 248
+          },
+          "nodeIndex": "SCM Monthly Accrual",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11076,
+            "y": 248
+          },
+          "nodeIndex": "SCM Level Accrual",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11360,
+            "y": 284
+          },
+          "nodeIndex": "Reason Code",
+          "nodeLineageTag": "67f3cb5d-6d19-459e-89c3-86708caa6689",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11644,
+            "y": 248
+          },
+          "nodeIndex": "Part_level_INV_correction",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11928,
+            "y": 284
+          },
+          "nodeIndex": "~Hill's location mapping",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6532,
+            "y": 236
+          },
+          "nodeIndex": "~INV location_mapping",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12212,
+            "y": 260
+          },
+          "nodeIndex": "~legacy_invoice_order_no(for intercompany order)",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 79.553182037699813,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

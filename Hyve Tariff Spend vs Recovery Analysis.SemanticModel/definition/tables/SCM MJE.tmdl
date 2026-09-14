@@ -1,0 +1,160 @@
+table 'SCM MJE'
+	lineageTag: 1f60c3de-40e1-49a3-bdac-520e844e6080
+
+	column SCM#
+		dataType: int64
+		formatString: 0
+		lineageTag: c9810f57-6e65-436d-a580-8d7b4b02c38d
+		summarizeBy: sum
+		sourceColumn: SCM#
+
+		annotation SummarizationSetBy = Automatic
+
+	column proj_name
+		dataType: string
+		lineageTag: f31315df-0806-4cdf-94f9-3ed5eddbae95
+		summarizeBy: none
+		sourceColumn: proj_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 25883635-d5f3-46a9-9379-bcacf8b1b236
+		summarizeBy: sum
+		sourceColumn: claim_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_name
+		dataType: string
+		lineageTag: 1c354ad2-eea6-4ddc-8d6e-935bc4ab7027
+		summarizeBy: none
+		sourceColumn: vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'no of vend'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5a49a92-f5ad-4818-aa5f-addb34a3612b
+		summarizeBy: sum
+		sourceColumn: no of vend
+
+		annotation SummarizationSetBy = Automatic
+
+	column Qtr
+		dataType: string
+		lineageTag: adffae5c-052e-4913-9e57-7e5641fbfac0
+		summarizeBy: none
+		sourceColumn: Qtr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b44ba35a-11b9-4563-8502-eb74bc6258d2
+		summarizeBy: none
+		sourceColumn: Month
+
+		variation 变体
+			isDefault
+			relationship: ae9bb9f8-c7f1-437e-8cab-4a845358c29a
+			defaultHierarchy: LocalDateTable_5dbfeb68-3888-4bc7-8e94-9513bfdb8a4e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column source
+		dataType: string
+		lineageTag: 84f9369b-9140-413f-a1fb-5468785ab0fc
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_amt
+		dataType: double
+		lineageTag: ca6190c1-ff0d-472b-abf0-07f4f69948bb
+		summarizeBy: sum
+		sourceColumn: gl_amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gl_acct_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 519aa6b4-3263-4a5b-825d-b7c180458811
+		summarizeBy: sum
+		sourceColumn: gl_acct_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_desc
+		dataType: string
+		lineageTag: 345f67a3-bc4f-46a7-8afe-f0f5f4972cb9
+		summarizeBy: none
+		sourceColumn: gl_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_location
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a95c3bf-5fb3-47c9-915d-11ac43c634f4
+		summarizeBy: sum
+		sourceColumn: gl_location
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_type
+		dataType: int64
+		formatString: 0
+		lineageTag: be81b0e2-9ae2-4215-8bc9-fd710969fa9f
+		summarizeBy: sum
+		sourceColumn: gl_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_close
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 95e6c026-35fa-4c40-a527-00164675ed9a
+		summarizeBy: none
+		sourceColumn: project_close
+
+		variation 变体
+			isDefault
+			relationship: 634370d2-3753-461e-86c5-4979b8d79f65
+			defaultHierarchy: LocalDateTable_e15c9ba9-e2a8-482e-a6bf-6541e3d953f5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'SCM MJE' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Sorted Rows" = Table.Sort(Source,{{"Date modified", Order.Descending}}),
+				    #"SCM report balance xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Sorted Rows"{[Name="SCM report balance.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"导入的 Excel 工作簿" = Excel.Workbook(#"SCM report balance xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    data_Sheet = #"导入的 Excel 工作簿"{[Item="data",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(data_Sheet, [PromoteAllScalars=true]),
+				    更改的类型 = Table.TransformColumnTypes(提升的标题,{{"SCM#", Int64.Type}, {"proj_name", type text}, {"claim_type", Int64.Type}, {"vend_name", type text}, {"no of vend", Int64.Type}, {"Qtr", type text}, {"Month", type date}, {"source", type any}, {"gl_amt", type number}, {"gl_acct_no", Int64.Type}, {"gl_desc", type text}, {"gl_location", Int64.Type}, {"gl_type", Int64.Type}, {"project_close", type date}}),
+				    筛选的行 = Table.SelectRows(更改的类型, each [claim_type] = 96),
+				    筛选的行1 = Table.SelectRows(筛选的行, each [Month] >= #date(2025, 4, 1)),
+				    筛选的行2 = Table.SelectRows(筛选的行1, each ([source] = "FUND_XFER" or [source] = "JE_BATCH" or [source] = "JE_REVERSE"))
+				in
+				    筛选的行2
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

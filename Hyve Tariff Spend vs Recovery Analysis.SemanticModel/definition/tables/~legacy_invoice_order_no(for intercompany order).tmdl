@@ -1,0 +1,62 @@
+table '~legacy_invoice_order_no(for intercompany order)'
+	lineageTag: b5c49c4b-9e1e-43df-bbac-e94662b9d2a6
+
+	column phy_ship_order_region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: e54c0572-ed8f-48ac-9d09-5b05f6704af8
+		summarizeBy: sum
+		sourceColumn: phy_ship_order_region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column phy_ship_order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cff59e3-26f0-460b-a916-625c0132dc56
+		summarizeBy: sum
+		sourceColumn: phy_ship_order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column phy_ship_order_no
+		dataType: string
+		lineageTag: e7cc5317-5153-4cdf-9e98-6a8245ef4fe6
+		summarizeBy: none
+		sourceColumn: phy_ship_order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_order_no
+		dataType: string
+		lineageTag: f8974072-3ee8-42ae-84ea-bac421eb4570
+		summarizeBy: none
+		sourceColumn: invoice_order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '~legacy_invoice_order_no(for intercompany order)' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Extension] = ".xlsx")),
+				    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each [Date created] > #datetime(2025, 9, 21, 0, 0, 0)),
+				    #"legacy invoice order no xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/" = #"Filtered Rows1"{[Name="legacy invoice order no.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"legacy invoice order no xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Tariff Spend vs Recovery/"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"phy_ship_order_region_no", Int64.Type}, {"phy_ship_order_type", Int64.Type}, {"phy_ship_order_no", Int64.Type}, {"invoice_order_no", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

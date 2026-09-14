@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Hyve Tariff Spend vs Recovery Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4679987c-1cb8-4d32-a639-7e639ee007b7"
+  }
+}
