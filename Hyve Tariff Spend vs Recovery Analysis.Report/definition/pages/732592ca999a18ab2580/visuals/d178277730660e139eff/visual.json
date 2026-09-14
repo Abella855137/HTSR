@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d178277730660e139eff",
   "position": {
-    "x": 471.5287099179717,
-    "y": 47.725577926920209,
+    "x": 415.16849294063536,
+    "y": 45.8165548098434,
     "z": 8000,
     "height": 75.406413124533927,
-    "width": 214.76510067114094,
+    "width": 164,
     "tabOrder": 8000
   },
   "visual": {
@@ -304,6 +304,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "099f0840bab63724814a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "GL Cost attribution_final"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

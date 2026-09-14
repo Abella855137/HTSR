@@ -1,6 +1,11 @@
 table dwd_hyve_finance_ap_tariff_mi
 	lineageTag: 1b10bb8e-217e-4360-ae81-e923735bc489
 
+	measure Gap-gl-attri = ROUND(SUM(dwd_hyve_finance_ap_tariff_mi[gl_amt_no_duplicate_v2]) - SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_final]), 0)
+		lineageTag: df7e3b2b-25ab-4c05-ada3-94348e235018
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column data_source
 		dataType: string
 		lineageTag: 0b6d3474-8b3a-40c0-a7a3-19c3e0f41d2c
@@ -70,6 +75,7 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column gl_amt
 		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 75fc96e7-c815-41e9-a919-445cd821f58a
 		summarizeBy: sum
 		sourceColumn: gl_amt
@@ -222,6 +228,7 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column doc_amt
 		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: b7d1ebee-9402-4afa-ae17-e7e6af580f8e
 		summarizeBy: sum
 		sourceColumn: doc_amt
@@ -320,6 +327,7 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column po_total_cost
 		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 9701d462-d0f5-4148-864b-d84fdc9fc45d
 		summarizeBy: sum
 		sourceColumn: po_total_cost
@@ -562,6 +570,7 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column dys_entered_value_usd
 		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 2cda38ef-3e51-472e-a231-acbcf6d373d4
 		summarizeBy: sum
 		sourceColumn: dys_entered_value_usd
@@ -694,13 +703,26 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column order_v2 =
 			
-			var manual_order=LOOKUPVALUE(BSIC_manual_result[Order],BSIC_manual_result[KEY],dwd_hyve_finance_ap_tariff_mi[KEY])
+			var invoice=[vend_inv_no]
+			VAR invoice_v2=[vend_inv_no_V2]
+			var PBI=CALCULATE(DISTINCTCOUNT(dwd_hyve_finance_ap_tariff_mi[order_v2_init]),FILTER(ALL(dwd_hyve_finance_ap_tariff_mi),dwd_hyve_finance_ap_tariff_mi[vend_inv_no]=invoice))
+			var pbi_result=IF(PBI>1,"multiple order",LOOKUPVALUE(dwd_hyve_finance_ap_tariff_mi[order_v2_init],dwd_hyve_finance_ap_tariff_mi[vend_inv_no],[vend_inv_no]))
+			var expense_tracker=CALCULATE(DISTINCTCOUNT('Tariff Expense Tracker'[PO Number]),FILTER(ALL('Tariff Expense Tracker'),'Tariff Expense Tracker'[Invoice# ]=invoice))
+			var expense_tracker_result=IF(expense_tracker>1,"multiple order",LOOKUPVALUE('Tariff Expense Tracker'[PO Number],'Tariff Expense Tracker'[Invoice# ],[vend_inv_no]))
+			var woody_spend=CALCULATE(DISTINCTCOUNT('Spend List - Woody Control'[integrator_po_number]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[invoice_number]=invoice))
+			var woody_spend_result=IF(woody_spend>1,"multiple order",LOOKUPVALUE('Spend List - Woody Control'[integrator_po_number],'Spend List - Woody Control'[invoice_number],[vend_inv_no]))
+			var result1=COALESCE(pbi_result,expense_tracker_result,woody_spend_result)
+			var PBI2=CALCULATE(DISTINCTCOUNT(dwd_hyve_finance_ap_tariff_mi[order_v2_init]),FILTER(ALL(dwd_hyve_finance_ap_tariff_mi),dwd_hyve_finance_ap_tariff_mi[vend_inv_no]=invoice_v2))
+			var pbi_result2=IF(PBI2>1,"multiple order",LOOKUPVALUE(dwd_hyve_finance_ap_tariff_mi[order_v2_init],dwd_hyve_finance_ap_tariff_mi[vend_inv_no],[vend_inv_no_V2]))
+			var expense_tracker2=CALCULATE(DISTINCTCOUNT('Tariff Expense Tracker'[PO Number]),FILTER(ALL('Tariff Expense Tracker'),'Tariff Expense Tracker'[Invoice# ]=invoice_v2))
+			var expense_tracker_result2=IF(expense_tracker2>1,"multiple order",LOOKUPVALUE('Tariff Expense Tracker'[PO Number],'Tariff Expense Tracker'[Invoice# ],[vend_inv_no_V2]))
+			var woody_spend2=CALCULATE(DISTINCTCOUNT('Spend List - Woody Control'[integrator_po_number]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[invoice_number]=invoice_v2))
+			var woody_spend_result2=IF(woody_spend2>1,"multiple order",LOOKUPVALUE('Spend List - Woody Control'[integrator_po_number],'Spend List - Woody Control'[invoice_number],[vend_inv_no_V2]))
+			var result2=COALESCE(pbi_result2,expense_tracker_result2,woody_spend_result2)
+			var result3=LOOKUPVALUE(mapping_vend_inv_no[order_no],mapping_vend_inv_no[vend_inv_no],[vend_inv_no])
 			return
-			IF(ISBLANK([order_no]),manual_order,[order_no])
-		lineageTag: 1ad7eab8-ac96-4e21-9797-771b9c0139a7
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
+			COALESCE([order_no],result1,result2,result3)
+		lineageTag: c36e63d9-b30d-4c90-bf6c-f4db9e25189b
 
 	column cust_code_v2 =
 			
@@ -730,11 +752,25 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column 'Woody Control vs Hyve Controlled' =
 			
+			
+			// IF([Jamila's comment]="GL Move Only","Spend exclusion",
+			// IF([acc/acp flag]="Y"&&[cust_code_v2]="WOODY","Woody Controlled Part Spend",
+			// IF([acc/acp flag]="N"&&[cust_code_v2]="WOODY","Hyve Controlled Part Spend",
+			// IF([acc/acp flag]="N"&&[cust_code_v2]=BLANK(),"Hyve Controlled Part Spend",
+			// "Non Woody Spend"))))
+			
+			VAR cpo=dwd_hyve_finance_ap_tariff_mi[order_no]
+			var mpn=dwd_hyve_finance_ap_tariff_mi[mfg_part_no]
+			var invoice_cehck=LOOKUPVALUE('Spend List - Woody Control'[invoice_number],'Spend List - Woody Control'[invoice_number],dwd_hyve_finance_ap_tariff_mi[vend_inv_no])
+			VAR po_result=IF([order_no]=BLANK(),IF(invoice_cehck<>BLANK(),"Y","N"),
+			IF([WOODY_SPEND_part_level]<>BLANK(),"Y","N"))
+			 return
 			IF([Jamila's comment]="GL Move Only","Spend exclusion",
-			    IF([acc/acp flag]="Y"&&[cust_code_v2]="WOODY","Woody Controlled Part Spend",
-			IF([acc/acp flag]="N"&&[cust_code_v2]="WOODY","Hyve Controlled Part Spend",
-			IF([acc/acp flag]="N"&&[cust_code_v2]=BLANK(),"Hyve Controlled Part Spend",
-			"Non Woody Spend"))))
+			IF([cust_code_v2]<>"WOODY","Non Woody Spend",
+			IF([gl_trans_date]<DATE(2020,10,1),"Woody Controlled Part Spend",
+			IF(po_result="Y","Woody Controlled Part Spend",
+			IF([gl_trans_date]<DATE(2026,01,01),"Hyve Controlled Part Spend",
+			"Directed Buy")))))
 		lineageTag: 4f5acb77-78c4-4a44-b1b0-7cb84980b924
 		summarizeBy: none
 
@@ -809,8 +845,9 @@ table dwd_hyve_finance_ap_tariff_mi
 
 		annotation SummarizationSetBy = Automatic
 
-	column total_gl_amt_order_level = CALCULATE(SUM([gl_amt_no_duplicate]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]))
-		lineageTag: b43bf773-c251-4061-969e-e081bbe15238
+	column total_gl_amt_order_level = CALCULATE(SUM([gl_amt_no_duplicate_v2]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no], dwd_hyve_finance_ap_tariff_mi[Year&Month]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 39e0be6c-3a03-460f-b12b-50cde9242fe8
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
@@ -827,9 +864,16 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column COO_flag =
 			
+			// var flag=SEARCH("CN",[SKU_COO_S1],,BLANK())
+			// return
+			// IF(flag<>BLANK(),1,0)
 			var flag=SEARCH("CN",[SKU_COO_S1],,BLANK())
-			return
-			IF(flag<>BLANK(),1,0)
+			VAR S1=
+			IF([KEY_order]="206663\1UKIT-109",1,
+			IF([gl_trans_date]<DATE(2025,04,05),
+			IF(flag<>BLANK(),1,0),1))
+			RETURN
+			S1
 		formatString: 0
 		lineageTag: 419be676-bc2f-47e3-b837-ca3baf90946b
 		summarizeBy: sum
@@ -1062,6 +1106,121 @@ table dwd_hyve_finance_ap_tariff_mi
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
+
+	column WOODY_SPEND_part_level =
+			
+			VAR cpo=[order_no]
+			var mpn=[mfg_part_no]
+			VAR invoice=[vend_inv_no]
+			var part_level=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[integrator_po_number]=cpo&&'Spend List - Woody Control'[mfg_part_v2]=mpn))
+			var spend_invocie=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[invoice_number]=invoice))
+			 return
+			IF([order_no]=BLANK(),spend_invocie,part_level)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d20791e4-2e35-485e-af27-6134068d7039
+
+		changedProperty = IsHidden
+
+	column WOODY_SPEND_order_level =
+			
+			VAR cpo=[order_no]
+			var order_level=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[integrator_po_number]=cpo))
+			return
+			order_level
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 4c5b4853-e947-40ac-81c0-62bc8532c831
+
+	column KEY_order = [order_no]&"\"&[mfg_part_no]
+		lineageTag: d2ee7dd7-5384-450b-9708-a7f9a166f321
+
+	column gl_amt_no_duplicate_v2 =
+			
+			var PK=LOOKUPVALUE(fix_gl_amount_manual[key],fix_gl_amount_manual[key],[je_no]&"\"&[je_line_no]&"\"&[je_line_row_no]&"\"&[order_no])
+			var GL=LOOKUPVALUE(fix_gl_amount_manual[gl_amt_no_duplicate],fix_gl_amount_manual[key],[je_no]&"\"&[je_line_no]&"\"&[je_line_row_no]&"\"&[order_no])
+			RETURN
+			IF(PK<>BLANK(),GL,[gl_amt_no_duplicate])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ffc38094-b2c7-44bc-ada1-34f42a6fe838
+
+	column 'GL Cost attribution_final_source' = ```
+			
+			VAR S0=CALCULATE(COUNT(dwd_hyve_finance_ap_tariff_mi[KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			var s1=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			var s2=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			RETURN
+			IF([order_no]=BLANK(),"[gl_amt_no_duplicate]",
+			IF(s1=BLANK(),
+			IF([COO_flag]=1,"[total_gl_amt_order_level]/[COO_contains_CN_sku_cnt]",
+			IF(s2=0,
+			"[total_gl_amt_order_level]/S0")), IF([GL Cost attribution_s2]<>BLANK(),"[GL Cost attribution_s2]",  
+			IF([GL Cost attribution_s4]<>BLANK(),IF([line_total_cost]=0,"0",
+			IF([total_gl_amt_order_level] - CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_v2],dwd_hyve_finance_ap_tariff_mi[dt_month])) =0,"[GL Cost attribution_s3]",
+			"[total_gl_amt_order_level]*[percentage_of_total_base_cost]")),BLANK()))))
+			```
+		lineageTag: c4e46f30-44cc-4fdb-9776-29cedb46d774
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gl_amt_order_level_v2 = CALCULATE(SUM([gl_amt_no_duplicate_v2]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 563d54e5-dc73-4023-9b8b-84afc78f38df
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_v2_init =
+			
+			var manual_order=LOOKUPVALUE(BSIC_manual_result[Order],BSIC_manual_result[KEY],dwd_hyve_finance_ap_tariff_mi[KEY])
+			return
+			IF(ISBLANK([order_no]),manual_order,[order_no])
+		lineageTag: 53031111-0205-4d05-add4-7234d040f043
+
+	column vend_inv_no_V2 =
+			
+			VAR s1 =
+			    LOOKUPVALUE (
+			        mapping_vend_inv_no[vend_inv_no_V2],
+			        mapping_vend_inv_no[vend_inv_no],
+			        [vend_inv_no]
+			    )
+			
+			VAR Txt =
+			    SUBSTITUTE (
+			        SUBSTITUTE (
+			            SUBSTITUTE (
+			                SUBSTITUTE (
+			                    SUBSTITUTE (
+			                        SUBSTITUTE (
+			                            SUBSTITUTE (
+			                                [vend_inv_no],
+			                                "RECLASS",
+			                                ""
+			                            ),
+			                            "DMSS",
+			                            ""
+			                        ),
+			                        "REV",
+			                        ""
+			                    ),
+			                    "BAL",
+			                    ""
+			                ),
+			                "DM",
+			                ""
+			            ),
+			            "RV",
+			            ""
+			        ),
+			        "D53",
+			        ""
+			    )
+			
+			RETURN
+			    COALESCE ( s1, Txt )
+		lineageTag: 854f5cac-23cf-4884-9ae2-d403a54f40d7
 
 	partition dwd_hyve_finance_ap_tariff_mi = m
 		mode: import

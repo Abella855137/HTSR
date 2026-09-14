@@ -32,8 +32,7 @@
                 }
               },
               "queryRef": "Sum(~Combine_spend_recovery.Value)",
-              "nativeQueryRef": "Woody Controlled Part Spend",
-              "displayName": "Woody Controlled Part Spend"
+              "nativeQueryRef": "Sum of Value"
             }
           ]
         }
@@ -227,7 +226,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non Woody Recovery'"
+                  "Value": "'Directed Buy Recovery'"
                 }
               }
             },
@@ -297,7 +296,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Non Woody Recovery'"
+                          "Value": "'Directed Buy Recovery'"
                         }
                       }
                     ]
@@ -308,6 +307,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "9b24d9a2960dc01d4dbd",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "~Combine_spend_recovery"
+                  }
+                },
+                "Property": "Value"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

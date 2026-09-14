@@ -198,39 +198,9 @@ relationship e21c759c-e8df-4d05-a959-e7c3bcbb11b5
 	fromColumn: current_system_tariff_rate.last_POCV_update_date
 	toColumn: LocalDateTable_6b77f67f-52e4-4de5-99b3-da4a92749b93.Date
 
-relationship 79ff5f47-7a64-4181-9c67-342cdc98383c
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.so_end_user_po_date
-	toColumn: LocalDateTable_0e1b3db3-a2d9-4ac0-bf97-2ad82b15f96f.Date
-
 relationship 33f974bf-7dfe-85c4-b41e-6fdf29c030e7
 	fromColumn: ~Combine_spend_recovery.Month
 	toColumn: ~REF_MONTH.Month
-
-relationship 1ffbf48e-416c-4f9f-9e03-861264640709
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.oh_ship_date
-	toColumn: LocalDateTable_1e27f346-296c-4915-83d0-79732935c21a.Date
-
-relationship 089082a0-75ee-4082-91c4-c211e5d149e0
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.oh_invoice_date
-	toColumn: LocalDateTable_777f6262-97ee-4941-88f3-26e35440ca77.Date
-
-relationship 3f05d60f-9251-4f7f-a527-b4c144e69eb9
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.valid_from_date
-	toColumn: LocalDateTable_e3bf81ae-b4ee-48f2-bc3e-e49bfe79a82e.Date
-
-relationship b4da907d-d6ec-48d0-a8af-f32fd45714fa
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.valid_to_date
-	toColumn: LocalDateTable_c5e9f18a-1b6f-42e7-a4d6-e5f329547ce6.Date
-
-relationship 08c43d2e-593d-4d9a-8fd5-42910ac3f9cd
-	joinOnDateBehavior: datePartOnly
-	fromColumn: tt_woody_tariff_recovery_202411052028.dt_month
-	toColumn: LocalDateTable_b87c9f0f-4ddd-44c6-a412-e87f1da119e4.Date
 
 relationship b3dbcb15-5492-4410-b4f1-bfea813bf2c2
 	joinOnDateBehavior: datePartOnly
@@ -239,10 +209,6 @@ relationship b3dbcb15-5492-4410-b4f1-bfea813bf2c2
 
 relationship 888037fa-5650-2841-eb80-72951a25972c
 	fromColumn: dwd_hyve_finance_ap_tariff_mi.Year&Month
-	toColumn: ~REF_MONTH.Year&Month
-
-relationship 513d8a99-33b4-b01c-e7ba-cbbf3826051c
-	fromColumn: tt_woody_tariff_recovery_202411052028.Year&Month
 	toColumn: ~REF_MONTH.Year&Month
 
 relationship d8676d20-5831-4053-88de-06a6af887f63
@@ -402,4 +368,98 @@ relationship bb22a58a-9d1b-4863-8b87-bd54fb9d5721
 	joinOnDateBehavior: datePartOnly
 	fromColumn: ~Combine_spend_recovery.gl_trans_date
 	toColumn: LocalDateTable_3ce95b8d-f377-4909-bd8d-0b2ddca502d1.Date
+
+relationship d7ccb014-92b6-4453-b871-5e7473cabd98
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.dw_create_date
+	toColumn: LocalDateTable_eb869df3-8f54-465b-809b-c13346b72bbd.Date
+
+relationship 4f1c8b6e-670e-42df-9737-05387510bdb6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.dw_update_date
+	toColumn: LocalDateTable_1b43242e-0606-4649-8ff0-280587b08080.Date
+
+relationship ae6d814e-4ecd-4400-b161-df25c5cc5985
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.po_date
+	toColumn: LocalDateTable_63503634-de99-44cc-b017-379e0ab77639.Date
+
+relationship 5bca9370-9e42-4ad6-9f28-7be956af93eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.invoice_date
+	toColumn: LocalDateTable_6f52e9a9-ba29-49fe-aa60-192843361c95.Date
+
+relationship a88d2f20-b91a-445f-a8f3-a6b8da602658
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.ship_date
+	toColumn: LocalDateTable_757572a7-d0e2-453d-9cbf-2e680a2e2b68.Date
+
+relationship bf6538dc-417a-4f95-a14e-2342cde9d81f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.receive_date
+	toColumn: LocalDateTable_2009b264-6e31-4887-9d10-0d5198b3dcf4.Date
+
+relationship 80b6e21a-7c32-4d25-aa9e-e856e2890358
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.allocation_date
+	toColumn: LocalDateTable_c8ae93a4-c6a8-4af1-a872-f594c1d2281e.Date
+
+relationship e92598a0-1c27-4e8e-a046-8f33f312d07c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.import_clearance_date
+	toColumn: LocalDateTable_66c2be28-c828-4300-a3d6-99bca9a2358c.Date
+
+relationship 3c49ebdf-a101-49a4-a2f9-4cf9250e7a85
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.record_submit_date
+	toColumn: LocalDateTable_43046e1d-792c-4258-a77a-efd714e5b76b.Date
+
+relationship 3f320799-993b-461c-8d47-229b90edbc49
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Spend List - Woody Control'.snapshot_day
+	toColumn: LocalDateTable_7417273e-2843-4cdf-8a9c-8abccba6b3b9.Date
+
+relationship a2f54cd9-bf6f-4337-9025-ced77b3bb917
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.oh_ship_date
+	toColumn: LocalDateTable_139e1899-925f-42de-9086-8fd466c0f98c.Date
+
+relationship 0d99eec8-f355-40e1-8ffd-f77739e2d182
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.oh_invoice_date
+	toColumn: LocalDateTable_7f26ce23-69eb-4228-ab02-826b551b7cc3.Date
+
+relationship d22089b7-f3f5-4227-8f29-0b11851ab8a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.so_end_user_po_date
+	toColumn: LocalDateTable_049d4d26-6114-44fd-9f32-79bd176ce796.Date
+
+relationship d17286eb-9039-4291-acd5-658caadd62f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.valid_from_date
+	toColumn: LocalDateTable_da31d8dc-5ac5-4357-91ca-d80dca3bfd9e.Date
+
+relationship da0bb82c-6268-4346-8edd-1c89866968b2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.valid_to_date
+	toColumn: LocalDateTable_8da835fe-fc52-43c4-810d-e7e2aa78f341.Date
+
+relationship 8a5e7554-a211-4f32-b6a1-1f19025179d1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: tt_woody_tariff_recovery_new_data.dt_month
+	toColumn: LocalDateTable_38fbadb4-1e82-46b5-86d6-103ca886ea49.Date
+
+relationship fe662b0b-5878-207d-be26-6187e2d805b1
+	fromColumn: tt_woody_tariff_recovery_new_data.Year&Month
+	toColumn: ~REF_MONTH.Year&Month
+
+relationship 41b678ee-b66a-4a4a-886c-634fd9e080fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fix_gl_amount_manual.gl_trans_date
+	toColumn: LocalDateTable_29c51fe7-9b50-4cdd-9890-4dc55fc1496c.Date
+
+relationship 35eaf7dd-45b0-4717-b24f-a4124efffe29
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fix_gl_amount_manual.vend_doc_entry_datetime
+	toColumn: LocalDateTable_964c235c-791d-4b6a-b760-627d132c8763.Date
 

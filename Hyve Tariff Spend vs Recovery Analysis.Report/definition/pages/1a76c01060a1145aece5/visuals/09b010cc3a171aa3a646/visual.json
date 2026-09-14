@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non Woody Spend'"
+                  "Value": "'Directed Buy Spend'"
                 }
               }
             },
@@ -297,7 +297,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Non Woody Spend'"
+                          "Value": "'Directed Buy'"
                         }
                       }
                     ]
@@ -308,6 +308,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "d2978cb273b45308750d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "~Combine_spend_recovery"
+                  }
+                },
+                "Property": "Value"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

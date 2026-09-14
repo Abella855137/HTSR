@@ -65,3 +65,61 @@ expression 'Errors in Tariff Expense Tracker' =
 
 	annotation PBI_ResultType = Table
 
+expression 'Synnex - Tariff Recon 2025 12' =
+		let
+		    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.EndsWith([Folder Path], "/Hyve Finance/IEEPA Refund/")),
+		    #"Synnex - Tariff Recon 2025 12 xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/" = #"Filtered Rows"{[Name="Synnex - Tariff Recon 2025.12.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"Synnex - Tariff Recon 2025 12 xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/"),
+		    #"Hyve Receipt_Sheet" = #"Imported Excel Workbook"{[Item="Hyve Receipt",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Hyve Receipt_Sheet", [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(
+		            #"Promoted Headers",
+		            {
+		                {"ODM", "integrator"},
+		                {"Supplier", "supplier"},
+		                {"Commodity Group", "commodity_group"},
+		                {"PO", "integrator_po_number"},
+		                {"PO Line Cost", "unit_po_price"},
+		                {"Received Qty", "received_qty"},
+		                {"MPN", "mpn"},
+		                {"APN", "apn"},
+		                {"Commodity Category", "commodity_category"},
+		                {"Description", "component_description"},
+		                {"Received Date", "receive_date"},
+		                {"Ship to Country", "ship_to_country"},
+		                {"Country of Origin", "country_of_origin"},
+		                {"HTS Code", "hts_code"},
+		                {"Tariff Charge", "import_duties_regular"},
+		                {"Month and Year of Transaction", "record_submit_date"}
+		            },
+		            MissingField.Ignore
+		        ),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "source", each "Synnex - Tariff Recon 2025.12", type text),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"record_submit_date", type date}, {"receive_date", type datetime}, {"integrator", type text}, {"integrator_po_number", type text}, {"apn", type text}, {"mpn", type text}, {"component_description", type text}, {"supplier", type text}, {"commodity_group", type text}, {"commodity_category", type text}, {"hts_code", type text}, {"country_of_origin", type text}, {"ship_to_country", type text}, {"source", type text}, {"import_duties_regular", type number}, {"unit_po_price", type number}, {"received_qty", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: d78ac06e-42f8-478d-af91-92893e1e0d47
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Jul 2026 ACC & ACP Tariff Reconciliation_Hyve' =
+		let
+		    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.EndsWith([Folder Path], "/Hyve Finance/IEEPA Refund/")),
+		    #"Jul 2026 ACC & ACP Tariff Reconciliation_Hyve xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/" = #"Filtered Rows"{[Name="Jul 2026 ACC & ACP Tariff Reconciliation_Hyve.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"Jul 2026 ACC & ACP Tariff Reconciliation_Hyve xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/"),
+		    #"Hyve Payment_Sheet" = #"Imported Excel Workbook"{[Item="Hyve Payment",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Hyve Payment_Sheet", [PromoteAllScalars=true]),
+		    #"Added Custom" = Table.AddColumn(#"Promoted Headers", "source", each "Jul 2026 ACC & ACP Tariff Reconciliation_Hyve", type text),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"dw_create_date", type date}, {"dw_update_date", type date}, {"po_date", type date}, {"report_type", type text}, {"integrator", type text}, {"supplier", type text}, {"commodity_group", type text}, {"integrator_po_number", type text}, {"invoice_number", type text}, {"ordered_po_qty", Int64.Type}, {"unit_po_price", type number}, {"invoice_date", type date}, {"unit_invoice_price", type number}, {"received_qty", Int64.Type}, {"mpn", type text}, {"apn", type text}, {"commodity_category", type text}, {"component_description", type text}, {"component_density", type text}, {"ship_date", type date}, {"receive_date", type datetime}, {"allocation_id", type text}, {"allocation_date", type date}, {"allocation_qty", Int64.Type}, {"inco_terms", type text}, {"component_source_type", type text}, {"freight_cost", type number}, {"vmi_hub_fee", type number}, {"ship_to_city", type text}, {"ship_to_country", type text}, {"importer_of_record", type text}, {"country_of_origin", type text}, {"hts_code", type text}, {"import_duties_regular", type number}, {"import_duties_special", type number}, {"import_taxes", type number}, {"import_fees", type number}, {"product_eccn", type text}, {"import_clearance_date", type date}, {"record_submit_date", type date}, {"exclude_from_recon", type text}, {"parent_po", type text}, {"comments", type text}, {"vendor_file_name", type text}, {"derived_file_str", type text}, {"source", type text}, {"snapshot_day", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: f6a935b7-30ab-483c-b4fe-9ebada97f301
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,790 @@
+table tt_woody_tariff_recovery_new_data
+	lineageTag: 089656d3-307a-40ca-9c85-e25e76b84218
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 9961722c-6026-4d02-96c8-f52d65258893
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_region_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fd59631-c8dc-4d7f-a088-860ee6e6d9f5
+		summarizeBy: sum
+		sourceColumn: so_region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no
+		dataType: string
+		lineageTag: 13b6bde7-9813-4093-8cfb-fea609eb0fc6
+		summarizeBy: none
+		sourceColumn: order_no
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 46b8883f-7bc5-4a71-ad07-e8481649de4c
+		summarizeBy: sum
+		sourceColumn: order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f0b8866e-9a8d-4cc7-b708-426361e9c8d7
+		summarizeBy: sum
+		sourceColumn: order_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 214664f5-451d-4361-9048-417f7c2d44d8
+		summarizeBy: sum
+		sourceColumn: sku_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_acc_svr_flag
+		dataType: string
+		lineageTag: 49861ba7-6262-44cd-9182-44d877b8a4e1
+		summarizeBy: none
+		sourceColumn: sku_acc_svr_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_acp_part_flag
+		dataType: string
+		lineageTag: 0a38c429-0456-42e9-93b4-d57fd12e1277
+		summarizeBy: none
+		sourceColumn: sku_acp_part_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_acp_nw_flag
+		dataType: string
+		lineageTag: 6ef57d1d-9e3e-486f-836a-dd93a03589c6
+		summarizeBy: none
+		sourceColumn: sku_acp_nw_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: fa7e1adb-4bbd-4af0-93b7-c84e957ade46
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit_cost
+		dataType: double
+		lineageTag: c8264048-e90f-41b2-9a3b-901f81987912
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_qty
+		dataType: int64
+		formatString: #,0
+		lineageTag: 42192ae4-ac9b-4780-a573-2066e685c2a0
+		summarizeBy: sum
+		sourceColumn: order_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: deab51f4-d87a-4ac4-aa23-3dd8dea17517
+		summarizeBy: sum
+		sourceColumn: ship_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ext_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 429af9e2-b9ad-4054-991d-4bfec804388b
+		summarizeBy: sum
+		sourceColumn: ext_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ext_ref
+		dataType: string
+		lineageTag: d3d817ac-c0a5-4acb-9498-d90dcf418b6c
+		summarizeBy: none
+		sourceColumn: oh_ext_ref
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_ship_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5521622-9147-4036-81b4-4c2d5824e0be
+		summarizeBy: none
+		sourceColumn: oh_ship_date
+
+		variation Variation
+			isDefault
+			relationship: a2f54cd9-bf6f-4337-9025-ced77b3bb917
+			defaultHierarchy: LocalDateTable_139e1899-925f-42de-9086-8fd466c0f98c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_invoice_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 668c60e3-172f-4ffd-8f2f-3319dc26cdb0
+		summarizeBy: none
+		sourceColumn: oh_invoice_date
+
+		variation Variation
+			isDefault
+			relationship: 0d99eec8-f355-40e1-8ffd-f77739e2d182
+			defaultHierarchy: LocalDateTable_7f26ce23-69eb-4228-ab02-826b551b7cc3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_total_cost
+		dataType: double
+		lineageTag: 3279344c-0cbf-49a9-ad31-0620fd886120
+		summarizeBy: sum
+		sourceColumn: oh_total_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oh_total_order
+		dataType: double
+		lineageTag: c138cb5b-7727-4e7a-b8d6-314a5f307fe3
+		summarizeBy: sum
+		sourceColumn: oh_total_order
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oh_sales_total
+		dataType: double
+		lineageTag: f67824e4-d6ba-485c-a0d9-49fedc5798e9
+		summarizeBy: sum
+		sourceColumn: oh_sales_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column so_kit_line_sku_no
+		dataType: int64
+		formatString: 0
+		lineageTag: b357e271-faa9-4dd4-b876-44a527560628
+		summarizeBy: sum
+		sourceColumn: so_kit_line_sku_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_kit_line_part_no
+		dataType: string
+		lineageTag: f30189e8-b909-4a0c-9102-6e4c94906a77
+		summarizeBy: none
+		sourceColumn: so_kit_line_part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_kit_line_ipn
+		dataType: string
+		lineageTag: 289bb42c-67da-4d50-93fa-6287e119c39c
+		summarizeBy: none
+		sourceColumn: so_kit_line_ipn
+
+		annotation SummarizationSetBy = Automatic
+
+	column edi_po_no
+		dataType: string
+		lineageTag: 8c3729d1-cdfd-468e-b100-bcf466c770a3
+		summarizeBy: none
+		sourceColumn: edi_po_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_tag
+		dataType: int64
+		formatString: 0
+		lineageTag: c7f852bc-e7a2-45a0-9088-46a704153c13
+		summarizeBy: sum
+		sourceColumn: asset_tag
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cust_no
+		dataType: int64
+		formatString: 0
+		lineageTag: ee11ad57-5c18-4a2f-80df-02d5fb25e019
+		summarizeBy: sum
+		sourceColumn: so_cust_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_cust_name
+		dataType: string
+		lineageTag: 5f082956-1735-4d2b-a638-4411fc4fa513
+		summarizeBy: none
+		sourceColumn: so_cust_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column outbound_exclude_comment
+		dataType: string
+		lineageTag: 5cb73161-20ec-48fb-a627-f8a4f7d3067e
+		summarizeBy: none
+		sourceColumn: outbound_exclude_comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column quote_match_cmmt
+		dataType: string
+		lineageTag: 8041c78f-dcc9-41a0-b380-afd37203f0b7
+		summarizeBy: none
+		sourceColumn: quote_match_cmmt
+
+		annotation SummarizationSetBy = Automatic
+
+	column quote_match_detail_cmmt
+		dataType: string
+		lineageTag: 539aa865-d925-4385-bf4d-3fb732d44780
+		summarizeBy: none
+		sourceColumn: quote_match_detail_cmmt
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_from_loc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f092919-1baa-4a67-af85-20055b0f5e6b
+		summarizeBy: sum
+		sourceColumn: oh_from_loc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column oh_to_loc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 40f4df31-cc03-4066-a837-9cf174484ee2
+		summarizeBy: sum
+		sourceColumn: oh_to_loc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_rack_line_model
+		dataType: string
+		lineageTag: f7d5440d-2e77-461e-892e-5e012e8ab58d
+		summarizeBy: none
+		sourceColumn: so_rack_line_model
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_rack_line_ipn
+		dataType: string
+		lineageTag: 9499402d-9f48-4b1e-9b36-bdc8107d530f
+		summarizeBy: none
+		sourceColumn: so_rack_line_ipn
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_rack_cnt
+		dataType: int64
+		formatString: 0
+		lineageTag: e5bfa820-869d-402d-afe8-dade81410815
+		summarizeBy: sum
+		sourceColumn: so_rack_cnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_server_cnt
+		dataType: int64
+		formatString: 0
+		lineageTag: 1eea0e36-9639-479d-a592-55e9e154d631
+		summarizeBy: sum
+		sourceColumn: so_server_cnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_end_user_po
+		dataType: string
+		lineageTag: 463b4f60-8c3a-4f60-8a4e-5b088879d2bd
+		summarizeBy: none
+		sourceColumn: so_end_user_po
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_end_user_po_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c41bd4d-947a-4be4-9056-52fe755b1f76
+		summarizeBy: none
+		sourceColumn: so_end_user_po_date
+
+		variation Variation
+			isDefault
+			relationship: d22089b7-f3f5-4227-8f29-0b11851ab8a4
+			defaultHierarchy: LocalDateTable_049d4d26-6114-44fd-9f32-79bd176ce796.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column quote_file_name
+		dataType: string
+		lineageTag: 2eccfebd-d5b3-43b9-8b67-549549cf7b2a
+		summarizeBy: none
+		sourceColumn: quote_file_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column quote_number
+		dataType: string
+		lineageTag: 55095a06-42d9-4c3f-bba2-ddd68973ae74
+		summarizeBy: none
+		sourceColumn: quote_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column csv_file_name
+		dataType: string
+		lineageTag: 54eff5a4-432c-4ba3-838b-4d71f53ac03f
+		summarizeBy: none
+		sourceColumn: csv_file_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rename_csv_file_name
+		dataType: string
+		lineageTag: b8dbd94f-b330-4bb8-b15f-075fc9c977f9
+		summarizeBy: none
+		sourceColumn: rename_csv_file_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_rack_cost
+		dataType: double
+		lineageTag: 015f19f5-11d1-4fa7-bb17-78c4301f11a7
+		summarizeBy: sum
+		sourceColumn: total_rack_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quoted_rack_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: f505930d-db76-4fb9-b56b-75a06cd1314a
+		summarizeBy: sum
+		sourceColumn: quoted_rack_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column valid_from_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d45b2ab6-c0a2-418d-9fc8-7eb465ce7521
+		summarizeBy: none
+		sourceColumn: valid_from_date
+
+		variation Variation
+			isDefault
+			relationship: d17286eb-9039-4291-acd5-658caadd62f6
+			defaultHierarchy: LocalDateTable_da31d8dc-5ac5-4357-91ca-d80dca3bfd9e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valid_to_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b2af894b-ab47-44d7-a4a5-16f233224593
+		summarizeBy: none
+		sourceColumn: valid_to_date
+
+		variation Variation
+			isDefault
+			relationship: da0bb82c-6268-4346-8edd-1c89866968b2
+			defaultHierarchy: LocalDateTable_8da835fe-fc52-43c4-810d-e7e2aa78f341.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column server_1_density
+		dataType: int64
+		formatString: 0
+		lineageTag: bbb870bf-1fd3-4b16-9c87-b2c3bbfc7099
+		summarizeBy: sum
+		sourceColumn: server_1_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_2_density
+		dataType: string
+		lineageTag: f61dd482-b3f3-4bdc-938b-7240c12f25b3
+		summarizeBy: none
+		sourceColumn: server_2_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_3_density
+		dataType: string
+		lineageTag: 912ddaa2-dfef-4bdf-a599-70856d41efb0
+		summarizeBy: none
+		sourceColumn: server_3_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_4_density
+		dataType: string
+		lineageTag: 9eed790b-6321-4ddc-ba24-ef3edd279f38
+		summarizeBy: none
+		sourceColumn: server_4_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_5_density
+		dataType: string
+		lineageTag: 2871ac21-fe42-4496-9b00-b9c90c79492a
+		summarizeBy: none
+		sourceColumn: server_5_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_6_density
+		dataType: string
+		lineageTag: 599e4bde-acd7-4bab-9bcb-d593a5cab326
+		summarizeBy: none
+		sourceColumn: server_6_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_7_density
+		dataType: string
+		lineageTag: 0ec0079a-b6c8-4379-8d94-14baa3813828
+		summarizeBy: none
+		sourceColumn: server_7_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_8_density
+		dataType: string
+		lineageTag: a2b1c615-9621-4eed-bb85-825bcadd1c7b
+		summarizeBy: none
+		sourceColumn: server_8_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_9_density
+		dataType: string
+		lineageTag: 603376bf-2d1d-41a1-b2e7-c603c34944c4
+		summarizeBy: none
+		sourceColumn: server_9_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column server_10_density
+		dataType: string
+		lineageTag: 40b8a0ef-f412-4aa1-9953-292eafedceb6
+		summarizeBy: none
+		sourceColumn: server_10_density
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 04f9650b-7eb7-4b29-b82a-ba404da022dc
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column amazon_part_number
+		dataType: string
+		lineageTag: 7ee866fd-a66d-46f8-952f-f7e637ed0854
+		summarizeBy: none
+		sourceColumn: amazon_part_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 86528cda-f891-407f-92bf-c58b1e21e54e
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: a4f8e2a2-afd4-49ae-9bba-c6230ff9efe9
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: 573943e8-1bec-404e-a959-b1e45d937fe9
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price_usd
+		dataType: double
+		lineageTag: f3fed274-b95f-4429-af61-56bc961f5e97
+		summarizeBy: sum
+		sourceColumn: unit_price_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 24396a3e-64b1-4d5f-b70b-1241cf4ba5df
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 33f3985b-e082-4ba5-9393-fa76cfb0d363
+		summarizeBy: none
+		sourceColumn: dt_month
+
+		variation Variation
+			isDefault
+			relationship: 8a5e7554-a211-4f32-b6a1-1f19025179d1
+			defaultHierarchy: LocalDateTable_38fbadb4-1e82-46b5-86d6-103ca886ea49.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column line_price_usd
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ed84c0b9-c3bd-4189-b863-4b08520c7180
+		summarizeBy: sum
+		sourceColumn: line_price_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Woody Control vs Hyve Controlled' = ```
+			
+			IF([amazon_part_number]="5081"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[description],"tariff"),"Hyve Controlled Part Recovery",
+			IF([amazon_part_number]="5081"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[item],"tariff"),"Hyve Controlled Part Recovery",
+			IF([amazon_part_number]="3065"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[description],"tariff"),"Woody Controlled Part Recovery",
+			IF([amazon_part_number]="3065"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[item],"tariff"),"Woody Controlled Part Recovery",
+			IF([amazon_part_number]="5082"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[description],"tariff"),"Woody Controlled Part Recovery",
+			IF([amazon_part_number]="5082"&&CONTAINSSTRING(tt_woody_tariff_recovery_new_data[item],"tariff"),"Woody Controlled Part Recovery",
+			IF([amazon_part_number]="5093","Directed Buy Recovery",
+			"Recovery exclusion")))))))
+			
+			```
+		lineageTag: 805b2364-c55f-4e05-9b32-a633de6081d9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name =
+			
+			SWITCH(tt_woody_tariff_recovery_new_data[so_region_no],10001,"Hyve US",10002,"Hyve UK",10006,"Hyve CN",10007, "Hyve WW")
+		lineageTag: 06ba58de-7596-428a-8f64-2c806bf4b305
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_REG_ORDER_IPN_QTY = [so_region_no] & "/" & [order_type] & "/" & [order_no] & "/" & [so_rack_line_ipn] & "/" & [ship_qty]
+		lineageTag: 85b4c364-a236-4158-8f79-6c3b6f73a34a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = [so_end_user_po]&"\"&[asset_tag]
+		lineageTag: f4145081-f451-4f5a-9a55-e82182173405
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column intercompany_flag =
+			
+			VAR S1=LOOKUPVALUE('~order_flag'[cust_flag_s1],'~order_flag'[order_no],tt_woody_tariff_recovery_new_data[order_no])
+			RETURN
+			IF(S1="CUST_EXCLUDE","Yes","No")
+		lineageTag: 1b5d6c3b-c5b3-47a6-be5f-52d027b01023
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Excluded_flag =
+			
+			var order_cnt=CALCULATE(DISTINCTCOUNT(tt_woody_tariff_recovery_new_data[order_no]),ALLEXCEPT(tt_woody_tariff_recovery_new_data,tt_woody_tariff_recovery_new_data[KEY]))
+			var order_type_cnt=CALCULATE(DISTINCTCOUNT(tt_woody_tariff_recovery_new_data[order_type]), ALLEXCEPT(tt_woody_tariff_recovery_new_data,tt_woody_tariff_recovery_new_data[so_end_user_po]))
+			VAR Asset_cnt=CALCULATE(DISTINCTCOUNTNOBLANK(tt_woody_tariff_recovery_new_data[asset_tag]),ALLEXCEPT(tt_woody_tariff_recovery_new_data,tt_woody_tariff_recovery_new_data[so_end_user_po]))
+			VAR last_ship_date=CALCULATE(MAX(tt_woody_tariff_recovery_new_data[oh_ship_date]),ALLEXCEPT(tt_woody_tariff_recovery_new_data,tt_woody_tariff_recovery_new_data[so_end_user_po]))
+			var region_cn=CALCULATE(DISTINCTCOUNT(tt_woody_tariff_recovery_new_data[so_region_no]),ALLEXCEPT(tt_woody_tariff_recovery_new_data,tt_woody_tariff_recovery_new_data[so_end_user_po]))
+			return
+			IF(order_cnt>1&&[intercompany_flag]="INTERCOCOMPANY","Intercompany SO",
+			IF([Woody Control vs Hyve Controlled]="Recovery exclusion","Recovery exclusion",
+			IF([asset_tag_check]="N","Same Asset Tag has multiple SO's (Old SO)",
+			IF([outbound_exclude_comment]<>BLANK(),[outbound_exclude_comment],
+			IF([cmdm_qty]+[ship_qty]=0,"Full CM/DM Order",
+			IF(order_type_cnt>1&&[order_type]=1&&Asset_cnt<2,"Same CPO has OT1 & OT101 (OT1)",
+			IF([oh_ship_date]<>last_ship_date&&Asset_cnt<2&&region_cn>1,"Same CPO&Single Asset Tag has multiple SO's (Old SO)",BLANK())))))))
+		lineageTag: 302c6931-13b7-40b1-a659-ef54e7da6601
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_program = ```
+			
+			 VAR S1=LOOKUPVALUE('~order_flag'[internal_cust_program],'~order_flag'[order_no],tt_woody_tariff_recovery_new_data[order_no])
+			 RETURN
+			IF([Source.Name]="tt_tariff_alyssa_Tariff recovery feb 2025 dec 2025 update.csv"||[Source.Name]="tt_tariff_alyssa_Tarrif recovery Rack to Jan 2025 update.csv","EVE",
+			 IF(S1="WOODY RAMSES PURE","WOODY RAMSES PURE/HYBRID",
+			 IF(S1="WOODY RAMSES HYBRID","WOODY RAMSES PURE/HYBRID",
+			 S1)))
+			```
+		lineageTag: 0b493af7-8bd7-44e2-a2f2-043e65b8d874
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmdm_qty = LOOKUPVALUE('cm_dm_report'[order_qty], cm_dm_report[KEY_REG_ORDER_IPN_QTY],tt_woody_tariff_recovery_new_data[KEY_REG_ORDER_IPN_QTY])
+		formatString: #,0
+		lineageTag: f609c1af-da99-4812-9931-5370b6c351a3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_tag_check = ```
+			
+			VAR lastshipdate =
+			    CALCULATE(
+			        MAX(tt_woody_tariff_recovery_new_data[oh_ship_date]),
+			        ALLEXCEPT(
+			            tt_woody_tariff_recovery_new_data,
+			            tt_woody_tariff_recovery_new_data[asset_tag]
+			        )
+			    )
+			RETURN
+			IF(
+			    LEN(tt_woody_tariff_recovery_new_data[asset_tag]) = 0,
+			    "Y",
+			    IF(
+			        tt_woody_tariff_recovery_new_data[oh_ship_date] = lastshipdate,
+			        "Y",
+			        "N"
+			    )
+			)
+			
+			```
+		lineageTag: eb4823b6-32d2-485c-970b-8f7f2dc01829
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Userid = ```
+			100 
+			```
+		formatString: 0
+		lineageTag: aacdbcbe-e0d7-48fe-a01e-aeb6199cf628
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year&Month =
+			IF(ISBLANK([oh_ship_date]),
+			DATE(YEAR([oh_invoice_date]),MONTH([oh_invoice_date]),1),DATE(YEAR([oh_ship_date]),MONTH([oh_ship_date]),1))
+		formatString: Long Date
+		lineageTag: 569f7b3a-dd65-4e2c-944d-b8f3fcdb928c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_code_group =
+			
+			VAR S1=LOOKUPVALUE(dim_customer[cust_code_group],dim_customer[Cust_key],tt_woody_tariff_recovery_new_data[Cust_key])
+			RETURN
+			IF(S1=BLANK(),IF([Source.Name]="tt_tariff_alyssa_Tariff recovery feb 2025 dec 2025 update.csv"||[Source.Name]="tt_tariff_alyssa_Tarrif recovery Rack to Jan 2025 update.csv","EVE"),S1)
+		lineageTag: 1e18cfda-1715-4533-b892-6be7740e3e56
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cust_key =
+			
+			[so_region_no]&"\"&[so_cust_no]
+		lineageTag: a8adfb01-96ef-46da-b8a6-fa7881607066
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'acc/acp flag' = IF([sku_acc_svr_flag]="Y"||[sku_acp_nw_flag]="Y"||[sku_acp_part_flag]="Y","Y","N")
+		lineageTag: 1668efe4-518f-4bd8-94ac-b8500831a9d3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_no_v2 =
+			
+			VAR _InvOrderNo = LOOKUPVALUE('~legacy_invoice_order_no(for intercompany order)'[invoice_order_no], '~legacy_invoice_order_no(for intercompany order)'[phy_ship_order_no], [order_no], '~legacy_invoice_order_no(for intercompany order)'[phy_ship_order_region_no], [so_region_no], '~legacy_invoice_order_no(for intercompany order)'[phy_ship_order_type], [order_type])
+			VAR _Result = IF(ISBLANK(_InvOrderNo), [order_no], _InvOrderNo)
+			RETURN _Result
+		lineageTag: 38d56b27-973b-4ea3-a138-0feedb41a9e3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tt_woody_tariff_recovery_new_data = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each Text.Contains([Name], "tt_tariff_daria")),
+				    #"Filtered Hidden Files1" = Table.SelectRows(#"Filtered Rows", each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File", each #"Transform File"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"so_region_no", Int64.Type}, {"order_no", Int64.Type}, {"order_type", Int64.Type}, {"order_line_no", Int64.Type}, {"sku_no", Int64.Type}, {"sku_acc_svr_flag", type text}, {"sku_acp_part_flag", type text}, {"sku_acp_nw_flag", type text}, {"unit_price", type number}, {"unit_cost", type number}, {"order_qty", Int64.Type}, {"ship_qty", Int64.Type}, {"ext_qty", Int64.Type}, {"oh_ext_ref", type text}, {"oh_ship_date", type datetime}, {"oh_invoice_date", type datetime}, {"oh_total_cost", type number}, {"oh_total_order", type number}, {"oh_sales_total", type number}, {"so_kit_line_sku_no", Int64.Type}, {"so_kit_line_part_no", type text}, {"so_kit_line_ipn", type text}, {"edi_po_no", type text}, {"asset_tag", Int64.Type}, {"so_cust_no", Int64.Type}, {"so_cust_name", type text}, {"outbound_exclude_comment", type any}, {"quote_match_cmmt", type text}, {"quote_match_detail_cmmt", type text}, {"oh_from_loc_no", Int64.Type}, {"oh_to_loc_no", Int64.Type}, {"so_rack_line_model", type text}, {"so_rack_line_ipn", type text}, {"so_rack_cnt", Int64.Type}, {"so_server_cnt", Int64.Type}, {"so_end_user_po", type text}, {"so_end_user_po_date", type datetime}, {"quote_file_name", type text}, {"quote_number", type text}, {"csv_file_name", type text}, {"rename_csv_file_name", type text}, {"total_rack_cost", type number}, {"quoted_rack_cost", Int64.Type}, {"valid_from_date", type date}, {"valid_to_date", type date}, {"server_1_density", Int64.Type}, {"server_2_density", type any}, {"server_3_density", type any}, {"server_4_density", type any}, {"server_5_density", type any}, {"server_6_density", type any}, {"server_7_density", type any}, {"server_8_density", type any}, {"server_9_density", type any}, {"server_10_density", type any}, {"region", type text}, {"amazon_part_number", type text}, {"category", type text}, {"description", type text}, {"item", type text}, {"unit_price_usd", type number}, {"quantity", Int64.Type}, {"dt_month", type date}, {"line_price_usd", type number}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Changed Type", each [amazon_part_number] = "3065" or [amazon_part_number] = "5081" or [amazon_part_number] = "5082" or [amazon_part_number] = "999"or [amazon_part_number] = "5093")
+				in
+				    #"Filtered Rows1"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

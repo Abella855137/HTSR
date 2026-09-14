@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "order_no_v2"
                 }
               },
               "queryRef": "tt_woody_tariff_recovery_202411052028.order_no_v2",
-              "nativeQueryRef": "order_no_v2",
+              "nativeQueryRef": "order_no_v21",
               "active": true
             }
           ]

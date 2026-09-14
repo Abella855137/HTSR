@@ -179,7 +179,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -296,5 +296,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4e7e3fbc41ae6b04100d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~REF_MONTH"
+              }
+            },
+            "Property": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d67ecc6f0de05bd826ba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_Recovery"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "62ddb31d287e59ad7dc8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_spend"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0e191880a4ccb865a5e9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "accumulative_total_gaps"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

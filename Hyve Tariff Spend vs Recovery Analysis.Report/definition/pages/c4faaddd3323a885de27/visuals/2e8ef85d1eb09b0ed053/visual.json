@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "Excluded_flag"
@@ -35,7 +35,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "item"
@@ -69,7 +69,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "order_no"
@@ -90,7 +90,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "line_price_usd"
@@ -178,7 +178,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "tt_woody_tariff_recovery_202411052028"
+                            "Entity": "tt_woody_tariff_recovery_new_data"
                           }
                         },
                         "Property": "Excluded_flag"

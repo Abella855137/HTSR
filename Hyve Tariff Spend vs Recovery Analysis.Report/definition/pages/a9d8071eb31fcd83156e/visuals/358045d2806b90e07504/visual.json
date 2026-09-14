@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "358045d2806b90e07504",
   "position": {
-    "x": 1015.924978687127,
-    "y": 52.37851662404092,
+    "x": 872.11644732237221,
+    "y": 51.224918065005056,
     "z": 14000,
-    "height": 73.111679454390455,
-    "width": 219.33503836317135,
+    "height": 74,
+    "width": 164,
     "tabOrder": 14000
   },
   "visual": {
@@ -22,7 +22,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "line_price_usd"
@@ -46,7 +46,7 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "tt_woody_tariff_recovery_202411052028"
+                        "Entity": "tt_woody_tariff_recovery_new_data"
                       }
                     },
                     "Property": "line_price_usd"
@@ -225,7 +225,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non Woody Controlled Part '"
+                  "Value": "'Non Woody Part '"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -265,7 +279,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "tt_woody_tariff_recovery_202411052028"
+                "Entity": "tt_woody_tariff_recovery_new_data"
               }
             },
             "Property": "Woody Control vs Hyve Controlled"
@@ -277,7 +291,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "tt_woody_tariff_recovery_202411052028",
+              "Entity": "tt_woody_tariff_recovery_new_data",
               "Type": 0
             }
           ],
@@ -312,6 +326,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "c795d611054c4168508a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "tt_woody_tariff_recovery_new_data"
+                  }
+                },
+                "Property": "line_price_usd"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

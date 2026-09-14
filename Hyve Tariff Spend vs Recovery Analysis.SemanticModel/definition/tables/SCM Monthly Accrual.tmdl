@@ -92,21 +92,44 @@ table 'SCM Monthly Accrual'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 'Accrual Amt' = CALCULATE(SUM('SCM-Transaction Purchase Order Detail for Tariff'[total_amount]),FILTER(ALL('SCM-Transaction Purchase Order Detail for Tariff'),'SCM Monthly Accrual'[scm_no]='SCM-Transaction Purchase Order Detail for Tariff'[scm_no]&&[month]='SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]))
+	column 'Accrual Amt' = ```
+			
+			CALCULATE(
+			    SUM('SCM-Transaction Purchase Order Detail for Tariff'[total_amount]),
+			    FILTER(
+			        ALL('SCM-Transaction Purchase Order Detail for Tariff'),
+			        'SCM Monthly Accrual'[scm_no] = 'SCM-Transaction Purchase Order Detail for Tariff'[scm_no] 
+			        && [month] = 'SCM-Transaction Purchase Order Detail for Tariff'[Year&Month]
+			        // exclude the single crazy order 283300 which broke the chart
+			        && 'SCM-Transaction Purchase Order Detail for Tariff'[order_no] <> 283300
+			    )
+			)
+			```
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 0389922a-e675-4e8d-a19a-2ab98863ee09
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Spend Amt' = CALCULATE(SUM('Tariff Expense Tracker'[Tariff Total Amount (Actual)]),FILTER(ALL('Tariff Expense Tracker'),'SCM Monthly Accrual'[scm_no]='Tariff Expense Tracker'[SCM Number]&&'SCM Monthly Accrual'[month]='Tariff Expense Tracker'[Year&month]))
-		formatString: \$#,0;(\$#,0);\$#,0
+	column 'Spend Amt' = ```
+			
+			CALCULATE(
+			    SUM('Tariff Expense Tracker'[Tariff Total Amount (Actual)]),
+			    FILTER(
+			        ALL('Tariff Expense Tracker'),
+			        'SCM Monthly Accrual'[scm_no] = 'Tariff Expense Tracker'[SCM Number] 
+			        && 'SCM Monthly Accrual'[month] = 'Tariff Expense Tracker'[Year&month]
+			        // exclude the single crazy order 283300 which broke the chart
+			        && 'Tariff Expense Tracker'[PO Number] <> "283300"
+			    )
+			)
+			```
 		lineageTag: 122f133a-d4a9-4043-baf4-d989612262e9
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"es-DO"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'INV Correction Amt(completed)' = -CALCULATE(SUM('Completed INV Correction'[Total Amt]),FILTER(ALL('Completed INV Correction'),'SCM Monthly Accrual'[scm_no]='Completed INV Correction'[Transfer to SCM#]&&'SCM Monthly Accrual'[month]='Completed INV Correction'[Year&Month]))
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00

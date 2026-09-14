@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d65f443f1409c444daa6",
   "position": {
-    "x": 738.75532821824379,
-    "y": 51.287297527706734,
+    "x": 642.66963920558237,
+    "y": 51.224918065005056,
     "z": 13000,
-    "height": 73.111679454390455,
-    "width": 219.33503836317135,
+    "height": 74,
+    "width": 164,
     "tabOrder": 13000
   },
   "visual": {
@@ -22,7 +22,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "line_price_usd"
@@ -46,7 +46,7 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "tt_woody_tariff_recovery_202411052028"
+                        "Entity": "tt_woody_tariff_recovery_new_data"
                       }
                     },
                     "Property": "line_price_usd"
@@ -228,6 +228,20 @@
                   "Value": "'Hyve Controlled Part '"
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -265,7 +279,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "tt_woody_tariff_recovery_202411052028"
+                "Entity": "tt_woody_tariff_recovery_new_data"
               }
             },
             "Property": "Woody Control vs Hyve Controlled"
@@ -277,7 +291,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "tt_woody_tariff_recovery_202411052028",
+              "Entity": "tt_woody_tariff_recovery_new_data",
               "Type": 0
             }
           ],

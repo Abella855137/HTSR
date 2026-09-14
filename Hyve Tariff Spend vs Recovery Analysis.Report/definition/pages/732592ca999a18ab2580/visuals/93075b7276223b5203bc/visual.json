@@ -56,6 +56,20 @@
       "data": [
         {
           "properties": {
+            "startDate": {
+              "expr": {
+                "Literal": {
+                  "Value": "datetime'2019-01-01T00:00:00'"
+                }
+              }
+            },
+            "endDate": {
+              "expr": {
+                "Literal": {
+                  "Value": "datetime'2026-08-31T00:00:00'"
+                }
+              }
+            },
             "mode": {
               "expr": {
                 "Literal": {
@@ -94,6 +108,66 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "And": {
+                        "Left": {
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "gl_trans_date"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2019-01-01T00:00:00'"
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 3,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "gl_trans_date"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2026-09-01T00:00:00'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             }
           }
@@ -145,5 +219,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b943cbc17677538b3070",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "gl_trans_date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

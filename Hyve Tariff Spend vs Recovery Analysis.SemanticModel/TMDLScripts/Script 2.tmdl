@@ -1,0 +1,184 @@
+createOrReplace
+
+	ref table ~Combine_spend_recovery
+
+		measure directed_buy_gaps =
+				
+				CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Directed Buy Recovery")-
+				CALCULATE(SUM('~Combine_spend_recovery'[Value]),'~Combine_spend_recovery'[Woody Control vs Hyve Controlled]="Directed Buy")
+			lineageTag: 9862e385-123c-4b07-a8d1-307676cee297
+			formatString: \$#,0;(\$#,0);\$#,0
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	ref table dwd_hyve_finance_ap_tariff_mi
+
+		column 'GL Cost attribution_final' =
+				
+				VAR S0=CALCULATE(COUNT(dwd_hyve_finance_ap_tariff_mi[KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				var s1=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				var s2=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				RETURN
+				IF([order_no]=BLANK(),[gl_amt_no_duplicate],
+				IF(s1=BLANK(),
+				IF(dwd_hyve_finance_ap_tariff_mi[COO_flag]=1,[total_gl_amt_order_level]/dwd_hyve_finance_ap_tariff_mi[COO_contains_CN_sku_cnt],
+				IF(s2=0,
+				[total_gl_amt_order_level]/S0)),dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]))
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 19943516-4f0e-4bfa-bfdd-72102c6d808d
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+		column doc_amt
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: b7d1ebee-9402-4afa-ae17-e7e6af580f8e
+			summarizeBy: sum
+			sourceColumn: doc_amt
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column doc_amt_no_duplicate
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: d49691b4-2940-4872-b941-11f8f798eccb
+			summarizeBy: sum
+			sourceColumn: doc_amt_no_duplicate
+
+			annotation SummarizationSetBy = Automatic
+
+		column dys_entered_value_usd
+			formatString: \$#,0;(\$#,0);\$#,0
+			dataType: double
+			lineageTag: 2cda38ef-3e51-472e-a231-acbcf6d373d4
+			summarizeBy: sum
+			sourceColumn: dys_entered_value_usd
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column gl_amt
+			formatString: \$#,0;(\$#,0);\$#,0
+			dataType: double
+			lineageTag: 75fc96e7-c815-41e9-a919-445cd821f58a
+			summarizeBy: sum
+			sourceColumn: gl_amt
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column gl_amt_no_duplicate
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 5fd8d86d-7ad1-4ba9-88bd-d1c2a40f9d51
+			summarizeBy: sum
+			sourceColumn: gl_amt_no_duplicate
+
+			annotation SummarizationSetBy = Automatic
+
+		column gl_amt_no_duplicate_v2 =
+				
+				var PK=LOOKUPVALUE(fix_gl_amount_manual[key],fix_gl_amount_manual[key],[je_no]&"\"&[je_line_no]&"\"&[je_line_row_no]&"\"&[order_no])
+				var GL=LOOKUPVALUE(fix_gl_amount_manual[gl_amt_no_duplicate],fix_gl_amount_manual[key],[je_no]&"\"&[je_line_no]&"\"&[je_line_row_no]&"\"&[order_no])
+				RETURN
+				IF(PK<>BLANK(),GL,[gl_amt_no_duplicate])
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: ffc38094-b2c7-44bc-ada1-34f42a6fe838
+
+		column po_cost
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: baae0e76-2707-447b-b6c3-6aaa020070de
+			summarizeBy: sum
+			sourceColumn: po_cost
+
+			annotation SummarizationSetBy = Automatic
+
+		column po_total_cost
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 9701d462-d0f5-4148-864b-d84fdc9fc45d
+			summarizeBy: sum
+			sourceColumn: po_total_cost
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column total_gl_amt_order_level_v2 = CALCULATE(SUM([gl_amt_no_duplicate_v2]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 563d54e5-dc73-4023-9b8b-84afc78f38df
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column total_gl_amt_order_level = CALCULATE(SUM([gl_amt_no_duplicate_v2]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no], dwd_hyve_finance_ap_tariff_mi[Year&Month]))
+			lineageTag: 39e0be6c-3a03-460f-b12b-50cde9242fe8
+			formatString: \$#,0;(\$#,0);\$#,0
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column WOODY_SPEND_order_level =
+				
+				VAR cpo=[order_no]
+				var order_level=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[integrator_po_number]=cpo))
+				return
+				order_level
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 4c5b4853-e947-40ac-81c0-62bc8532c831
+
+		column WOODY_SPEND_part_level =
+				
+				VAR cpo=[order_no]
+				var mpn=[mfg_part_no]
+				VAR invoice=[vend_inv_no]
+				var part_level=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[integrator_po_number]=cpo&&'Spend List - Woody Control'[mfg_part_v2]=mpn))
+				var spend_invocie=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[invoice_number]=invoice))
+				 return
+				IF([order_no]=BLANK(),spend_invocie,part_level)
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: d20791e4-2e35-485e-af27-6134068d7039
+
+			changedProperty = IsHidden
+
+	ref table tt_woody_tariff_recovery_new_data
+
+		column order_qty
+			dataType: int64
+			formatString: #,0
+			lineageTag: 42192ae4-ac9b-4780-a573-2066e685c2a0
+			summarizeBy: sum
+			sourceColumn: order_qty
+
+			annotation SummarizationSetBy = Automatic
+
+		column line_price_usd
+			dataType: double
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: ed84c0b9-c3bd-4189-b863-4b08520c7180
+			summarizeBy: sum
+			sourceColumn: line_price_usd
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column cmdm_qty = LOOKUPVALUE('cm_dm_report'[order_qty], cm_dm_report[KEY_REG_ORDER_IPN_QTY],tt_woody_tariff_recovery_new_data[KEY_REG_ORDER_IPN_QTY])
+			formatString: #,0
+			lineageTag: f609c1af-da99-4812-9931-5370b6c351a3
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+

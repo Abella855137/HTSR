@@ -13,7 +13,7 @@ table ~REF_MONTH
 		lineageTag: e8202927-f69c-49ed-abad-20861bbfb474
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: tt_woody_tariff_recovery_202411052028[Year&Month]
+		sourceColumn: tt_woody_tariff_recovery_new_data[Year&Month]
 
 		variation Variation
 			isDefault
@@ -28,7 +28,7 @@ table ~REF_MONTH
 
 	partition ~REF_MONTH = calculated
 		mode: import
-		source = VALUES(tt_woody_tariff_recovery_202411052028[Year&Month])
+		source = VALUES(tt_woody_tariff_recovery_new_data[Year&Month])
 
 	annotation PBI_Id = baef815d1c3146c6a24f5134d9d71e27
 

@@ -533,6 +533,124 @@
             }
           ]
         }
+      },
+      {
+        "name": "a94906e010b42c0d58c9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Level Accrual"
+              }
+            },
+            "Property": "SCM | Vend"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "407bacff68c0243c050b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SCM Level Accrual"
+                  }
+                },
+                "Property": "scm_balance"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "baa8f0ee8c0728b25359",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SCM Level Accrual"
+                  }
+                },
+                "Property": "Spend Amt"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ec6dea5b681c04180b5d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Level Accrual"
+              }
+            },
+            "Property": "MOS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7a69a0768064b2027c81",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SCM Level Accrual"
+                  }
+                },
+                "Property": "AVG Monthly Spend"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "accb7e8f233c0be0cd86",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Level Accrual"
+              }
+            },
+            "Property": "Total INV Correction"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "965184a04c18a350b3ab",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SCM Level Accrual"
+                  }
+                },
+                "Property": "AP Hold (Tariff Dispute)"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -1,0 +1,226 @@
+table fix_gl_amount_manual
+	lineageTag: b250f02d-0dc4-47d9-9209-b40fcd4026e3
+
+	column key
+		dataType: string
+		lineageTag: 9f63d5c7-2e48-4de2-b961-2c454b8b67f8
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_source
+		dataType: string
+		lineageTag: 2d6a6bff-f687-4e09-9d8c-a7d61c35eeaa
+		summarizeBy: none
+		sourceColumn: data_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 696790bb-df21-4816-a72e-7ac84811217c
+		summarizeBy: sum
+		sourceColumn: je_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column je_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 3150a30a-3e7f-46af-9a3c-14036fe39796
+		summarizeBy: sum
+		sourceColumn: je_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_acct_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a73f73d-7e15-4c0c-afc7-0a90b4da3cf4
+		summarizeBy: sum
+		sourceColumn: gl_acct_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_company
+		dataType: int64
+		formatString: 0
+		lineageTag: f7f3cd5b-069f-4860-ba0e-e617a812e835
+		summarizeBy: sum
+		sourceColumn: gl_company
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_trans_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a884667b-1d59-4ce7-a359-90230ceae58a
+		summarizeBy: none
+		sourceColumn: gl_trans_date
+
+		variation Variation
+			isDefault
+			relationship: 41b678ee-b66a-4a4a-886c-634fd9e080fd
+			defaultHierarchy: LocalDateTable_29c51fe7-9b50-4cdd-9890-4dc55fc1496c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column doc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 93c81ff1-e890-4a19-bbb2-2e28414d2e50
+		summarizeBy: sum
+		sourceColumn: doc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_amt
+		dataType: double
+		lineageTag: a1b7ef8a-e3cc-4c1f-9f97-f5d3d521ed7f
+		summarizeBy: sum
+		sourceColumn: gl_amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gl_amt_no_duplicate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d9320f82-ec6e-4e02-a9b3-78f8d7e1dc36
+		summarizeBy: sum
+		sourceColumn: gl_amt_no_duplicate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column je_line_row_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 082b8d03-e779-4e66-b425-e33bc22e7b68
+		summarizeBy: sum
+		sourceColumn: je_line_row_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 59405215-2bf2-4f48-866a-033a3080aa09
+		summarizeBy: sum
+		sourceColumn: gl_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: 9dc8aca5-84f7-4295-bd12-e1a1a6811bad
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column gl_project
+		dataType: int64
+		formatString: 0
+		lineageTag: e815a1c6-6541-45b0-8699-171c191af4c8
+		summarizeBy: sum
+		sourceColumn: gl_project
+
+		annotation SummarizationSetBy = Automatic
+
+	column proj_name
+		dataType: string
+		lineageTag: 45be38cf-01d2-441e-be78-ac40eef0c401
+		summarizeBy: none
+		sourceColumn: proj_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a273654-ccdc-4fa7-bdc3-69b8c211727f
+		summarizeBy: sum
+		sourceColumn: scm_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column scm_vend_name
+		dataType: string
+		lineageTag: 14f3b7e6-74bb-4ce0-a0df-311009228163
+		summarizeBy: none
+		sourceColumn: scm_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_doc_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 712f7673-c549-41c3-a0c0-bd497238b20b
+		summarizeBy: sum
+		sourceColumn: vend_doc_doc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_vend_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 604be2c3-4832-4d1b-98a3-123c5695c4d2
+		summarizeBy: sum
+		sourceColumn: vend_doc_vend_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_vend_name
+		dataType: string
+		lineageTag: 3474e057-1385-4ac0-b1d6-36092be38b42
+		summarizeBy: none
+		sourceColumn: vend_doc_vend_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_entry_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c7503a0c-5028-4013-9332-5560837d7203
+		summarizeBy: none
+		sourceColumn: vend_doc_entry_datetime
+
+		variation Variation
+			isDefault
+			relationship: 35eaf7dd-45b0-4717-b24f-a4124efffe29
+			defaultHierarchy: LocalDateTable_964c235c-791d-4b6a-b760-627d132c8763.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_doc_creator_name
+		dataType: string
+		lineageTag: 1df57fa9-69e2-41dd-8bb2-63d6741d1db6
+		summarizeBy: none
+		sourceColumn: vend_doc_creator_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column vend_inv_no
+		dataType: string
+		lineageTag: eb3b3dfd-0d62-4dbb-b6e9-d24c379b1418
+		summarizeBy: none
+		sourceColumn: vend_inv_no
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fix_gl_amount_manual = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("5Zprb9pIFIb/ygjlQysZmDlz55sBJ6ACRtjJJttWUbahm2q7ySpqd5V/vzNjQ2xCTMGJZYgU0Pgyt4dzzrxnJh8/NgjBQmIs4NMn80fMtwSpRMNrENy8/nY///IDfb37eXuNvt2iq38ub+6+X9uHi2qm7D6EEIHtA/PRbd0GDByxDsEdjJE/tncJ5kQx+wJoTmiL2V7SKoTYVqbEn571Br8FXXPBMdZE29uxPxseH3soOD4OevHwLECYtwluE21fExTbFkbDOGiGExQHvcEkHIUnF6gXzqb5js0YucTZt2d+fzg5QaeR76HhpIeaaHDaXZ2DuZ59+3GFzn+a0qmZK0hCBW189lYBQgqQVwbwCLRnLtJm9pujUuZVZ4XOELXgys4LNxOA0xD98YCu775c3s+/pgxdlRRbjiEhbQJJ16RDVJaiEgAWHWdSbTBBChr4enTQxsy173hYMqbQDS/6KB4Es7E/QtFFFAfjCA1CQ+aD/RoNxwZYPz+M7SuvzM3c6c//mz+gvuUKVBGMMSUcyzVkrYUqzBmuhuyzRnl4ZJm1WSUVqYYseztkqYsGRFYUDejbIStcNACAasiKt0NWVktWvh2y3JIlmLIKyB5xLynwA+crGTfXS+2ljWR0C8wGDZtUW8fYKEun/ASCDkAGMZEEO5DAiGjxxqYcgMmN2tX0qoRtwkjQmW+4oHeRKfrTcBa8R9M4aKFR3G/luyfCAs5WykjehY5tPZmJuRH99fD96h79fnN3+6dtExvlzDXnfA1MK7c0YEmqgnkEHiM2GhSkA3uIVGgNWiztU2i52f9dlbX+D2n/1juYzvLElDp30UK2hNxonEl8LyTJTHywimIcjoJzNBr18h2te7wyvrz3SibIOiyQYIGN8vOlsBQYWI2w0KqxPKsea4XFJSuABa0Ey5EWbvT1RSMZAa6Wm2BaK/VrIdtWa6zZw+FtuYhwuT0cs5Yz6tSappT9QoQhm7duTMe2IX88HQQm2qJ350N/HEzeo8HwZICiaRD0Uc/vjgLUC1teJnAvxyKwkDzbRNyLmv1ulO7i5CbzNFzHPsaESvNLrOKkO+KkW+OkjG/eT9xvmGRHmGvkxCaYHKTb3zuiXsL1kKEaI6UYC64rg8rBS4pFi8W+Y4UUq6oKq4moXhJSi6TJXmOFHa213PJ0sFYKO1ppOZwHa510R5xlVvtDhrmTq5eBeXCOLgwYMLkOSXNkpg1P8ybDzf7FxI/iC/Tv/Pb60uQ8KJsDLW628smQa82NcxUyWAou0YAOzSRDWBOGqYsZnEJLJVs02EtOfh9VVdAfXh7P4gXsHbOhx960cj/FYpK90ygOxxHqzsIPwezJeG1nV3/P769Q72buUAI3cxV6yZFTLPAyPWJMCYegKHN0VdYFS7k4E4YOyOzmK9aMJOeSBnWaOYLHKc2hernccdnhuse5UTbymSMF/AQN2QHNE7WzGQ1lrAUpGVMuJkMo3kTG9M1ce8u5N8/GwxfEk/FAqIsH5taNPXG9dIuPKqlkFfbVKFxb62BZj2BElY7XKDjHrBsYlfG4KsCofQFDKwZToKzqBUZWDObZg+u6gWEVgynYLK8XGHsez7GZaUVgnj2KrxUY2MGVSinlYl+qh0aGHaylLJQCc6kNlK31S1koBQKmNlC21i5loRSIl9pA2Vq3lIXyGsfZLw1l66W5LJTXOMh+aShbJ4tlobzG/4OUhPL5fw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [key = _t, data_source = _t, je_no = _t, je_line_no = _t, gl_acct_no = _t, gl_company = _t, gl_trans_date = _t, doc_no = _t, gl_amt = _t, gl_amt_no_duplicate = _t, je_line_row_no = _t, gl_type = _t, source = _t, gl_project = _t, proj_name = _t, scm_vend_no = _t, scm_vend_name = _t, vend_doc_doc_no = _t, vend_doc_vend_no = _t, vend_doc_vend_name = _t, vend_doc_entry_datetime = _t, vend_doc_creator_name = _t, vend_inv_no = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"key", type text}, {"data_source", type text}, {"je_no", Int64.Type}, {"je_line_no", Int64.Type}, {"gl_acct_no", Int64.Type}, {"gl_company", Int64.Type}, {"gl_trans_date", type datetime}, {"doc_no", Int64.Type}, {"gl_amt", type number}, {"gl_amt_no_duplicate", Currency.Type}, {"je_line_row_no", Int64.Type}, {"gl_type", Int64.Type}, {"source", type text}, {"gl_project", Int64.Type}, {"proj_name", type text}, {"scm_vend_no", Int64.Type}, {"scm_vend_name", type text}, {"vend_doc_doc_no", Int64.Type}, {"vend_doc_vend_no", Int64.Type}, {"vend_doc_vend_name", type text}, {"vend_doc_entry_datetime", type datetime}, {"vend_doc_creator_name", type text}, {"vend_inv_no", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -19,11 +19,11 @@ queryGroup 'Query Errors - 12/9/2025 2:21:25 PM'
 
 	annotation PBI_QueryGroupOrder = 2
 
-annotation PBI_QueryOrder = ["dwd_hyve_finance_ap_tariff_mi","dm_hyve_po_receiving_tariff_report_mi","BSIC_manual_result","split order per BSIC list","cust code result per manual order","~woody_only_locations","dim_part","current_system_tariff_rate","~order_flag","tt_woody_tariff_recovery_202411052028","dim_customer","Jamila list","Top SKU for Tariff","~glossary","hyve_user_dna","reference AP VEND DOC","Hyve controlled invoices","~INV location_mapping","Sample File","Parameter1","Transform Sample File","Transform File","Tariff Expense Tracker","pending inventory tariff invoice tracker","SCM-Transaction Purchase Order Detail for Tariff","Draft Vendor Agreement tracker","Pending INV correction","Completed INV Correction","dwd_hyve_inv_pur_order_detail","Manual Adjustments","SCM MJE","scm_balance_03_31","Reason Code","~Hill's location mapping","~legacy_invoice_order_no(for intercompany order)","Errors in Tariff Expense Tracker"]
+annotation PBI_QueryOrder = ["dwd_hyve_finance_ap_tariff_mi","dm_hyve_po_receiving_tariff_report_mi","BSIC_manual_result","split order per BSIC list","cust code result per manual order","~woody_only_locations","dim_part","current_system_tariff_rate","~order_flag","dim_customer","Jamila list","Top SKU for Tariff","~glossary","hyve_user_dna","reference AP VEND DOC","Hyve controlled invoices","~INV location_mapping","Sample File","Parameter1","Transform Sample File","Transform File","Tariff Expense Tracker","pending inventory tariff invoice tracker","SCM-Transaction Purchase Order Detail for Tariff","Draft Vendor Agreement tracker","Pending INV correction","Completed INV Correction","dwd_hyve_inv_pur_order_detail","Manual Adjustments","SCM MJE","scm_balance_03_31","Reason Code","~Hill's location mapping","~legacy_invoice_order_no(for intercompany order)","Errors in Tariff Expense Tracker","Spend List - Woody Control","Synnex - Tariff Recon 2025 12","Jul 2026 ACC & ACP Tariff Reconciliation_Hyve","tt_woody_tariff_recovery_new_data","cm_dm_report","fix_gl_amount_manual","mapping_vend_inv_no"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
 
 ref table dwd_hyve_finance_ap_tariff_mi
 ref table DateTableTemplate_72ce3daa-0850-4325-8418-e3f03d876035
@@ -77,16 +77,9 @@ ref table LocalDateTable_6b77f67f-52e4-4de5-99b3-da4a92749b93
 ref table ~order_flag
 ref table ~REF_MONTH
 ref table ~Combine_spend_recovery
-ref table tt_woody_tariff_recovery_202411052028
-ref table LocalDateTable_0e1b3db3-a2d9-4ac0-bf97-2ad82b15f96f
 ref table dim_customer
 ref table 'Jamila list'
 ref table 'Top SKU for Tariff'
-ref table LocalDateTable_1e27f346-296c-4915-83d0-79732935c21a
-ref table LocalDateTable_777f6262-97ee-4941-88f3-26e35440ca77
-ref table LocalDateTable_e3bf81ae-b4ee-48f2-bc3e-e49bfe79a82e
-ref table LocalDateTable_c5e9f18a-1b6f-42e7-a4d6-e5f329547ce6
-ref table LocalDateTable_b87c9f0f-4ddd-44c6-a412-e87f1da119e4
 ref table fact_spend_GL_cost_attribution
 ref table LocalDateTable_659b462d-e979-431e-afe2-df48e6fe3090
 ref table ~glossary
@@ -136,6 +129,30 @@ ref table '~Hill''s location mapping'
 ref table '~legacy_invoice_order_no(for intercompany order)'
 ref table LocalDateTable_eb3f1297-05ad-4c4e-b101-813acf53c376
 ref table LocalDateTable_3ce95b8d-f377-4909-bd8d-0b2ddca502d1
+ref table 'Spend List - Woody Control'
+ref table LocalDateTable_eb869df3-8f54-465b-809b-c13346b72bbd
+ref table LocalDateTable_1b43242e-0606-4649-8ff0-280587b08080
+ref table LocalDateTable_63503634-de99-44cc-b017-379e0ab77639
+ref table LocalDateTable_6f52e9a9-ba29-49fe-aa60-192843361c95
+ref table LocalDateTable_757572a7-d0e2-453d-9cbf-2e680a2e2b68
+ref table LocalDateTable_2009b264-6e31-4887-9d10-0d5198b3dcf4
+ref table LocalDateTable_c8ae93a4-c6a8-4af1-a872-f594c1d2281e
+ref table LocalDateTable_66c2be28-c828-4300-a3d6-99bca9a2358c
+ref table LocalDateTable_43046e1d-792c-4258-a77a-efd714e5b76b
+ref table LocalDateTable_7417273e-2843-4cdf-8a9c-8abccba6b3b9
+ref table tt_woody_tariff_recovery_new_data
+ref table LocalDateTable_139e1899-925f-42de-9086-8fd466c0f98c
+ref table LocalDateTable_7f26ce23-69eb-4228-ab02-826b551b7cc3
+ref table LocalDateTable_049d4d26-6114-44fd-9f32-79bd176ce796
+ref table LocalDateTable_da31d8dc-5ac5-4357-91ca-d80dca3bfd9e
+ref table LocalDateTable_8da835fe-fc52-43c4-810d-e7e2aa78f341
+ref table LocalDateTable_38fbadb4-1e82-46b5-86d6-103ca886ea49
+ref table 'Data Dictionary'
+ref table cm_dm_report
+ref table fix_gl_amount_manual
+ref table LocalDateTable_29c51fe7-9b50-4cdd-9890-4dc55fc1496c
+ref table LocalDateTable_964c235c-791d-4b6a-b760-627d132c8763
+ref table mapping_vend_inv_no
 
 ref cultureInfo en-US
 

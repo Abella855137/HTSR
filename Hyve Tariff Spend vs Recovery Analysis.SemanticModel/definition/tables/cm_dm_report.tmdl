@@ -1,0 +1,149 @@
+table cm_dm_report
+	lineageTag: c3898c5d-dd73-4c65-ab8a-696f1c36edd0
+
+	column program
+		dataType: string
+		lineageTag: 275dd1e9-b3fe-4a67-a42c-7783a56dd6b5
+		summarizeBy: none
+		sourceColumn: program
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_no
+		dataType: string
+		lineageTag: 8ba3af04-9aad-4f25-adb8-a553935f1f8b
+		summarizeBy: none
+		sourceColumn: region_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_order_type
+		dataType: string
+		lineageTag: b8c55412-f337-48e2-b4b7-7119b9a74ba0
+		summarizeBy: none
+		sourceColumn: so_order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_order_no
+		dataType: string
+		lineageTag: 24669d64-40c4-4176-a84b-5c38f4be7f90
+		summarizeBy: none
+		sourceColumn: so_order_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_ship_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 60a77fe6-dc1c-4ee6-9d92-b3e2391b62e9
+		summarizeBy: sum
+		sourceColumn: so_ship_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_total_order
+		dataType: string
+		lineageTag: 44de8608-6916-490c-853c-643d26fd14d5
+		summarizeBy: none
+		sourceColumn: so_total_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column so_fx_total_order
+		dataType: string
+		lineageTag: beb47e9a-0e0c-4540-af5e-6c30dc635b81
+		summarizeBy: none
+		sourceColumn: so_fx_total_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmdm_order_type
+		dataType: string
+		lineageTag: 37e72179-5be3-4091-9351-7f583ddaa941
+		summarizeBy: none
+		sourceColumn: cmdm_order_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmdm_order_no
+		dataType: string
+		lineageTag: 49cdc601-f5b3-4468-b3a3-cf639bca4e94
+		summarizeBy: none
+		sourceColumn: cmdm_order_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmdm_total_order
+		dataType: string
+		lineageTag: 6a0bdf2c-5569-4c9a-9c07-baa5ccfcf140
+		summarizeBy: none
+		sourceColumn: cmdm_total_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmdm_fx_total_order
+		dataType: string
+		lineageTag: 12e2d2bd-9d35-44df-a7fa-7878a8e82119
+		summarizeBy: none
+		sourceColumn: cmdm_fx_total_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason_code
+		dataType: string
+		lineageTag: 7316595e-9398-477e-b90e-71371aa5b440
+		summarizeBy: none
+		sourceColumn: reason_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_no
+		dataType: string
+		lineageTag: 535658ee-3d4c-4e01-b1fa-2b0f1b6d8294
+		summarizeBy: none
+		sourceColumn: part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column cust_part_no
+		dataType: string
+		lineageTag: 05ce4f3b-1607-4654-966a-d9796362e1d2
+		summarizeBy: none
+		sourceColumn: cust_part_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: d6bbb3a6-70f4-4565-8ed8-6368ca2aebc8
+		summarizeBy: sum
+		sourceColumn: order_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_REG_ORDER_IPN_QTY = [region_no] & "/" & [so_order_type] & "/" & [so_order_no] & "/" & [cust_part_no] & "/" & -[so_ship_qty]
+		lineageTag: 72bec36c-b3bc-4fe1-90a4-a20758f3baf9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition cm_dm_report = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each Text.EndsWith([Folder Path], "/Hyve Finance/Hyve Freight In  Recovery Data Validation_Hyve vs PWC/")),
+				    #"cmdm-report xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/Hyve Freight In  Recovery Data Validation_Hyve vs PWC/" = #"Filtered Rows"{[Name="cmdm-report.xlsx",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/Hyve Freight In  Recovery Data Validation_Hyve vs PWC/"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"cmdm-report xlsx_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/Hyve Freight In  Recovery Data Validation_Hyve vs PWC/"),
+				    #"Result 1_Sheet" = #"Imported Excel Workbook"{[Item="Result 1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Result 1_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"so_ship_qty", Int64.Type}, {"order_qty", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

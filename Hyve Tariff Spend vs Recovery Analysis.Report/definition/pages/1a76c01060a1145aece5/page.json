@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "1a76c01060a1145aece5",
-  "displayName": "Summary",
+  "displayName": "Woody Summary",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -115,6 +115,79 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "200801cf2ad3010c9458",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "TYPE"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "~",
+              "Entity": "~Combine_spend_recovery",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "~"
+                              }
+                            },
+                            "Property": "TYPE"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Non Woody'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -165,7 +238,7 @@
           "width": {
             "expr": {
               "Literal": {
-                "Value": "237L"
+                "Value": "287L"
               }
             }
           }

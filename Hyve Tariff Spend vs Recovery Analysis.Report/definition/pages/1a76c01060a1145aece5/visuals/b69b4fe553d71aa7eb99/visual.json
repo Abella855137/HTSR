@@ -308,6 +308,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "cebeb54a2bc2a8a05d03",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "~Combine_spend_recovery"
+                  }
+                },
+                "Property": "Value"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

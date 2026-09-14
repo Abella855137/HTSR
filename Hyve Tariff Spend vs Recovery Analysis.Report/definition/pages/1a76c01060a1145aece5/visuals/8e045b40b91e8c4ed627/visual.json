@@ -23,11 +23,11 @@
                       "Entity": "~Combine_spend_recovery"
                     }
                   },
-                  "Property": "non_woody_gaps"
+                  "Property": "directed_buy_gaps"
                 }
               },
-              "queryRef": "~Combine_spend_recovery.non_woody_gaps",
-              "nativeQueryRef": "non_woody_gaps"
+              "queryRef": "~Combine_spend_recovery.directed_buy_gaps",
+              "nativeQueryRef": "directed_buy_gaps"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "~Combine_spend_recovery"
                   }
                 },
-                "Property": "non_woody_gaps"
+                "Property": "directed_buy_gaps"
               }
             },
             "direction": "Descending"
@@ -178,7 +178,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non Woody GAPs'"
+                  "Value": "'Direct Buy GAPs'"
                 }
               }
             },
@@ -237,46 +237,34 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b9bf95b8bcb335ca06d9",
+        "name": "3aabc9491b29e4036076",
         "ordinal": 0,
         "field": {
-          "Aggregation": {
+          "Measure": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "hyrpt20200907_woody_tariff_recovery_tariff_split"
-                  }
-                },
-                "Property": "total_recovery_tariff"
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
               }
             },
-            "Function": 0
+            "Property": "non_woody_gaps"
           }
         },
         "type": "Advanced",
         "howCreated": "User"
       },
       {
-        "name": "fa1e96c66f365d0f7a1b",
-        "ordinal": 1,
+        "name": "b06b9a4b4e0ae72a95d1",
         "field": {
-          "Aggregation": {
+          "Measure": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "hyrpt20200907_woody_tariff_recovery_tariff_split"
-                  }
-                },
-                "Property": "item_5082_tariff"
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
               }
             },
-            "Function": 0
+            "Property": "directed_buy_gaps"
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

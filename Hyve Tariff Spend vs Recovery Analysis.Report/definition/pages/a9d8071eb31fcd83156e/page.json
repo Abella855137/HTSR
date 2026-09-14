@@ -13,7 +13,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "tt_woody_tariff_recovery_202411052028"
+                "Entity": "tt_woody_tariff_recovery_new_data"
               }
             },
             "Property": "Excluded_flag"
@@ -25,7 +25,7 @@
           "From": [
             {
               "Name": "t",
-              "Entity": "tt_woody_tariff_recovery_202411052028",
+              "Entity": "tt_woody_tariff_recovery_new_data",
               "Type": 0
             }
           ],

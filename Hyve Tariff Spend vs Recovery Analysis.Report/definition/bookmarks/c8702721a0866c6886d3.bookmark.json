@@ -20,7 +20,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "tt_woody_tariff_recovery_202411052028",
+                    "Entity": "tt_woody_tariff_recovery_new_data",
                     "Type": 0
                   }
                 ],
@@ -62,7 +62,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "Woody Control vs Hyve Controlled"
@@ -77,13 +77,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "9618e7e72b3a88061e09",
+                  "name": "4cdccf9d1a84cd981463",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_end_user_po_date"
@@ -106,7 +106,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "tt_woody_tariff_recovery_202411052028",
+                                "Entity": "tt_woody_tariff_recovery_new_data",
                                 "Type": 0
                               }
                             ],
@@ -168,7 +168,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_end_user_po_date"
@@ -182,7 +182,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_end_user_po_date"
@@ -196,13 +196,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "728d5133e2d3a0839399",
+                  "name": "59d7419303430eb76002",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "invoice_region"
@@ -237,7 +237,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "invoice_region"
@@ -251,13 +251,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "9bea7c0bea94021beac0",
+                  "name": "829ff6aeca999e006421",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "cust_program"
@@ -292,7 +292,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "cust_program"
@@ -306,13 +306,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "4d089dfe9e9299811d06",
+                  "name": "524be6ba827d10b4b694",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "doc_no"
@@ -347,7 +347,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "doc_no"
@@ -361,13 +361,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "8b71f09dbdd6d0c129ca",
+                  "name": "0ff1707e90153bc4b606",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_rack_ipn"
@@ -402,7 +402,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_rack_ipn"
@@ -416,7 +416,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "6b5ae847d240060ac052",
+                  "name": "709d58a44b7899e0e50e",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -424,7 +424,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -449,7 +449,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -499,7 +499,7 @@
                     "From": [
                       {
                         "Name": "t",
-                        "Entity": "tt_woody_tariff_recovery_202411052028",
+                        "Entity": "tt_woody_tariff_recovery_new_data",
                         "Type": 0
                       }
                     ],
@@ -537,7 +537,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "Woody Control vs Hyve Controlled"
@@ -546,7 +546,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "6a94005131731c1e3d10",
+                  "name": "aed4c22a60125a494930",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -554,7 +554,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -579,7 +579,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -608,13 +608,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "4e47f54037456a90ddb1",
+                  "name": "3434bb578b07de8a2d76",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "cust_program"
@@ -623,13 +623,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "4c1c552a5715009299d6",
+                  "name": "94daf38d633b987d04ee",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "Woody Control vs Hyve Controlled"
@@ -638,7 +638,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b5b383b010624964e764",
+                  "name": "3a06965394abb1a1e10b",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -646,7 +646,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -668,7 +668,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "cust_program"
@@ -680,7 +680,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "Woody Control vs Hyve Controlled"
@@ -694,13 +694,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "19e7f80abc30e03d5676",
+                  "name": "d3ae2b148ac7030d55bc",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "intercompany_flag"
@@ -723,7 +723,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "tt_woody_tariff_recovery_202411052028",
+                                "Entity": "tt_woody_tariff_recovery_new_data",
                                 "Type": 0
                               }
                             ],
@@ -793,7 +793,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "intercompany_flag"
@@ -807,13 +807,13 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "38dba39a503d89b7de8a",
+                  "name": "796225bb6aae51687de0",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "doc_no"
@@ -822,13 +822,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "77132a9de5e2e414d9e0",
+                  "name": "f155e0c480cde3897dd5",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "order_type"
@@ -837,13 +837,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "d300d4487bba860d0563",
+                  "name": "7a3bc202498400445a93",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "ext_qty"
@@ -852,13 +852,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b057775c3baa5b0020c0",
+                  "name": "3ecc27642d0b1aad000e",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "doc_date"
@@ -867,13 +867,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "cf5ca04010332892727b",
+                  "name": "fcf281b60718277e00ee",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_rack_line_ipn"
@@ -882,13 +882,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "80a8296575898240b908",
+                  "name": "27d8690f50a5b7a2c09e",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_rack_line_model"
@@ -897,13 +897,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "8d6b1ccd14b95b9d74c3",
+                  "name": "1275b80936a4c9c58410",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_rack_cnt"
@@ -912,13 +912,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "c7f9c1a863ddc92bec4c",
+                  "name": "4ccfdf8333de0d649deb",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_server_cnt"
@@ -927,13 +927,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "1de574cea498250c5a47",
+                  "name": "d804fd5be748b07dbe24",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_end_user_po"
@@ -942,13 +942,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "7b82b1cd9e8402eab08d",
+                  "name": "fb7c6a3914a5940244c3",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_end_user_po_date"
@@ -957,13 +957,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "8e5dd49d606718400810",
+                  "name": "c2e78ed5704072e48d06",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "loc_no"
@@ -972,13 +972,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "18b7916d831dd7b7d07b",
+                  "name": "d969e69b633c4777a10d",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_cust_no"
@@ -987,13 +987,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "190b1205694a22e9085e",
+                  "name": "c2f164a1403d107ac0ee",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "so_cust_name"
@@ -1002,13 +1002,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2f12551e376bc8403b60",
+                  "name": "b47226a47d0d385a06b4",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "asset_tag"
@@ -1017,13 +1017,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "a12053d62c3280b049a0",
+                  "name": "2ad730c0e6a371b28dec",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "amazon_part_number"
@@ -1032,7 +1032,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5f707540ca22772b04d4",
+                  "name": "f59f9172dd69a0940b10",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -1040,7 +1040,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -1052,13 +1052,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "632a1c1a66000804421c",
+                  "name": "77f38e6b0b1533c9c4b3",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "item"
@@ -1067,13 +1067,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "ff4efdded6c736abba01",
+                  "name": "8bbff53c608d9ec40e54",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "quote_match_cmmt"
@@ -1082,13 +1082,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "3fa641cea7c60d4b14c2",
+                  "name": "e3468774b0254aaba092",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "quote_file_name"
@@ -1097,13 +1097,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "95c5fe7b90e0521bd4e4",
+                  "name": "ee850351c8301ebb3a99",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "quote_file_date"
@@ -1112,13 +1112,13 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "0f3391225c0434339d12",
+                  "name": "62f8311cc069980080de",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "invoice_region"
@@ -1164,7 +1164,7 @@
                     "From": [
                       {
                         "Name": "t",
-                        "Entity": "tt_woody_tariff_recovery_202411052028",
+                        "Entity": "tt_woody_tariff_recovery_new_data",
                         "Type": 0
                       }
                     ],
@@ -1202,7 +1202,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "Woody Control vs Hyve Controlled"
@@ -1211,7 +1211,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "a548ae04e92cd0ce55d5",
+                  "name": "e125da69d73389347a05",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -1219,7 +1219,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -1244,7 +1244,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -1288,7 +1288,7 @@
                     "From": [
                       {
                         "Name": "t",
-                        "Entity": "tt_woody_tariff_recovery_202411052028",
+                        "Entity": "tt_woody_tariff_recovery_new_data",
                         "Type": 0
                       }
                     ],
@@ -1326,7 +1326,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "Woody Control vs Hyve Controlled"
@@ -1335,7 +1335,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "58f088510737e7c23c5d",
+                  "name": "2b9a6809b00e49e0997c",
                   "type": "Advanced",
                   "expression": {
                     "Aggregation": {
@@ -1343,7 +1343,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"
@@ -1368,7 +1368,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "tt_woody_tariff_recovery_202411052028"
+                              "Entity": "tt_woody_tariff_recovery_new_data"
                             }
                           },
                           "Property": "total_price_usd"

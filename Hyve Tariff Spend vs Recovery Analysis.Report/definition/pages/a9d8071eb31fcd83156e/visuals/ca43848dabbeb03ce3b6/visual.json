@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "region_name"
@@ -34,7 +34,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "order_no"
@@ -48,7 +48,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "order_type"
@@ -62,7 +62,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "ext_qty"
@@ -76,7 +76,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "oh_ship_date"
@@ -90,7 +90,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "oh_invoice_date"
@@ -104,7 +104,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_rack_line_ipn"
@@ -118,7 +118,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_kit_line_ipn"
@@ -132,7 +132,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_rack_line_model"
@@ -146,7 +146,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_kit_line_part_no"
@@ -160,7 +160,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_rack_cnt"
@@ -174,7 +174,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_server_cnt"
@@ -188,7 +188,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_end_user_po"
@@ -202,7 +202,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_end_user_po_date"
@@ -216,7 +216,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "asset_tag"
@@ -230,7 +230,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "oh_from_loc_no"
@@ -244,7 +244,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "oh_to_loc_no"
@@ -258,7 +258,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_cust_no"
@@ -272,7 +272,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "so_cust_name"
@@ -286,7 +286,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "cust_code_group"
@@ -301,7 +301,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "amazon_part_number"
@@ -316,7 +316,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "item"
@@ -331,7 +331,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "description"
@@ -348,7 +348,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "tt_woody_tariff_recovery_202411052028"
+                          "Entity": "tt_woody_tariff_recovery_new_data"
                         }
                       },
                       "Property": "line_price_usd"
@@ -365,7 +365,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "quote_match_cmmt"
@@ -379,7 +379,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "quote_file_name"
@@ -393,7 +393,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "valid_to_date"
@@ -408,7 +408,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tt_woody_tariff_recovery_202411052028"
+                      "Entity": "tt_woody_tariff_recovery_new_data"
                     }
                   },
                   "Property": "order_no_v2"
@@ -428,7 +428,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "tt_woody_tariff_recovery_202411052028"
+                    "Entity": "tt_woody_tariff_recovery_new_data"
                   }
                 },
                 "Property": "amazon_part_number"
