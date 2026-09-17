@@ -1,0 +1,10 @@
+createOrReplace
+
+	ref table cm_dm_report
+
+		column KEY_REG_ORDER_IPN_QTY = [region_no] & "/" & [so_order_type] & "/" & [so_order_no]
+			lineageTag: 72bec36c-b3bc-4fe1-90a4-a20758f3baf9
+			summarizeBy: none
+
+			annotation SummarizationSetBy = Automatic
+

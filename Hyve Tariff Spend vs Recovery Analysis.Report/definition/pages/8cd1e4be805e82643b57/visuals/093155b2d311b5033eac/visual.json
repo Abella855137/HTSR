@@ -157,5 +157,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8e4a55fd016b37b630e9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "gl_trans_date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

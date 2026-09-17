@@ -624,7 +624,7 @@ table tt_woody_tariff_recovery_new_data
 
 		annotation SummarizationSetBy = Automatic
 
-	column KEY_REG_ORDER_IPN_QTY = [so_region_no] & "/" & [order_type] & "/" & [order_no] & "/" & [so_rack_line_ipn] & "/" & [ship_qty]
+	column KEY_REG_ORDER = [so_region_no] & "/" & [order_type] & "/" & [order_no]
 		lineageTag: 85b4c364-a236-4158-8f79-6c3b6f73a34a
 		summarizeBy: none
 
@@ -658,7 +658,7 @@ table tt_woody_tariff_recovery_new_data
 			IF([Woody Control vs Hyve Controlled]="Recovery exclusion","Recovery exclusion",
 			IF([asset_tag_check]="N","Same Asset Tag has multiple SO's (Old SO)",
 			IF([outbound_exclude_comment]<>BLANK(),[outbound_exclude_comment],
-			IF([cmdm_qty]+[ship_qty]=0,"Full CM/DM Order",
+			IF([cmdm_gap] = "Matched","Full CM/DM Order",
 			IF(order_type_cnt>1&&[order_type]=1&&Asset_cnt<2,"Same CPO has OT1 & OT101 (OT1)",
 			IF([oh_ship_date]<>last_ship_date&&Asset_cnt<2&&region_cn>1,"Same CPO&Single Asset Tag has multiple SO's (Old SO)",BLANK())))))))
 		lineageTag: 302c6931-13b7-40b1-a659-ef54e7da6601
@@ -680,14 +680,13 @@ table tt_woody_tariff_recovery_new_data
 
 		annotation SummarizationSetBy = Automatic
 
-	column cmdm_qty = LOOKUPVALUE('cm_dm_report'[order_qty], cm_dm_report[KEY_REG_ORDER_IPN_QTY],tt_woody_tariff_recovery_new_data[KEY_REG_ORDER_IPN_QTY])
-		formatString: #,0
+	column cmdm_gap = LOOKUPVALUE('cm_dm_report'[SO_vs_CMDM_Gap], cm_dm_report[KEY_REG_ORDER],tt_woody_tariff_recovery_new_data[KEY_REG_ORDER])
 		lineageTag: f609c1af-da99-4812-9931-5370b6c351a3
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column asset_tag_check = ```
+	column asset_tag_check =
 			
 			VAR lastshipdate =
 			    CALCULATE(
@@ -695,7 +694,7 @@ table tt_woody_tariff_recovery_new_data
 			        ALLEXCEPT(
 			            tt_woody_tariff_recovery_new_data,
 			            tt_woody_tariff_recovery_new_data[asset_tag]
-			        )
+			        ),tt_woody_tariff_recovery_new_data[outbound_exclude_comment]=BLANK()
 			    )
 			RETURN
 			IF(
@@ -707,8 +706,6 @@ table tt_woody_tariff_recovery_new_data
 			        "N"
 			    )
 			)
-			
-			```
 		lineageTag: eb4823b6-32d2-485c-970b-8f7f2dc01829
 		summarizeBy: none
 

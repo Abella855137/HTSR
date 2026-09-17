@@ -41,30 +41,6 @@ expression 'Transform File' =
 
 	annotation PBI_ResultType = Function
 
-expression 'Errors in Tariff Expense Tracker' =
-		let
-		Source = #"Tariff Expense Tracker",
-		  #"Detected Type Mismatches" = let
-		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
-		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
-		    fieldNames = Record.FieldNames(recordTypeFields),
-		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
-		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
-		in
-		    Table.TransformColumns(Source, pairs),
-		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
-		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"PO Part Receive Date", "Discrepancy Close Date", "PO Tariff Amount Updated Date", "Buyer Reviewed Day", "Buyer's comments", "Discrepancy Report Date", "AP Comments#(lf)Other Reason Code", "Discrepancy Reason#(lf)(select from drop down)", "Discrepancy (Yes/No)", "AP Doc#", "SCM Number", "Entry ID", "Invoice Date", "Invoice# ", "Invoice Vendor Name", "Invoice Vendor Number", "Shipment COO (Invoice)", "PO COO", "Part COO in CIS", "Tariff Total Amount #(lf)(Actual)#(lf)", "Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", "Tariff Unit Amount (Invoice)#(lf)=R2/L2", "Tariff Rate (Invoice)", "PO Unit Tariff Amount", "PO Unit Tariff Rate#(lf)=O2/M2", "PO Base Price", "Tariff Part Qty", "HTS Code#(lf) (Invoice Part Level)", "PO Ship Term", "MFG Part Number", "Hyve Part Number ", "PO Line#", "PO Number", "PO Ship-To Location", "Customer Name", "Customer Number", "Vendor Name", "Vendor Number "}),
-		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "PO Part Receive Date", "Discrepancy Close Date", "PO Tariff Amount Updated Date", "Buyer Reviewed Day", "Buyer's comments", "Discrepancy Report Date", "AP Comments#(lf)Other Reason Code", "Discrepancy Reason#(lf)(select from drop down)", "Discrepancy (Yes/No)", "AP Doc#", "SCM Number", "Entry ID", "Invoice Date", "Invoice# ", "Invoice Vendor Name", "Invoice Vendor Number", "Shipment COO (Invoice)", "PO COO", "Part COO in CIS", "Tariff Total Amount #(lf)(Actual)#(lf)", "Tariff Total Amount #(lf)(Invoice by Rate)#(lf)=L2*M2*P2", "Tariff Unit Amount (Invoice)#(lf)=R2/L2", "Tariff Rate (Invoice)", "PO Unit Tariff Amount", "PO Unit Tariff Rate#(lf)=O2/M2", "PO Base Price", "Tariff Part Qty", "HTS Code#(lf) (Invoice Part Level)", "PO Ship Term", "MFG Part Number", "Hyve Part Number ", "PO Line#", "PO Number", "PO Ship-To Location", "Customer Name", "Customer Number", "Vendor Name", "Vendor Number "}),
-		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Reordered Columns", {{"Buyer Reviewed Day", null}})
-		in
-		  #"Replaced Errors"
-	lineageTag: d2f868ef-6e53-46dc-bc9e-282bf1ca8bf1
-	queryGroup: 'Query Errors - 12/9/2025 2:21:25 PM'
-
-	annotation PBI_NavigationStepName = Navigation
-
-	annotation PBI_ResultType = Table
-
 expression 'Synnex - Tariff Recon 2025 12' =
 		let
 		    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
@@ -118,6 +94,23 @@ expression 'Jul 2026 ACC & ACP Tariff Reconciliation_Hyve' =
 		in
 		    #"Changed Type"
 	lineageTag: f6a935b7-30ab-483c-b4fe-9ebada97f301
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Woody Recon from Aug 2026' =
+		let
+		    Source = SharePoint.Files("https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each Text.EndsWith([Folder Path], "/Hyve Finance/IEEPA Refund/")),
+		    #"Woody Recon from Aug 2026 csv_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/" = #"Filtered Rows"{[Name="Woody Recon from Aug 2026.csv",#"Folder Path"="https://tdworldwide.sharepoint.com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/"]}[Content],
+		    #"Imported CSV" = Csv.Document(#"Woody Recon from Aug 2026 csv_https://tdworldwide sharepoint com/sites/BITeam_Feed_PBI_Files/Shared Documents/HYVE PBI File/Hyve Finance/IEEPA Refund/",[Delimiter=",", Columns=46, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
+		    #"Added Custom" = Table.AddColumn(#"Promoted Headers", "source", each "Woody Recon from Aug 2026", type text),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"dw_create_date", type date}, {"dw_update_date", type date}, {"po_date", type date}, {"report_type", type text}, {"integrator", type text}, {"supplier", type text}, {"commodity_group", type text}, {"integrator_po_number", type text}, {"invoice_number", type text}, {"ordered_po_qty", Int64.Type}, {"unit_po_price", type number}, {"invoice_date", type date}, {"unit_invoice_price", type number}, {"received_qty", Int64.Type}, {"mpn", type text}, {"apn", type text}, {"commodity_category", type text}, {"component_description", type text}, {"component_density", type text}, {"ship_date", type date}, {"receive_date", type datetime}, {"allocation_id", type text}, {"allocation_date", type date}, {"allocation_qty", Int64.Type}, {"inco_terms", type text}, {"component_source_type", type text}, {"freight_cost", type number}, {"vmi_hub_fee", type number}, {"ship_to_city", type text}, {"ship_to_country", type text}, {"importer_of_record", type text}, {"country_of_origin", type text}, {"hts_code", type text}, {"import_duties_regular", type number}, {"import_duties_special", type number}, {"import_taxes", type number}, {"import_fees", type number}, {"product_eccn", type text}, {"import_clearance_date", type date}, {"record_submit_date", type date}, {"exclude_from_recon", type text}, {"parent_po", type text}, {"comments", type text}, {"vendor_file_name", type text}, {"derived_file_str", type text}, {"source", type text}, {"snapshot_day", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: 92e5b62a-a205-4388-b285-6c98a7e63c15
 
 	annotation PBI_NavigationStepName = Navigation
 

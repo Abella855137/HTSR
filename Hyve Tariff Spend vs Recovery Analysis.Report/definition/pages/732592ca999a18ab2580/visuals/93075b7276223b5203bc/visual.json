@@ -56,17 +56,10 @@
       "data": [
         {
           "properties": {
-            "startDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2019-01-01T00:00:00'"
-                }
-              }
-            },
             "endDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2026-08-31T00:00:00'"
+                  "Value": "datetime'2026-08-14T00:00:00'"
                 }
               }
             },
@@ -123,45 +116,21 @@
                 "Where": [
                   {
                     "Condition": {
-                      "And": {
+                      "Comparison": {
+                        "ComparisonKind": 3,
                         "Left": {
-                          "Comparison": {
-                            "ComparisonKind": 2,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "d"
-                                  }
-                                },
-                                "Property": "gl_trans_date"
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
                               }
                             },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2019-01-01T00:00:00'"
-                              }
-                            }
+                            "Property": "gl_trans_date"
                           }
                         },
                         "Right": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "d"
-                                  }
-                                },
-                                "Property": "gl_trans_date"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2026-09-01T00:00:00'"
-                              }
-                            }
+                          "Literal": {
+                            "Value": "datetime'2026-08-15T00:00:00'"
                           }
                         }
                       }
@@ -223,7 +192,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b943cbc17677538b3070",
+        "name": "ffc49e8535622e9a0311",
         "field": {
           "Column": {
             "Expression": {

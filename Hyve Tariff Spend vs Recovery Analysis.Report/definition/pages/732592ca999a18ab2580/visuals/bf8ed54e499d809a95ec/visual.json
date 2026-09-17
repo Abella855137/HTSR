@@ -286,6 +286,39 @@
             }
           ]
         }
+      },
+      {
+        "name": "3262b35c0a5ec3799715",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "cust_code_v2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7da951291b94b3ae0370",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwd_hyve_finance_ap_tariff_mi"
+                  }
+                },
+                "Property": "GL Cost attribution_final"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

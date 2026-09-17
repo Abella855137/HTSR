@@ -1,0 +1,23 @@
+createOrReplace
+
+	ref table cm_dm_report
+
+		column CMDM_Total_Distinct =
+				VAR CurrentSO = cm_dm_report[so_order_no]
+				
+				RETURN
+				SUMX(
+					SUMMARIZE(
+						FILTER(
+							ALL(cm_dm_report),
+							cm_dm_report[so_order_no] = CurrentSO
+						),
+						cm_dm_report[cmdm_order_no],
+						"Amt", MAX(cm_dm_report[cmdm_total_order])
+					),
+					[Amt]
+				)
+
+		column SO_vs_CMDM_Gap = if(ROUND([so_total_order]+[CMDM_Total_Distinct],0)=0,"Matched","Unmatched")
+
+		column KEY = [region_no] & "/" & [so_order_type] & "/" & [so_order_no]

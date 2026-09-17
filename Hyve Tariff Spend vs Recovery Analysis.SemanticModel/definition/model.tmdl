@@ -14,12 +14,7 @@ queryGroup 'Transform File from Query1\Helper Queries'
 
 	annotation PBI_QueryGroupOrder = 0
 
-/// Errors in queries that were loaded on 12/9/2025 2:21:25 PM.
-queryGroup 'Query Errors - 12/9/2025 2:21:25 PM'
-
-	annotation PBI_QueryGroupOrder = 2
-
-annotation PBI_QueryOrder = ["dwd_hyve_finance_ap_tariff_mi","dm_hyve_po_receiving_tariff_report_mi","BSIC_manual_result","split order per BSIC list","cust code result per manual order","~woody_only_locations","dim_part","current_system_tariff_rate","~order_flag","dim_customer","Jamila list","Top SKU for Tariff","~glossary","hyve_user_dna","reference AP VEND DOC","Hyve controlled invoices","~INV location_mapping","Sample File","Parameter1","Transform Sample File","Transform File","Tariff Expense Tracker","pending inventory tariff invoice tracker","SCM-Transaction Purchase Order Detail for Tariff","Draft Vendor Agreement tracker","Pending INV correction","Completed INV Correction","dwd_hyve_inv_pur_order_detail","Manual Adjustments","SCM MJE","scm_balance_03_31","Reason Code","~Hill's location mapping","~legacy_invoice_order_no(for intercompany order)","Errors in Tariff Expense Tracker","Spend List - Woody Control","Synnex - Tariff Recon 2025 12","Jul 2026 ACC & ACP Tariff Reconciliation_Hyve","tt_woody_tariff_recovery_new_data","cm_dm_report","fix_gl_amount_manual","mapping_vend_inv_no"]
+annotation PBI_QueryOrder = ["dwd_hyve_finance_ap_tariff_mi","dm_hyve_po_receiving_tariff_report_mi","BSIC_manual_result","split order per BSIC list","cust code result per manual order","~woody_only_locations","dim_part","current_system_tariff_rate","~order_flag","dim_customer","Jamila list","Top SKU for Tariff","~glossary","hyve_user_dna","reference AP VEND DOC","Hyve controlled invoices","~INV location_mapping","Sample File","Parameter1","Transform Sample File","Transform File","Tariff Expense Tracker","pending inventory tariff invoice tracker","SCM-Transaction Purchase Order Detail for Tariff","Draft Vendor Agreement tracker","Pending INV correction","Completed INV Correction","dwd_hyve_inv_pur_order_detail","Manual Adjustments","SCM MJE","scm_balance_03_31","Reason Code","~Hill's location mapping","~legacy_invoice_order_no(for intercompany order)","Spend List - Woody Control","Synnex - Tariff Recon 2025 12","Jul 2026 ACC & ACP Tariff Reconciliation_Hyve","tt_woody_tariff_recovery_new_data","cm_dm_report","fix_gl_amount_manual","mapping_vend_inv_no","Woody Recon from Aug 2026"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 

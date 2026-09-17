@@ -286,6 +286,20 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "2fa7450422ea2b4331aa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "total_gaps"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

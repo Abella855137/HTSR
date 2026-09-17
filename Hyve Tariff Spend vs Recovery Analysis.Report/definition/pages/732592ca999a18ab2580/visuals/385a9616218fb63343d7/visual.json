@@ -187,5 +187,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cd55c7e0070e7574d473",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwd_hyve_finance_ap_tariff_mi"
+              }
+            },
+            "Property": "Woody Control vs Hyve Controlled"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -317,6 +317,20 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "83f85231cb3061610a54",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_Recovery"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

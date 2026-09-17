@@ -99701,28 +99701,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dwd_hyve_finance_ap_tariff_mi.gapglattri": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "dwd_hyve_finance_ap_tariff_mi",
-			          "ConceptualProperty": "Gap-gl-attri"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "gap-gl-attri": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "gap gl attri": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
 			    "Combine_spend_recovery.excluded_flag": {
 			      "Definition": {
 			        "Binding": {
@@ -115290,7 +115268,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "tt_woody_tariff_recovery_new_data",
-			          "ConceptualProperty": "KEY_REG_ORDER_IPN_QTY"
+			          "ConceptualProperty": "KEY_REG_ORDER"
 			        }
 			      },
 			      "State": "Generated",
@@ -115681,7 +115659,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "tt_woody_tariff_recovery_new_data",
-			          "ConceptualProperty": "cmdm_qty"
+			          "ConceptualProperty": "cmdm_gap"
 			        }
 			      },
 			      "State": "Generated",
@@ -118057,7 +118035,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "cm_dm_report",
-			          "ConceptualProperty": "KEY_REG_ORDER_IPN_QTY"
+			          "ConceptualProperty": "KEY_REG_ORDER"
 			        }
 			      },
 			      "State": "Generated",

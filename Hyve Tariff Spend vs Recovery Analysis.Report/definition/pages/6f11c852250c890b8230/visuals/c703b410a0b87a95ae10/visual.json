@@ -255,5 +255,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "937e9a28dc4254aa2971",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Monthly Accrual"
+              }
+            },
+            "Property": "month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "660068a620ad10e0dd11",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Monthly Accrual"
+              }
+            },
+            "Property": "Total Spend"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "70690a10537a34a67a00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Monthly Accrual"
+              }
+            },
+            "Property": "Net Accrual Amt"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "072f29124427e8b42203",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SCM Monthly Accrual"
+              }
+            },
+            "Property": "gaps(net accrual vs spend)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

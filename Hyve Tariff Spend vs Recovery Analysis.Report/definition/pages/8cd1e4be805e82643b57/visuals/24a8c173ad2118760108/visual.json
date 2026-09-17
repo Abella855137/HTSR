@@ -210,5 +210,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "86960eb1e64b83b32e20",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "cust_program_final"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3242c1f70abc0c907a90",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_Recovery"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3f8755d1cac5c2c6e006",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_spend"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

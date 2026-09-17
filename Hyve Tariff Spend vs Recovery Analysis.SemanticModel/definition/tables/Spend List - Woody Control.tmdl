@@ -512,7 +512,7 @@ table 'Spend List - Woody Control'
 		mode: import
 		source =
 				let
-				    Source = Table.Combine({#"Jul 2026 ACC & ACP Tariff Reconciliation_Hyve", #"Synnex - Tariff Recon 2025 12"}),
+				    Source = Table.Combine({#"Jul 2026 ACC & ACP Tariff Reconciliation_Hyve", #"Synnex - Tariff Recon 2025 12", #"Woody Recon from Aug 2026"}),
 				    #"Replaced Value" = Table.ReplaceValue(Source,"81.153006099999999","81.1530061",Replacer.ReplaceText,{"mpn"})
 				in
 				    #"Replaced Value"

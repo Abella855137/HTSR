@@ -1,0 +1,62 @@
+createOrReplace
+
+	ref table dwd_hyve_finance_ap_tariff_mi
+
+		column 'GL Cost attribution_s3' =
+				
+				///some SKU contain COO China
+				IF([GL Cost attribution_s1]=BLANK()&&[GL Cost attribution_s2]=BLANK(),
+				IF([current_sku_tariff_pocv%]<>BLANK()&&[COO_flag]=1,[line_total_cost]*[current_sku_tariff_pocv%],
+				IF([current_sku_tariff_pocv%]=BLANK()&&[COO_flag]=1,[line_total_cost]*0.25,0)))
+			lineageTag: bd4406fb-206e-4520-ba49-7bf24509d33b
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'GL Cost attribution_s4' =
+				
+				VAR S1=CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_v2]))
+				VAR S2=[total_gl_amt_order_level_v2]-S1
+				RETURN
+				IF([line_total_cost]=0,0,
+				IF(S2=0,[GL Cost attribution_s3],
+				[total_gl_amt_order_level_v2]*[percentage_of_total_base_cost]))
+			formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+			lineageTag: 5da3dfac-f50c-4c3e-80ba-8772afba08b7
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'GL Cost attribution_s5' =
+				
+				IF([GL Cost attribution_s1]<>BLANK(),[GL Cost attribution_s1],
+				IF([GL Cost attribution_s2]<>BLANK(),[GL Cost attribution_s2],
+				IF([GL Cost attribution_s4]<>BLANK(),[GL Cost attribution_s4],BLANK())))
+			lineageTag: 48319b29-c865-48bb-b987-6c65d8339620
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'GL Cost attribution_final' =
+				
+				VAR S0=CALCULATE(COUNT(dwd_hyve_finance_ap_tariff_mi[KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				var s1=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				var s2=CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+				RETURN
+				IF([order_no]=BLANK(),[gl_amt_no_duplicate],
+				IF(s1=BLANK(),
+				IF(dwd_hyve_finance_ap_tariff_mi[COO_flag]=1,[total_gl_amt_order_level_v2]/dwd_hyve_finance_ap_tariff_mi[COO_contains_CN_sku_cnt],
+				IF(s2=0,
+				[total_gl_amt_order_level_v2]/S0)),dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]))
+			formatString: \$#,0;(\$#,0);\$#,0
+			lineageTag: 19943516-4f0e-4bfa-bfdd-72102c6d808d
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+

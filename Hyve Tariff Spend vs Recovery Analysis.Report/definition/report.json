@@ -48,7 +48,7 @@
             {
               "Condition": {
                 "Comparison": {
-                  "ComparisonKind": 1,
+                  "ComparisonKind": 2,
                   "Left": {
                     "Column": {
                       "Expression": {
@@ -63,7 +63,7 @@
                     "DateSpan": {
                       "Expression": {
                         "Literal": {
-                          "Value": "datetime'2018-11-30T00:00:00'"
+                          "Value": "datetime'2019-12-01T00:00:00'"
                         }
                       },
                       "TimeUnit": 5

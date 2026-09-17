@@ -1,11 +1,6 @@
 table dwd_hyve_finance_ap_tariff_mi
 	lineageTag: 1b10bb8e-217e-4360-ae81-e923735bc489
 
-	measure Gap-gl-attri = ROUND(SUM(dwd_hyve_finance_ap_tariff_mi[gl_amt_no_duplicate_v2]) - SUM(dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_final]), 0)
-		lineageTag: df7e3b2b-25ab-4c05-ada3-94348e235018
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column data_source
 		dataType: string
 		lineageTag: 0b6d3474-8b3a-40c0-a7a3-19c3e0f41d2c
@@ -723,6 +718,9 @@ table dwd_hyve_finance_ap_tariff_mi
 			return
 			COALESCE([order_no],result1,result2,result3)
 		lineageTag: c36e63d9-b30d-4c90-bf6c-f4db9e25189b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column cust_code_v2 =
 			
@@ -867,13 +865,20 @@ table dwd_hyve_finance_ap_tariff_mi
 			// var flag=SEARCH("CN",[SKU_COO_S1],,BLANK())
 			// return
 			// IF(flag<>BLANK(),1,0)
+			VAR cpo=[order_no]
+			var mpn=[mfg_part_no]
+			VAR gl_total=ROUND([total_gl_amt_order_level_v2],0)
+			var woody_spend_order=ROUND([WOODY_SPEND_order_level],0)
+			var po_result=IF(ISBLANK(LOOKUPVALUE('Spend List - Woody Control'[integrator_po_number],'Spend List - Woody Control'[integrator_po_number],[order_no])), "N", "Y")
+			var po_part_result=IF(CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[integrator_po_number]=cpo&&'Spend List - Woody Control'[mfg_part_v2]=mpn))<>BLANK(),"Y","N")
 			var flag=SEARCH("CN",[SKU_COO_S1],,BLANK())
 			VAR S1=
 			IF([KEY_order]="206663\1UKIT-109",1,
 			IF([gl_trans_date]<DATE(2025,04,05),
 			IF(flag<>BLANK(),1,0),1))
 			RETURN
-			S1
+			// S1
+			IF(gl_total<=woody_spend_order,IF(po_result="Y",IF(po_part_result="Y",1,0), S1),S1)
 		formatString: 0
 		lineageTag: 419be676-bc2f-47e3-b837-ca3baf90946b
 		summarizeBy: sum
@@ -888,24 +893,47 @@ table dwd_hyve_finance_ap_tariff_mi
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column COO_contains_CN_sku_cnt = CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[dt_month]))
+	column COO_contains_CN_sku_cnt = CALCULATE(SUM(dwd_hyve_finance_ap_tariff_mi[COO_flag]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
 		formatString: 0
 		lineageTag: c1c690db-679a-4f6e-a801-532867cc0ef4
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-	column percentage_of_total_base_cost = ```
+	column percentage_of_total_base_cost =
 			
-			var total_cost_coo_china=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]),dwd_hyve_finance_ap_tariff_mi[COO_flag]=1)
-			var total_cost_all_part=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no],dwd_hyve_finance_ap_tariff_mi[Year&Month]))
+			var total_cost_coo_china=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]),dwd_hyve_finance_ap_tariff_mi[COO_flag]=1)
+			var total_cost_all_part=CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			VAR _CurrentTotalWoody = [WOODY_SPEND_order_level]
+			VAR _CurrentTotalHyve = [total_gl_amt_order_level_v2] - [WOODY_SPEND_order_level]
+			VAR _CurrentWoodyPartTotal = CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]), dwd_hyve_finance_ap_tariff_mi[WOODY_SPEND_part_level] > 0)
+			VAR _CurrentHyvePartTotal = CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]), dwd_hyve_finance_ap_tariff_mi[WOODY_SPEND_part_level] = 0)
+			VAR _CurrentWoodyPartTotal_CN = CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]), dwd_hyve_finance_ap_tariff_mi[WOODY_SPEND_part_level] > 0,dwd_hyve_finance_ap_tariff_mi[COO_flag]=1)
+			VAR _CurrentHyvePartTotal_CN = CALCULATE(SUM([line_total_cost]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]), dwd_hyve_finance_ap_tariff_mi[WOODY_SPEND_part_level] = 0,dwd_hyve_finance_ap_tariff_mi[COO_flag]=1)
+			VAR _CurrentWoodyPartRatio = [line_total_cost] / _CurrentWoodyPartTotal
+			VAR _CurrentHyvePartRatio = [line_total_cost] / _CurrentHyvePartTotal
+			VAR _CurrentWoodyPartRatio_CN = [line_total_cost] / _CurrentWoodyPartTotal_CN
+			VAR _CurrentHyvePartRatio_CN = [line_total_cost] / _CurrentHyvePartTotal_CN
+			// VAR _YearMonthLevelRatio = [total_gl_amt_order_level] / [total_gl_amt_order_level_v2]
+			VAR _AllPartWoody = _CurrentWoodyPartRatio * _CurrentTotalWoody / [total_gl_amt_order_level_v2]
+			VAR _AllPartHyve = _CurrentHyvePartRatio * _CurrentTotalHyve / [total_gl_amt_order_level_v2]
+			VAR _ChinaPartWoody = _CurrentWoodyPartRatio_CN * _CurrentTotalWoody / [total_gl_amt_order_level_v2]
+			VAR _ChinaPartHyve = _CurrentHyvePartRatio_CN * _CurrentTotalHyve / [total_gl_amt_order_level_v2]
+			VAR _IsHyve = ISBLANK([WOODY_SPEND_part_level])
+			VAR gl_total=ROUND([total_gl_amt_order_level_v2],0)
+			var woody_spend_order=ROUND([WOODY_SPEND_order_level],0)
+			VAR _OneCateOnly = CALCULATE(DISTINCTCOUNT(dwd_hyve_finance_ap_tariff_mi[Woody Control vs Hyve Controlled]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no])) = 1
+			VAR _OneCateOnly_CN = CALCULATE(DISTINCTCOUNT(dwd_hyve_finance_ap_tariff_mi[Woody Control vs Hyve Controlled]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]),dwd_hyve_finance_ap_tariff_mi[COO_flag]=1) = 1
 			return
 			IF([line_total_cost]=0,0,
-			IF([COO_contains_CN_sku_cnt]=0,
-			[line_total_cost]/total_cost_all_part,
-			IF([COO_flag]=1,[line_total_cost]/total_cost_coo_china,BLANK())))
-			
-			```
+			    IF([COO_contains_CN_sku_cnt]=0,
+			        IF(gl_total > woody_spend_order && woody_spend_order > 0 && NOT _OneCateOnly, IF(_IsHyve, _AllPartHyve, _AllPartWoody), [line_total_cost] / total_cost_all_part),
+			        IF([COO_flag]=1,
+			            IF(gl_total > woody_spend_order && woody_spend_order > 0 && NOT _OneCateOnly_CN, IF(_IsHyve, _ChinaPartHyve, _ChinaPartWoody), [line_total_cost] / total_cost_coo_china),
+			            BLANK()
+			        )
+			    )
+			)
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 281daa80-a039-4441-9af1-25109d80121e
 		summarizeBy: sum
@@ -937,9 +965,9 @@ table dwd_hyve_finance_ap_tariff_mi
 	column 'GL Cost attribution_s1' =
 			
 			///PO only hasn 1 SKU
-			var SKU_cnt_order_level=CALCULATE(DISTINCTCOUNT([KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
+			var SKU_cnt_order_level=CALCULATE(COUNT([KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
 			return
-			IF(SKU_cnt_order_level=1,[total_gl_amt_order_level],BLANK())
+			IF(SKU_cnt_order_level=1,[total_gl_amt_order_level_v2],BLANK())
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 1f98ca4c-e92b-47c6-8232-c2c8eededc89
 		summarizeBy: sum
@@ -951,7 +979,7 @@ table dwd_hyve_finance_ap_tariff_mi
 			///all SKU under the PO doesn't contains COO China
 			var SKU_cnt_order_level=CALCULATE(COUNT([KEY_POCV]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_no]))
 			return
-			IF([COO_contains_CN_sku_cnt]=0&&SKU_cnt_order_level>1,[total_gl_amt_order_level]*[percentage_of_total_base_cost],BLANK())
+			IF([COO_contains_CN_sku_cnt]=0&&SKU_cnt_order_level>1,[total_gl_amt_order_level_v2]*[percentage_of_total_base_cost],BLANK())
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 3d363852-0a88-47c4-a162-2fb4d0748f47
 		summarizeBy: sum
@@ -973,12 +1001,12 @@ table dwd_hyve_finance_ap_tariff_mi
 
 	column 'GL Cost attribution_s4' =
 			
-			VAR S1=CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_v2],dwd_hyve_finance_ap_tariff_mi[dt_month]))
-			VAR S2=[total_gl_amt_order_level]-S1
+			VAR S1=CALCULATE(SUM([GL Cost attribution_s3]),ALLEXCEPT(dwd_hyve_finance_ap_tariff_mi,dwd_hyve_finance_ap_tariff_mi[order_v2]))
+			VAR S2=[total_gl_amt_order_level_v2]-S1
 			RETURN
 			IF([line_total_cost]=0,0,
 			IF(S2=0,[GL Cost attribution_s3],
-			[total_gl_amt_order_level]*[percentage_of_total_base_cost]))
+			[total_gl_amt_order_level_v2]*[percentage_of_total_base_cost]))
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 5da3dfac-f50c-4c3e-80ba-8772afba08b7
 		summarizeBy: sum
@@ -993,9 +1021,9 @@ table dwd_hyve_finance_ap_tariff_mi
 			RETURN
 			IF([order_no]=BLANK(),[gl_amt_no_duplicate],
 			IF(s1=BLANK(),
-			IF(dwd_hyve_finance_ap_tariff_mi[COO_flag]=1,[total_gl_amt_order_level]/dwd_hyve_finance_ap_tariff_mi[COO_contains_CN_sku_cnt],
+			IF(dwd_hyve_finance_ap_tariff_mi[COO_flag]=1,[total_gl_amt_order_level_v2]/dwd_hyve_finance_ap_tariff_mi[COO_contains_CN_sku_cnt],
 			IF(s2=0,
-			[total_gl_amt_order_level]/S0)),dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]))
+			[total_gl_amt_order_level_v2]/S0)),dwd_hyve_finance_ap_tariff_mi[GL Cost attribution_s5]))
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 19943516-4f0e-4bfa-bfdd-72102c6d808d
 		summarizeBy: sum
@@ -1077,11 +1105,11 @@ table dwd_hyve_finance_ap_tariff_mi
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'GL Cost attribution_s5' = ```
+	column 'GL Cost attribution_s5' =
 			
-			IF([GL Cost attribution_s2]<>BLANK(),[GL Cost attribution_s2],  
-			IF([GL Cost attribution_s4]<>BLANK(),[GL Cost attribution_s4],BLANK()))
-			```
+			IF([GL Cost attribution_s1]<>BLANK(),[GL Cost attribution_s1],
+			IF([GL Cost attribution_s2]<>BLANK(),[GL Cost attribution_s2],
+			IF([GL Cost attribution_s4]<>BLANK(),[GL Cost attribution_s4],BLANK())))
 		lineageTag: 48319b29-c865-48bb-b987-6c65d8339620
 		summarizeBy: sum
 
@@ -1116,10 +1144,14 @@ table dwd_hyve_finance_ap_tariff_mi
 			var spend_invocie=CALCULATE(SUM('Spend List - Woody Control'[import_duties_regular]),FILTER(ALL('Spend List - Woody Control'),'Spend List - Woody Control'[invoice_number]=invoice))
 			 return
 			IF([order_no]=BLANK(),spend_invocie,part_level)
+			// part_level
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: d20791e4-2e35-485e-af27-6134068d7039
+		summarizeBy: sum
 
 		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
 
 	column WOODY_SPEND_order_level =
 			
@@ -1129,9 +1161,15 @@ table dwd_hyve_finance_ap_tariff_mi
 			order_level
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 4c5b4853-e947-40ac-81c0-62bc8532c831
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
 
 	column KEY_order = [order_no]&"\"&[mfg_part_no]
 		lineageTag: d2ee7dd7-5384-450b-9708-a7f9a166f321
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column gl_amt_no_duplicate_v2 =
 			
@@ -1141,6 +1179,9 @@ table dwd_hyve_finance_ap_tariff_mi
 			IF(PK<>BLANK(),GL,[gl_amt_no_duplicate])
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: ffc38094-b2c7-44bc-ada1-34f42a6fe838
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'GL Cost attribution_final_source' = ```
 			
@@ -1177,6 +1218,9 @@ table dwd_hyve_finance_ap_tariff_mi
 			return
 			IF(ISBLANK([order_no]),manual_order,[order_no])
 		lineageTag: 53031111-0205-4d05-add4-7234d040f043
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column vend_inv_no_V2 =
 			
@@ -1221,6 +1265,9 @@ table dwd_hyve_finance_ap_tariff_mi
 			RETURN
 			    COALESCE ( s1, Txt )
 		lineageTag: 854f5cac-23cf-4884-9ae2-d403a54f40d7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	partition dwd_hyve_finance_ap_tariff_mi = m
 		mode: import

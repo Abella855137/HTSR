@@ -1,0 +1,26 @@
+createOrReplace
+
+	ref table dwd_hyve_finance_ap_tariff_mi
+
+		column current_sku_tariff_pocv% = ```
+				
+				VAR S0=LOOKUPVALUE(dm_hyve_po_receiving_tariff_report_mi[TARIFF_V2],dm_hyve_po_receiving_tariff_report_mi[KEY],dwd_hyve_finance_ap_tariff_mi[KEY_POCV])
+				var s1=LOOKUPVALUE(current_system_tariff_rate[total tariff],current_system_tariff_rate[sku_no],dwd_hyve_finance_ap_tariff_mi[sku_no])
+				var s2=IF([COO_flag]=1&&[gl_trans_date]<DATE(2025,1,1),1,0)
+				return
+				IF(S0<>BLANK(),S0,
+				IF(s2=1,
+				IF(s1=0.7||s1=0.45,0.25,
+				IF(s1=0.525||s1=0.275,0.075,
+				IF(s1=0.075,0.075,
+				IF(s1=0.25,0.25,0.25)))),S1))
+				
+				
+				```
+			lineageTag: c5d2a563-289f-4ff5-9f61-9a94b4c07a20
+			summarizeBy: sum
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+

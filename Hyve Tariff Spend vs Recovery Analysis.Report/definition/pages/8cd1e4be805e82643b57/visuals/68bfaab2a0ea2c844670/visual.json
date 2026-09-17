@@ -347,5 +347,107 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "10c00bb302c238532abe",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "cust_code_v2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0c27228e3e0d2aeae517",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "cust_program_final"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "65cd07eda070670ad63a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "ship_to_loc_no"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cd69ef70d988b7e09926",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b723eaec3c700d4c71e1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_Recovery"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ba7f8ba0603427200390",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "Tariff_spend"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f2f82d519a62904b5d06",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "~Combine_spend_recovery"
+              }
+            },
+            "Property": "total_gaps"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -75,12 +75,16 @@ table cm_dm_report
 		annotation SummarizationSetBy = Automatic
 
 	column cmdm_total_order
-		dataType: string
+		dataType: double
 		lineageTag: 6a0bdf2c-5569-4c9a-9c07-baa5ccfcf140
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: cmdm_total_order
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column cmdm_fx_total_order
 		dataType: string
@@ -123,11 +127,31 @@ table cm_dm_report
 
 		annotation SummarizationSetBy = Automatic
 
-	column KEY_REG_ORDER_IPN_QTY = [region_no] & "/" & [so_order_type] & "/" & [so_order_no] & "/" & [cust_part_no] & "/" & -[so_ship_qty]
+	column KEY_REG_ORDER = [region_no] & "/" & [so_order_type] & "/" & [so_order_no]
 		lineageTag: 72bec36c-b3bc-4fe1-90a4-a20758f3baf9
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
+
+	column CMDM_Total_Distinct =
+			VAR CurrentSO = cm_dm_report[so_order_no]
+			
+			RETURN
+			SUMX(
+				SUMMARIZE(
+					FILTER(
+						ALL(cm_dm_report),
+						cm_dm_report[so_order_no] = CurrentSO
+					),
+					cm_dm_report[cmdm_order_no],
+					"Amt", MAX(cm_dm_report[cmdm_total_order])
+				),
+				[Amt]
+			)
+		lineageTag: 333e2bda-c461-42f8-963c-54661cc0a6ce
+
+	column SO_vs_CMDM_Gap = if(ROUND([so_total_order]+[CMDM_Total_Distinct],0)=0,"Matched","Unmatched")
+		lineageTag: d895bf7c-f998-4827-b924-c2dae4e8d2cb
 
 	partition cm_dm_report = m
 		mode: import
@@ -143,7 +167,7 @@ table cm_dm_report
 				in
 				    #"Changed Type"
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_NavigationStepName = Navigation
 

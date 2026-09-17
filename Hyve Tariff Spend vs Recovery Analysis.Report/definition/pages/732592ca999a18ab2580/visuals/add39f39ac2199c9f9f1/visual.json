@@ -774,6 +774,22 @@
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "154.16894977168948D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dwd_hyve_finance_ap_tariff_mi.data_source"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -1168,7 +1184,53 @@
             "Property": "order_v2"
           }
         },
-        "type": "Categorical"
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dwd_hyve_finance_ap_tariff_mi",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "order_v2"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'177753'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
       },
       {
         "name": "cb11e37c373558203021",
